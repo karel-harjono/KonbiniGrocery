@@ -10,7 +10,43 @@
 
 <html>
 <head>
-<title>YOUR NAME Grocery Shipment Processing</title>
+<title>Konbini Grocery Shipment Processing</title>
+<style>
+    @font-face{
+        font-family: customFont;
+        src: url(NikkyouSans-mLKax.ttf);
+    }
+    h2{
+        text-align: center;
+        font-family: customFont;
+        font-size: 30px;
+        padding: 0px;
+    }
+	h3{
+		font-family: sans-serif;
+		font-size: 20px;
+		text-align: center;
+	}
+	.tab {
+        display: inline-block;
+        margin-left: 40px;
+    }
+	.button{
+		font-family: sans-serif;
+		font-size: 16px;
+		text-align: center;
+		float: center;
+		padding: 4px;
+		margin: 2px;
+		transition-duration: 0.4s;
+		cursor: pointer;
+		background: #F5CEC5;
+	}
+	.button:hover{
+		background-color: #FAAA96;
+	}
+
+</style>
 </head>
 <body>
 
@@ -73,12 +109,12 @@
 				pstmt.setInt(2, productId);
 				pstmt.executeUpdate();
 				// print out productinventory summary
-				out.println("<h3>Ordered product: "+productId + " qty: " + productQty);
+				out.println("<h3>Ordered product: "+productId + "<br>Quantity: " + productQty);
 				ResultSet qtyRs = stmt.executeQuery("SELECT quantity FROM productinventory WHERE productId = "+productId+" AND warehouseId = 1");
 				qtyRs.next();
 				int newQty = qtyRs.getInt("quantity");
-				out.print(" Old inventory: "+ inven_qty);
-				out.println(" New inventory: " + newQty + "</h3>");
+				out.print("<br>Old inventory: "+ inven_qty);
+				out.println("<span class='tab'> New inventory: " + newQty + "</span></h3>");
 			}
 			else{
 				// TODO: If any item does not have sufficient inventory, cancel transaction and rollback. Otherwise, update inventory for each item.
@@ -92,19 +128,10 @@
 		}
 		else{
 			con.rollback();
-			out.println("<h2><b>Shipment is not done. Insufficient inventory for product id: "+productId+"</b></h2>");
+			out.println("<h2>Shipment is not done. <br> <h3>Insufficient inventory for product id: "+productId+"</h3></h2>");
 		}
 		// TODO: Auto-commit should be turned back on
 		con.setAutoCommit(true);
-
-		// output shipment summary to web page
-		//ResultSet shipments = stmt.executeQuery("SELECT * FROM shipment");
-		//while(shipments.next()){
-		//	out.println("<h3>shipmentId: "+shipments.getInt(1));
-		//	out.println(" "+shipments.getString(2));
-		//	out.println(" "+shipments.getString(3));
-		//	out.println(" "+shipments.getInt(4)+"</h3>");
-		//}
 	}
 	catch(SQLException e){
 		out.println(e); con.rollback();
@@ -114,7 +141,7 @@
 	}
 %>                       				
 
-<h2><a href="shop.html">Back to Main Page</a></h2>
+<h2><a href="index.jsp"><button class='button'><b>Back to Main Page &#127968</b></button></a></h2>
 
 </body>
 </html>
