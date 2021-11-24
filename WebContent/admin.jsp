@@ -8,46 +8,60 @@
 
 // TODO: Include files auth.jsp and jdbc.jsp
 <%@ include file="auth.jsp"%>
+<%@ page import="java.text.NumberFormat" %>
 <%@ include file="jdbc.jsp" %>
+<%@ page language="java" import="java.io.*,java.sql.*"%>
+
 <%
+String userName = (String) session.getAttribute("authenticatedUser");
+String thisisAdmin = (String) session.getAttribute("thisisAdmin");
+boolean login = false;
 
-boolean login = session.getAttribute("loggedIn") != null;
-
-if(!login){
-    out.println("You are not login into the session");
-}
-else{
-    // TODO: Write SQL query that prints out total order amount by day
-    out.print(<h2>Administrator Sales Report by Day</h2>);
-
-    // Make connection
-    String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-    String uid = "SA";
-    String pw = "YourStrong@Passw0rd";
-
-    // Write query to retrieve all order summary records
-    try (Connection con = DriverManager.getConnection(url, uid, pw);
-            Statement stmt = con.createStatement();)
-    {
-        String SQL = "SELECT SUM(totalAmount) AS total, orderDate"
-                    +"FROM orderSummary"
-                    +"GROUP BY orderDate"
-                    +"ORDER BY orderDate ASC";
-        ResultSet rst = stmt.executeQuery(SQL);
-
-        out.println("<table border = 1><tr><th>Order Date</th><th>Total Order Amount</th></tr>");
-        while(rst.next()){
-            out.print(<tr><td>+"rst.getDate(1)"+</td><td>+"rst.getDouble(2)"+</td></tr>);
-        }   
-        out.print(</table>);
-    }
-    catch (Exception e)
-    {
-        out.print(e);
-    }
-}
 %>
 
+<%
+if(userName == null && thisisAdmin == null){
+    out.println("Log in to be able to acces this page");
+    login = false;
+}
+else login = true;
+%>
+
+<%
+
+String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
+String uid = "SA";
+String pw = "YourStrong@Passw0rd";
+
+String SQL = "SELECT orderDate, SUM(totalAmount) AS total"
+            +"FROM orderSummary"
+            +"GROUP BY orderDate";
+
+if(login){
+    if(userName.equals("arnold") && thisisAdmin.equals("arnold")){
+        try (Connection con = DriverManager.getConnection(url, uid, pw);
+            Statement stmt = con.createStatement();)
+        {
+
+        out.println("<h1>Administrator Sales Report by Day</h1>");
+        out.println("<table border = 1>");
+            
+        PreparedStatement pstmt = con.prepareStatement(SQL);
+        ResultSet rst = pstmt.executeQuery();
+        out.println("<tr><th>Order Date</th><th>Total Order Amount</th></tr>");
+
+        while(rst.next()) out.println("<tr><th>"+ rst.getString(1)+"</th><th> $"+ rst.getString(2)+"</th></tr>");
+        out.println("</table>");
+        }
+        catch (Exception e)
+        {
+            out.print(e);
+        }
+    }
+    else out.println("<h1>Error! No Admin Privelleges</h1>");
+}
+else out.println("<h1>Log in is needed</h1>");
+%>
 </body>
 </html>
 

@@ -18,7 +18,7 @@ if (session.getAttribute("loginMessage") != null)
 <br>
 <form name="MyForm" method=post action="validateLogin.jsp">
 <table style="display:inline">
-<tr>
+<tr>	
 	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Username:</font></div></td>
 	<td><input type="text" name="username"  size=10 maxlength=10></td>
 </tr>

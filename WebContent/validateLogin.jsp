@@ -3,14 +3,12 @@
 <%
 	String authenticatedUser = null;
 	session = request.getSession(true);
-
 	try
 	{
 		authenticatedUser = validateLogin(out,request,session);
 	}
 	catch(IOException e)
 	{	System.err.println(e); }
-
 	if(authenticatedUser != null)
 		response.sendRedirect("index.jsp");		// Successful login
 	else
@@ -24,31 +22,30 @@
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String retStr = null;
-
 		if(username == null || password == null)
 				return null;
 		if((username.length() == 0) || (password.length() == 0))
 				return null;
 
-		try 
-		{
+		try {
 			getConnection();
 			
 			// TODO: Check if userId and password match some customer account. If so, set retStr to be the username.
-			String SQL = "SELECT password"
-						+"FROM Customer"
+			String SQL = "SELECT userid, password"
+						+"FROM customer"
 						+"WHERE userid = ?";
 
 			PreparedStatement pstmt = con.prepareStatement(SQL);
-			pstmt.setInt(1,username);
+			pstmt.setString(1, username);
 			ResultSet rst = pstmt.executeQuery();
-
-			if(rst.getString(1) == password)
-				retStr = username;			
-		} 
+			
+			rst.next();
+			if(rst.getString(1).equals(username) && rst.getString(2).equals(password)) retStr = username;
+		}
 		catch (SQLException ex) {
 			out.println(ex);
 		}
+		
 		finally
 		{
 			closeConnection();
