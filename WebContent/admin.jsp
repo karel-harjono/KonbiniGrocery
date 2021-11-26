@@ -21,7 +21,7 @@ boolean login = false;
 
 <%
 if(userName == null && thisisAdmin == null){
-    out.println("Log in to be able to acces this page");
+    out.println("Log in to be able to access this page");
     login = false;
 }
 else login = true;

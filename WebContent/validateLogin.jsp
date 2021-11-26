@@ -45,11 +45,10 @@
 		catch (SQLException ex) {
 			out.println(ex);
 		}
-		
-		finally
-		{
-			closeConnection();
-		}	
+		//finally
+		//{
+		//	closeConnection();
+		//}	
 		
 		if(retStr != null)
 		{	session.removeAttribute("loginMessage");
