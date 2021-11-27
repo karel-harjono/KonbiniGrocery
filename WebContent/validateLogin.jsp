@@ -2,12 +2,12 @@
 <%@ include file="jdbc.jsp" %>
 <%
 	String authenticatedUser = null;
-	String thisisAdmin = null; 
+	String thisisadmin = null; 
 	session = request.getSession(true);
 	try
 	{
 		authenticatedUser = validateLogin(out,request,session);
-		thisisAdmin = validateLogin(out,request,session);
+		thisisadmin = validateLogin(out,request,session);
 	}
 	catch(IOException e)
 	{	System.err.println(e); }

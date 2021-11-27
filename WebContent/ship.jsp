@@ -81,6 +81,7 @@
 		boolean success = true;
 		int productId = -1;
 		int productQty = -1;
+		out.println("<h3>PROCESSING SHIPMENT FOR ORDER ID: "+orderId+"</h3>");
 		while(rs.next()){
 			productId = rs.getInt("productId");
 			productQty = rs.getInt("quantity");

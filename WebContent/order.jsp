@@ -74,7 +74,7 @@ HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Obje
 if (productList == null || productList.isEmpty())
 {	out.println("<H1>Your shopping cart is empty!</H1>");
 	out.println("<h3><a href=listprod.jsp><button class='button'><b>Begin Shopping 🛍 </b></button></a>");
-	out.println("<a href=shop.html><button class='button'><b>Main Menu 🏠</b></button></a></h3>");
+	out.println("<a href=index.jsp><button class='button'><b>Main Menu 🏠</b></button></a></h3>");
 	productList = new HashMap<String, ArrayList<Object>>();
 }
 else
@@ -194,7 +194,7 @@ else
 			out.println("<h1>Order completed. Will be shipped soon...</h1>");
 			out.println("<h3>Your order reference number is: "+ orderId +"</h3>");
 			out.println("<h3>Shipping to customer id: "+ id + " Name: "+ customerName +"</h3>");
-			out.println("<h2><a href='shop.html'><button class='button'><b>Return to Main Menu 🏠</b></button></a></h2>");
+			out.println("<h2><a href='index.jsp'><button class='button'><b>Return to Main Menu 🏠</b></button></a></h2>");
 			// Clear cart if order placed successfully
 			session.removeAttribute("productList");
 		}
