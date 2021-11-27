@@ -2,15 +2,20 @@
 <%@ include file="jdbc.jsp" %>
 <%
 	String authenticatedUser = null;
+	String thisisAdmin = null; 
 	session = request.getSession(true);
 	try
 	{
 		authenticatedUser = validateLogin(out,request,session);
+		thisisAdmin = validateLogin(out,request,session);
 	}
 	catch(IOException e)
 	{	System.err.println(e); }
 	if(authenticatedUser != null)
 		response.sendRedirect("index.jsp");		// Successful login
+	else if(thisisadmin != null){
+		response.sendRedirect("index.jsp");
+	}
 	else
 		response.sendRedirect("login.jsp");		// Failed login - redirect back to login page with a message 
 %>
