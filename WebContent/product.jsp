@@ -2,7 +2,7 @@
 <%@ page import="java.text.NumberFormat" %>
 <%@ page import="java.util.Locale" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
-<%@ include file="jdbc 2.jsp" %>
+<%@ include file="jdbc.jsp" %>
 
 <html>
 <head>

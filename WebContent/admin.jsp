@@ -13,54 +13,38 @@
 <%@ page language="java" import="java.io.*,java.sql.*"%>
 
 <%
-String userName = (String) session.getAttribute("authenticatedUser");
-String thisisAdmin = (String) session.getAttribute("thisisAdmin");
-boolean login = false;
-
+    String userName = (String) session.getAttribute("authenticatedUser");
 %>
 
 <%
-if(userName == null && thisisAdmin == null){
-    out.println("Log in to be able to access this page");
-    login = false;
+// Print out total order amount by day
+String sql = "select year(orderDate), month(orderDate), day(orderDate), SUM(totalAmount) FROM OrderSummary GROUP BY year(orderDate), month(orderDate), day(orderDate)";
+
+NumberFormat currFormat = NumberFormat.getCurrencyInstance();
+
+try 
+{	
+	out.println("<h3>Administrator Sales Report by Day</h3>");
+	
+	getConnection();
+	ResultSet rst = con.createStatement().executeQuery(sql);		
+	out.println("<table class=\"table\" border=\"1\">");
+	out.println("<tr><th>Order Date</th><th>Total Order Amount</th>");	
+
+	while (rst.next())
+	{
+		out.println("<tr><td>"+rst.getString(1)+"-"+rst.getString(2)+"-"+rst.getString(3)+"</td><td>"+currFormat.format(rst.getDouble(4))+"</td></tr>");
+	}
+	out.println("</table>");		
 }
-else login = true;
-%>
-
-<%
-
-String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-String uid = "SA";
-String pw = "YourStrong@Passw0rd";
-
-String SQL = "SELECT orderDate, SUM(totalAmount) AS total"
-            +"FROM orderSummary"
-            +"GROUP BY orderDate";
-
-if(login){
-    if(userName.equals("arnold") && thisisAdmin.equals("arnold")){
-        try (Connection con = DriverManager.getConnection(url, uid, pw);
-            Statement stmt = con.createStatement();)
-        {
-
-        out.println("<h1>Administrator Sales Report by Day</h1>");
-        out.println("<table border = 1>");
-            
-        PreparedStatement pstmt = con.prepareStatement(SQL);
-        ResultSet rst = pstmt.executeQuery();
-        out.println("<tr><th>Order Date</th><th>Total Order Amount</th></tr>");
-
-        while(rst.next()) out.println("<tr><th>"+ rst.getString(1)+"</th><th> $"+ rst.getString(2)+"</th></tr>");
-        out.println("</table>");
-        }
-        catch (Exception e)
-        {
-            out.print(e);
-        }
-    }
-    else out.println("<h1>Error! No Admin Privelleges</h1>");
+catch (SQLException ex) 
+{ 	
+    out.println(ex); 
 }
-else out.println("<h1>Log in is needed</h1>");
+finally
+{	
+	closeConnection();	
+}
 %>
 </body>
 </html>

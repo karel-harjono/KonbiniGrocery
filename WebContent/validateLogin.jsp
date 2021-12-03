@@ -2,22 +2,19 @@
 <%@ include file="jdbc.jsp" %>
 <%
 	String authenticatedUser = null;
-	String thisisadmin = null; 
 	session = request.getSession(true);
+
 	try
 	{
 		authenticatedUser = validateLogin(out,request,session);
-		thisisadmin = validateLogin(out,request,session);
 	}
 	catch(IOException e)
 	{	System.err.println(e); }
+
 	if(authenticatedUser != null)
 		response.sendRedirect("index.jsp");		// Successful login
-	else if(thisisadmin != null){
-		response.sendRedirect("index.jsp");
-	}
 	else
-		response.sendRedirect("login.jsp");		// Failed login - redirect back to login page with a message 
+		response.sendRedirect("login.jsp");		// Failed login - redirect back to login page with a message
 %>
 
 
@@ -27,26 +24,25 @@
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String retStr = null;
+
 		if(username == null || password == null)
 				return null;
 		if((username.length() == 0) || (password.length() == 0))
 				return null;
 
-		try {
+		try 
+		{
 			getConnection();
-			
-			// TODO: Check if userId and password match some customer account. If so, set retStr to be the username.
-			String SQL = "SELECT userid, password"
-						+"FROM customer"
-						+"WHERE userid = ?";
-
-			PreparedStatement pstmt = con.prepareStatement(SQL);
+			String sql = "SELECT * FROM Customer WHERE userId = ? and password = ?";
+			PreparedStatement pstmt = con.prepareStatement(sql);			
 			pstmt.setString(1, username);
-			ResultSet rst = pstmt.executeQuery();
+			pstmt.setString(2, password);
 			
-			rst.next();
-			if(rst.getString(1).equals(username) && rst.getString(2).equals(password)) retStr = username;
-		}
+			ResultSet rst = pstmt.executeQuery();
+					
+			if (rst.next())
+				retStr = username; // Login successful			
+		} 
 		catch (SQLException ex) {
 			out.println(ex);
 		}
