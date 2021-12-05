@@ -165,6 +165,8 @@ else
 
 	out.println("<a href=\"checkout.jsp\"><button class='button'><b>Check Out &#128718</b></button></a>");
 }
+// set the shopping cart
+session.setAttribute("productList", productList);
 %>
 <a href="listprod.jsp"><button class='button'><b>Continue Shopping 🛍 </b></button></a>
 </body>

@@ -8,6 +8,7 @@
 <%@ page import="java.time.LocalDateTime" %>
 <%@ page import="java.sql.Timestamp" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
+<%@ include file="jdbc.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,7 +57,7 @@
 		background: #F5CEC5;
 		transition-duration: 0.4s;
 		cursor: pointer;
-		float: center;
+		left: 50%;
 	}
 	.button:hover{
 		background-color: #FAAA96;
@@ -67,6 +68,10 @@
 
 <%-- coppied from showcart.jsp --%>
 <%
+// Get customer id
+String custId = request.getParameter("customerId");
+// Get password
+String password = request.getParameter("password");
 // Get the current list of products
 @SuppressWarnings({"unchecked"})
 HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");
@@ -81,26 +86,40 @@ else
 {
 	NumberFormat currFormat = NumberFormat.getCurrencyInstance(Locale.US);
 
-	// Get customer id
-	String custId = request.getParameter("customerId");
-	// @SuppressWarnings({"unchecked"})
-	// HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");
-
 	// Make connection
 	// Determine if valid customer id was entered
-	String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-	String uid = "SA";
-	String pw = "YourStrong@Passw0rd";
-	try(Connection con = DriverManager.getConnection(url, uid, pw); 
-		Statement stmt = con.createStatement();)
+
+	try
 	{	
-		int id = Integer.parseInt(custId);
-		PreparedStatement pstmt1 = con.prepareStatement("SELECT customerId, address, city, state, postalCode, country, firstName, lastName FROM customer WHERE customerId = ?");
+		getConnection();
+		con = DriverManager.getConnection(url, uid, pw);
+		int id=-1;
+		try
+		{
+			id = Integer.parseInt(custId);
+		} 
+		catch(Exception e)
+		{
+			out.println("<h1>Invalid customer id.  Go back to the previous page and try again.</h1>");
+			return;
+		}
+		PreparedStatement pstmt1 = con.prepareStatement("SELECT customerId, address, city, state, postalCode, country, firstName+' '+lastName, password FROM customer WHERE customerId = ?");
 		pstmt1.setInt(1, id);
 		ResultSet rs1 = pstmt1.executeQuery();
 		if(rs1.next())
 		{	
-			String customerName = rs1.getString(7) + " " + rs1.getString(8);
+			String customerName = rs1.getString(7);
+			String dbpassword = rs1.getString(8);
+				    		
+			// make sure the password on the database is the same as the one the user entered
+			if (!dbpassword.equals(password)) 
+			{
+				out.println("<h3 style='color: red;'>The password you entered was incorrect.  Please go back and try again.</h3>"); 
+				out.println("<h3><a href=checkout.jsp><button class='button'><b>Try Again </b></button></a>");
+				out.println("<a href=index.jsp><button class='button'><b>Cancel</b></button></a></h3>");
+				return;
+			}
+
 			// Save order information to database
 			String sql = "INSERT INTO ordersummary(orderDate, shiptoAddress, shiptoCity, shiptoState, shiptoPostalCode, shiptoCountry, customerId) VALUES (?, ?, ?, ?, ?, ?, ?)";
 			// Use retrieval of auto-generated keys.
@@ -137,7 +156,12 @@ else
 				pstmt.executeUpdate();
 				totPrice += pr*qty;
 			}
-			stmt.executeUpdate("UPDATE ordersummary SET totalAmount ="+ totPrice +" WHERE orderId  = " + orderId);
+			// Update order total
+   			sql = "UPDATE OrderSummary SET totalAmount=? WHERE orderId=?";
+   			pstmt = con.prepareStatement(sql);
+   			pstmt.setDouble(1, totPrice);
+   			pstmt.setInt(2, orderId);			
+   			pstmt.executeUpdate();
 			
 
 			// Print out order summary
@@ -209,7 +233,18 @@ else
 	catch(Exception e){
 		out.println(e);
 	}
-
+	finally
+	{
+		try
+		{
+			if (con != null)
+				con.close();
+		}
+		catch (SQLException ex)
+		{       
+			out.println(ex);
+		}
+	}
 	
 }
 

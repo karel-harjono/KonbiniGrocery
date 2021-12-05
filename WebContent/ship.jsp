@@ -67,7 +67,7 @@
 		catch(Exception e){
 			out.println("invalid order id: " + orderId);
 		}
-		
+		//con = DriverManager.getConnection(url, uid, pw);
 		// TODO: Start a transaction (turn-off auto-commit)
 		con.setAutoCommit(false);
 		
@@ -137,9 +137,18 @@
 	catch(SQLException e){
 		out.println(e); con.rollback();
 	}
-	finally{
-		closeConnection();
-	}
+	finally
+	{
+		try
+		{
+			if (con != null)
+				con.close();
+		}
+		catch (SQLException ex)
+		{
+			out.println(ex);
+		}
+	} 
 %>                       				
 
 <h2><a href="index.jsp"><button class='button'><b>Back to Main Page &#127968</b></button></a></h2>

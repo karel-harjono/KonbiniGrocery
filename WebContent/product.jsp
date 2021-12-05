@@ -59,24 +59,13 @@
 <%@ include file="header.jsp" %>
 
 <%
-try
-{	// Load driver class
-	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-}
-catch (java.lang.ClassNotFoundException e)
-{
-	out.println("ClassNotFoundException: " +e);
-}
-String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-String uid = "SA";
-String pw = "YourStrong@Passw0rd";
+// Get product name to search for
+String productId = request.getParameter("id");
 NumberFormat currFormat = NumberFormat.getCurrencyInstance(Locale.US);
-try (Connection con = DriverManager.getConnection(url, uid, pw);
-		Statement stmt = con.createStatement();)
+try 
 {
-    // Get product name to search for
+    getConnection();
     // TODO: Retrieve and display info for the product
-    String productId = request.getParameter("id");
 
     String sql = "SELECT productName, productPrice, productImage, productImageURL FROM product WHERE ProductId = ?";
     PreparedStatement pstmt = con.prepareStatement(sql);
@@ -115,6 +104,10 @@ try (Connection con = DriverManager.getConnection(url, uid, pw);
 catch (Exception e)
 {
     out.print(e);
+}
+finally
+{
+	closeConnection();
 }
 %>
 

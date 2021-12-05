@@ -2,6 +2,7 @@
 <%@ page import="java.text.NumberFormat" %>
 <%@ page import="java.util.Locale" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
+<%@ include file="jdbc.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -133,9 +134,9 @@ String pw = "YourStrong@Passw0rd";
 // For each product create a link of the form
 // addcart.jsp?id=productId&name=productName&price=productPrice
 
-try (Connection con = DriverManager.getConnection(url, uid, pw);
-		Statement stmt = con.createStatement();)
+try
 {
+	getConnection();
 	String sql_1 = "SELECT P.productName, P.productId, C.categoryName, P.productPrice "
 				+ " FROM product P JOIN category C ON P.categoryId = C.categoryId ";
 	PreparedStatement pstmt_1 = null;
@@ -176,7 +177,8 @@ try (Connection con = DriverManager.getConnection(url, uid, pw);
 		out.println("<tr><td width=120px><a href="+link+"><button class='button'>Add to Cart 🛒</button></a></td>");
 		out.println("<td><a href="+link_detail+">"+rst_1.getString("productName")+"</a></td><td>"+rst_1.getString("categoryName")+"</td><td>"+currFormat.format(rst_1.getDouble("productPrice"))+"</td></tr>");
 	}
-	out.println("</table>");	
+	out.println("</table>");
+	closeConnection();	
 }
 catch (Exception e)
 {

@@ -24,6 +24,7 @@
 		font-family: sans-serif;
 		font-size: 14px;
 		text-align: center;
+		font-weight: bold;
 		height: 25px;
 	}
 	p{
@@ -38,7 +39,7 @@
 	}
 	input, .input2, button {
 		font-family: sans-serif;
-		font-size: 14px;
+		font-size: 16px;
 		text-align: center;
 		font-weight: bold;
 		padding: 4px;

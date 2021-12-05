@@ -2,6 +2,7 @@
 <%@ page import="java.text.NumberFormat" %>
 <%@ page import="java.util.Locale" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
+<%@ include file="jdbc.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,9 +82,9 @@ String uid = "SA";
 String pw = "YourStrong@Passw0rd";
 
 // Write query to retrieve all order summary records
-try (Connection con = DriverManager.getConnection(url, uid, pw);
-		Statement stmt = con.createStatement();)
+try
 {
+	getConnection();
 	String sql_1 = "SELECT OS.orderId, OS.orderDate, C.customerId, C.firstname, C.lastname, OS.totalAmount "
 				+ " FROM orderSummary OS JOIN customer C ON OS.customerId = C.customerId";
 	String sql_2 = "SELECT OP.productId, OP.quantity, OP.price "
