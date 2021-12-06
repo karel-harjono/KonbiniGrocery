@@ -86,7 +86,7 @@ String pw = "YourStrong@Passw0rd";
 try (Connection con = DriverManager.getConnection(url, uid, pw);
 		Statement stmt = con.createStatement();)
 {
-	int warehouse = request.getParamater("warehouse id");
+	int warehouse = Integer.parseInt(request.getParameter("warehouse id"));
 	String SQL = "SELECT productId, quantity, price FROM productInventory WHERE warehouseId = ?";
 	PreparedStatement pst = con.prepareStatement(SQL);
 	pst.setInt(1,warehouse);
