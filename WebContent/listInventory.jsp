@@ -89,7 +89,7 @@ try (Connection con = DriverManager.getConnection(url, uid, pw);
 	int warehouse = request.getParamater("warehouse id");
 	String SQL = "SELECT productId, quantity, price FROM productInventory WHERE warehouseId = ?";
 	PreparedStatement pst = con.prepareStatement(SQL);
-	pst.setString(1,warehouse);
+	pst.setInt(1,warehouse);
 	ResultSet rst = pst.executeQuery();
 	ResultSetMetaData rstmd = rst.getMetaData();
 
