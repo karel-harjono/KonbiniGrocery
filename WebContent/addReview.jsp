@@ -27,18 +27,18 @@ String pw = "YourStrong@Passw0rd";
 try (Connection con = DriverManager.getConnection(url, uid, pw);
 		Statement stmt = con.createStatement();)
 {
-	int rating = request.getParameter("product rating");
-	int cid = request.getParameter("customer id");
-	int pid = request.getParameter("product id");
+	int rating = Integer.parseInt(request.getParameter("product rating"));
+	int cid = Integer.parseInt(request.getParameter("customer id"));
+	int pid = Integer.parseInt(request.getParameter("product id"));
 	String comment = request.getParameter("review");
 	  
 	String SQL = "INSERT INTO review (reviewRating, reviewDate, customerId, productId, reviewComment) VALUES (?,?,?,?,?)";
 
 	PreparedStatement pst = con.prepareStatement(SQL);
-	pst.setString(1,rating);
+	pst.setInt(1,rating);
 	LocalDateTime now = LocalDateTime.now(); pst.setTimestamp(2, java.sql.Timestamp.valueOf(now));
-	pst.setString(3,cid);
-	pst.setString(4,pid);
+	pst.setInt(3,cid);
+	pst.setInt(4,pid);
 	pst.setString(5,comment);
 
 	int check = pst.executeUpdate();
