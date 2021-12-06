@@ -65,7 +65,7 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | Upload a photo to file system for product	| Advanced	| 2	|
 | OR: Upload a photo to database for product	| Advanced	| 4	|	
 | Database restore with SQL script	| Basic	| 2	|	
-| Add/update warehouse, customer	| Basic	| 2 |		
+| Add/update warehouse, customer	| Basic	| 2 |	|Add warehouse, not tested|	
 | |			
 |**Database System/General**|		
 | Implement some validation using triggers |	Advanced	| 2	|	
