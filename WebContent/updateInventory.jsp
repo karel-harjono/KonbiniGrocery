@@ -30,14 +30,15 @@ try (Connection con = DriverManager.getConnection(url, uid, pw);
 	int wid = request.getParameter("warehouse id");
 	int pid = request.getParameter("product id");
 	int quantity = request.getParameter("new quantity");
-	
+	double price = request.getParameter("new price");
 
-	String SQL = "UPDATE productInventory SET quantity = ? WHERE productId = ? AND warehouseId = ?";
+	String SQL = "UPDATE productInventory SET quantity = ?, price = ? WHERE productId = ? AND warehouseId = ?";
 
 	PreparedStatement pst = con.prepareStatement(SQL);
 	pst.setInt(1,quantity); 
-	pst.setInt(2,pid);
-	pst.setInt(3,wid);
+	pst.setDouble(2,price); 
+	pst.setInt(3,pid);
+	pst.setInt(4,wid);
 
 	int check = pst.executeUpdate();
 	if(check >0) out.println("product inventory in warehouse updated");
