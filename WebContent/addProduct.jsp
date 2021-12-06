@@ -32,7 +32,7 @@ try (Connection con = DriverManager.getConnection(url, uid, pw);
 	String prodDesc = request.getParameter("productDesc");
 	int categoryId = request.getParameter("categoryId");
 
-	String SQL = "INSERT INTO product (productName, productPrice, productDesc, categoryId) VALUES (?,?,?,?))";
+	String SQL = "INSERT INTO product (productName, productPrice, productDesc, categoryId) VALUES (?,?,?,?)";
 
 	PreparedStatement pst = con.prepareStatement(SQL);
 	pst.setString(1,prodName);
