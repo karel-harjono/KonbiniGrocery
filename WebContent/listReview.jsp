@@ -93,10 +93,9 @@ try (Connection con = DriverManager.getConnection(url, uid, pw);
 	pst.setString(1,id);
 	ResultSet rst = pst.executeQuery();
 
-
+	out.println("<table border =1><tr><th>"+Review Rating+"</th><th>+Review Comments+"</th></tr>");
 	while(rst.next){
-		out.println("<table border =1><tr><th>"+Review Rating+"</th><th>+Review Comments+"</th></tr>");
-		for(int i = 0; i<12; i++) out.println("<tr><td>"+rst.getInt(1)+"</td><td>"+rst.getString(2)+"</td></tr>");
+		out.println("<tr><td>"+rst.getInt(1)+"</td><td>"+rst.getString(2)+"</td></tr>");
 	}
 	out.println("</table>");
 }
