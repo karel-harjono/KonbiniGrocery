@@ -28,7 +28,7 @@ try (Connection con = DriverManager.getConnection(url, uid, pw);
 		Statement stmt = con.createStatement();)
 {
 	String id = request.getParameter("id");
-	String name = request.getParameter("name");
+	String name = request.getParameter("warehouseName");
 
 	String SQL = "UPDATE warehouse SET warehouseName = ? WHERE warehouseId = ?";
 
