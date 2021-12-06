@@ -56,7 +56,7 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | |
 |**Administrator Portal (up to 19 total points)**|	
 | Secured by login	| Core	| 1	|	|need to adjust siapa adminnya |
-| List all customers	| Core	| 1	|
+| List all customers	| Core	| 1	| |added, not tested - kile|
 | List report showing total sales/orders	| Core	| 1	| |Liv |
 | Report with a graph	| Advanced	| 3	|
 | Add new product	| Basic	| 2	|	
