@@ -42,6 +42,7 @@ try (Connection con = DriverManager.getConnection(url, uid, pw);
 
 	String SQL = "INSERT INTO customer (firstName, lastName, email, phonenum, address, city, state, postalCode, country,userid,password) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
+
 	PreparedStatement pst = con.prepareStatement(SQL);
 	pst.setString(1,first);
 	pst.setString(2,last);

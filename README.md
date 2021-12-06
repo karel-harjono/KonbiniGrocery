@@ -46,8 +46,8 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | Page listing all orders for user	| Core	| 1	|
 | |
 |**Product Reviews (up to 5 total points)**|
-| Ability to enter a review on a product	| Basic	| 2	|
-| Display product review on product detail page	| Basic	| 1	|	
+| Ability to enter a review on a product	| Basic	| 2	| |Added, not tested - kile|
+| Display product review on product detail page	| Basic	| 1	|	|Added, not tested - kile|
 | Restrict to one review per user on item purchased	| Advanced | 2	|	
 | |
 |**Warehouses/Inventory (up to 5 total points)**|
@@ -58,12 +58,12 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | Secured by login	| Core	| 1	|	|need to adjust siapa adminnya |
 | List all customers	| Core	| 1	| |added, not tested - kile|
 | List report showing total sales/orders	| Core	| 1	| |Liv |
-| Report with a graph	| Advanced	| 3	|
+| Report with a graph	| Advanced	| 3	|   |Matt |
 | Add new product	| Basic	| 2	|	|added, not tested - kile|
 | Update/delete product	| Basic	| 2	|	|added, not tested - kile|
-| Change order status/ship order	| Basic	| 1	|
-| Upload a photo to file system for product	| Advanced	| 2	|
-| OR: Upload a photo to database for product	| Advanced	| 4	|	
+| Change order status/ship order	| Basic	| 1	| |Added, not tested - kile|
+| Upload a photo to file system for product	| Advanced	| 2	| |Matt |
+| OR: Upload a photo to database for product	| Advanced	| 4	|	|Matt |
 | Database restore with SQL script	| Basic	| 2	|	
 | Add/update warehouse, customer	| Basic	| 2 |	|Add warehouse, not tested - kile|	
 | |			

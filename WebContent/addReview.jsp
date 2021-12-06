@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add Warehouse</title>
+	<title>Add review</title>
 </head>
 <body>
 <%
@@ -27,23 +27,24 @@ String pw = "YourStrong@Passw0rd";
 try (Connection con = DriverManager.getConnection(url, uid, pw);
 		Statement stmt = con.createStatement();)
 {
-	String prodName = request.getParameter("productName");
-	double prodPrice = request.getParameter("productPrice");
-	String prodDesc = request.getParameter("productDesc");
-	int categoryId = request.getParameter("categoryId");
-
-	String SQL = "INSERT INTO product (productName, productPrice, productDesc, categoryId) VALUES (?,?,?,?)";
+	int rating = request.getParameter("product rating");
+	int cid = request.getParameter("customer id");
+	int pid = request.getParameter("product id");
+	String comment = request.getParameter("review");
+	  
+	String SQL = "INSERT INTO review (reviewRating, reviewDate, customerId, productId, reviewComment) VALUES (?,?,?,?,?)";
 
 	PreparedStatement pst = con.prepareStatement(SQL);
-	pst.setString(1,prodName);
-	pst.setDouble(2,prodPrice);
-	pst.setString(3,prodDesc);
-	pst.setInt(4,categoryId);
+	pst.setString(1,rating);
+	LocalDateTime now = LocalDateTime.now(); pst.setTimestamp(2, java.sql.Timestamp.valueOf(now));
+	pst.setString(3,cid);
+	pst.setString(4,pid);
+	pst.setString(5,comment);
 
 	int check = pst.executeUpdate();
 
-	if(check >0) out.println("new product added");
-	else out.println("failed to add product");
+	if(check >0) out.println("new review added");
+	else out.println("failed to add review");
 }
 catch (Exception e)
 {
