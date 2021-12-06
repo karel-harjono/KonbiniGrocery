@@ -25,6 +25,11 @@
 		font-size: 40px;
 		padding: 0px;
 	}
+	h3{
+		text-align: center;
+		font-family: sans-serif;
+		font-size: 20px;
+	}
 	table{
 		width: 100%;
 	}
@@ -78,7 +83,9 @@
 HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");
 
 if (productList == null)
-{	out.println("<h1>Your shopping cart is empty!</h1>");
+{	out.println("<h3 style='color: red;'>Your shopping cart is empty!</h3>");
+	out.println("<h3><a href=listprod.jsp><button class='button'><b>Begin Shopping 🛍 </b></button></a>");
+	out.println("<a href=index.jsp><button class='button'><b>Main Menu 🏠</b></button></a></h3>");
 	productList = new HashMap<String, ArrayList<Object>>();
 }
 else

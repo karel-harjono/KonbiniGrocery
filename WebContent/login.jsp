@@ -70,14 +70,16 @@
 <div style="margin:0 auto;text-align:center;display:inline">
 <%@ include file="header.jsp" %>
 
-<h3>Please Login to System</h3>
+<h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPlease Login to System
+	<a href=index.jsp><button style='float:right'>Main Menu &#127968</button></a>
+</h3>
 
 <%
 // Print prior error login message if present
 if (session.getAttribute("loginMessage") != null)
 	out.println("<p style='color:red'>"+session.getAttribute("loginMessage").toString()+"</p>");
 %>
-<p style='font-size:14px'>New to our store?&nbsp<a href=register.jsp>Register here!</button></a></p>
+<p style='font-size:14px'>New to our store?&nbsp<a href=register.jsp>Register here!</a></p>
 
 <form name="MyForm" method=post action="validateLogin.jsp">
 <table>
@@ -94,7 +96,6 @@ if (session.getAttribute("loginMessage") != null)
 <input class="input2" type="submit" name="Submit2" value="Log In &#9989">
 </form>
 </div>
-<p><a href=index.jsp><button>Main Menu &#127968</button></a></p>
 </body>
 </html>
 
