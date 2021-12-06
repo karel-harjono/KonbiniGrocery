@@ -60,7 +60,7 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | List report showing total sales/orders	| Core	| 1	| |Liv |
 | Report with a graph	| Advanced	| 3	|
 | Add new product	| Basic	| 2	|	|added, not tested - kile|
-| Update/delete product	| Basic	| 2	|	
+| Update/delete product	| Basic	| 2	|	|added, not tested - kile|
 | Change order status/ship order	| Basic	| 1	|
 | Upload a photo to file system for product	| Advanced	| 2	|
 | OR: Upload a photo to database for product	| Advanced	| 4	|	
