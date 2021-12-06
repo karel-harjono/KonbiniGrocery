@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Update Customer</title>
+	<title>Update Shipment</title>
 </head>
 <body>
 <%
@@ -27,7 +27,7 @@ String pw = "YourStrong@Passw0rd";
 try (Connection con = DriverManager.getConnection(url, uid, pw);
 		Statement stmt = con.createStatement();)
 {
-	int id = request.getParameter("shipment id");
+	int id = Integer.parseInt(request.getParameter("shipment id"));
 	String desc = request.getParameter("Shipment status");
 	
 
@@ -36,7 +36,7 @@ try (Connection con = DriverManager.getConnection(url, uid, pw);
 
 	PreparedStatement pst = con.prepareStatement(SQL);
 	pst.setString(1,desc);
-	pst.setString(2,id);
+	pst.setInt(2,id);
 
 
 	int check = pst.executeUpdate();
