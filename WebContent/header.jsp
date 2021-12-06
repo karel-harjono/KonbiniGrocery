@@ -31,7 +31,7 @@
     // TODO: Display user name that is logged in (or nothing if not logged in)
 	String userName = (String) session.getAttribute("authenticatedUser");
 	if (userName != null)
-		out.println("<a class='upperright' href='customer.jsp'>"+userName+"</a>");
+		out.println("<a class='upperright' href='customer.jsp'>Hello "+userName+"!</a>");
     else
         out.println("<a class='upperright' href='login.jsp'>Sign in&nbsp&nbsp</a>");
     %>
