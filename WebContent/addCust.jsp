@@ -27,16 +27,16 @@ String pw = "YourStrong@Passw0rd";
 try (Connection con = DriverManager.getConnection(url, uid, pw);
 		Statement stmt = con.createStatement();)
 {
-	String first = request.getParameter("first name");
-	String last = request.getParameter("last name");
+	String first = request.getParameter("firstName");
+	String last = request.getParameter("lastName");
 	String email = request.getParameter("email");
-	String phone = request.getParameter("phone number");
+	String phone = request.getParameter("phoneNumber");
 	String address = request.getParameter("address");
 	String city = request.getParameter("city");
 	String state = request.getParameter("state");
-	String postal = request.getParameter("postal code");
+	String postal = request.getParameter("postalCode");
 	String country = request.getParameter("country");
-	String userId = request.getParameter("address");
+	String userId = request.getParameter("username");
 	String password = request.getParameter("password");
 
 
