@@ -3,79 +3,101 @@
 <head>
         <title>Konbini Grocery Main Page</title>
         <style>
-                @font-face{
-                        font-family: customFont;
-                        src: url(NikkyouSans-mLKax.ttf);
-                }
-                h1{
-                        text-align: center;
-                        font-family: customFont;
-                        font-size: 50px;
-                        padding: 10px 16px;
-                }
-                h2 {
-                        text-align: center;
-                        font-family: sans-serif;
-                        font-size: 30px;
-                }
-                .button{
-			font-family: sans-serif;
-			font-size: 18px;
-			text-align:center;
-			padding: 8px;
-			margin: 4px 2px;
-			background: #F5CEC5;
-			transition-duration: 0.4s;
-			cursor: pointer;
-		}
-		.button:hover{
-			background-color: #FAAA96;
-		}
-                a, a:hover{
-                        color: black;
-                }
+            @font-face{
+                font-family: customFont;
+                src: url(NikkyouSans-mLKax.ttf);
+            }
+            h1{
+                text-align: center;
+                font-family: customFont;
+                font-size: 50px;
+                padding: 10px 16px;
+            }
+            h2 {
+                text-align: left;
+                font-family: customFont;
+                font-size: 30px;
+            }
+            form{
+		        font-family: sans-serif;
+		        font-size: 15px;
+	        }
+	        .input{
+		        font-family: sans-serif;
+		        font-size: 18px;
+		        text-align: center;
+		        font-weight: bold;
+		        padding: 4px;
+		        margin: 2px;
+		        transition-duration: 0.4s;
+		        cursor: pointer;
+		        background: #FCFBF6;
+                width: 98%;
+	        }
+	        .input2, button {
+                font-family: sans-serif;
+		        font-size: 18px;
+		        text-align: center;
+		        font-weight: bold;
+		        padding: 4px;
+		        margin: 2px;
+		        transition-duration: 0.4s;
+		        cursor: pointer;
+		        background: #F5CEC5;
+                float: right;
+	        }
+	        .input:hover {
+		        background-color: #F5CEC5;
+	        }
+	        .input2:hover, button:hover{
+		        background-color: #FAAA96;
+	        }
+            table{
+		        width: 100%;
+	        }
+	        table, td{
+		        border: 1px solid #7E8193;
+	        }
+            td, p{
+                font-family: sans-serif;
+                font-size: 14px;
+		        height: 25px;
+                width:auto;
+            }
+	        .tableheader{
+		        height: 30px;
+		        font-size: 18px;
+		        font-family: customFont;
+		        text-align: center;
+		        background-color: #F5CEC5;
+	        }
         </style>
 </head>
 <body>
+<%@ include file="header.jsp" %>
+<h2>Create new account
+    <a href=index.jsp><button>Main Menu &#127968</button></a>
+	<a href=listprod.jsp><button>List Products &#128221</button></a>
+    <a href=showcart.jsp><button>Your Cart &#128722</button></a>
+</h2>
 
 <form class="register" method="post" action="addCust.jsp">
-    <p>
-        <label>Username: </label><input class="" type="text" name="username" value="">
-    </p>
-    <p>
-        <label>First Name: </label><input class="" type="text" name="firstName" value="">
-    </p>
-    <p>
-        <label>Last Name: </label><input class="" type="text" name="lastName" value="">
-    </p>
-    <p>
-        <label>Password: </label><input class="" type="password" name="password" value="">
-    </p>
-    <p>
-        <label>Confirm password: </label><input class="" type="password" name="confirmPassword" value="">
-    </p>
-    <p>
-        <label>Email: </label><input type="email" name="email" value="">
-    </p>
-    <p>
-        <label>Phone Number: </label><input class="" type="tel" name="phoneNumber" value="">
-    </p>
-    <p>
-        <label>Country: </label><input type="text" name="country" value="">
-    </p>
-    <p>
-        <label>State/Province: </label><input type="text" name="state" value="">
-    </p>
-    <p>
-        <label>City: </label><input type="text" name="city" value="">
-    </p>
-    <p>
-        <label>Address: </label><input type="text" name="address" value="">
-    </p>
-    <p>
-        <label>Zip/Postal Code: </label><input type="text" name="postalCode" value="">
-    </p>
-    <h2><input class="button" type="submit" name="sub"></h2>
+    <table>
+        <tr><td class='tableheader'>Username:</td><td><input class='input' type="text" name="username" value=""></td></tr>
+        <tr><td class='tableheader'>First Name:</td><td><input class='input' type="text" name="firstName" value=""></td></tr>
+        <tr><td class='tableheader'>Last Name:</td><td><input class='input' type="text" name="lastName" value=""></td></tr>
+        <tr><td class='tableheader'>Password:</td><td><input class='input' type="password" name="password" value=""></td></tr>
+        <tr><td class='tableheader'>Confirm password:</td><td><input class='input' type="password" name="confirmPassword" value=""></td></tr>
+        <tr><td class='tableheader'>Email:</td><td><input class='input' type="email" name="email" value=""></td></tr>
+        <tr><td class='tableheader'>Phone Number:</td><td><input class='input' type="tel" name="phoneNumber" value=""></td></tr>
+        <tr><td class='tableheader'>Country:</td><td><input class='input' type="text" name="country" value=""></td></tr>
+        <tr><td class='tableheader'>State/Province:</td><td><input class='input' type="text" name="state" value=""></td></tr>
+        <tr><td class='tableheader'>City:</td><td><input class='input' type="text" name="city" value=""></td></tr>
+        <tr><td class='tableheader'>Address:</td><td><input class='input' type="text" name="address" value=""></td></tr>
+        <tr><td class='tableheader'>Zip/Postal Code:</td><td><input class='input' type="text" name="postalCode" value=""></td></tr>
+    </table>
+    <br><input class="input2" type="submit" name="sub">
 </form>
+<p></p>
 
 </body>

@@ -52,7 +52,7 @@
 		font-family: sans-serif;
 		font-size: 14px;
 		text-align: center;
-		padding: 4px;
+		padding: 6px;
 		margin: 2px;
 		transition-duration: 0.4s;
 		cursor: pointer;

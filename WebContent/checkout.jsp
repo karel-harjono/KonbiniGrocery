@@ -21,12 +21,17 @@
         font-weight: bold;
 		height: 25px;
 	}
+    p{
+        font-family: sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+    }
     .button, input{
         font-family: sans-serif;
         font-size: 16px;
         text-align:center;
         font-weight: bold;
-        padding: 8px;
+        padding: 6px;
         margin: 4px 2px;
         background: #F5CEC5;
         transition-duration: 0.4s;
@@ -46,12 +51,19 @@
     .input2:hover{
         background-color: #FCFBF6;
     }
+    a{
+        color: black;
+    }
+    a:hover{
+        color:#FAAA96;
+    }
 </style>
 </head>
 <body>
+    <%@ include file="header.jsp" %>
     <header>
 		<h2>Enter your customer id to complete the transaction:</h2>
-		<p>
+        <p>New to our store?&nbsp<a href=register.jsp>Register here!</a>
 			<a href=index.jsp><button class='button'>Main Menu &#127968</button></a>
             <a href=showcart.jsp><button class='button'>Your Cart &#128722</button></a>
 		</p>
