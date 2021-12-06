@@ -27,13 +27,13 @@ String pw = "YourStrong@Passw0rd";
 try (Connection con = DriverManager.getConnection(url, uid, pw);
 		Statement stmt = con.createStatement();)
 {
-	String id = request.getParameter("id");
+	int id = Integer.parseInt(request.getParameter("id"));
 	String name = request.getParameter("warehouseName");
 
 	String SQL = "UPDATE warehouse SET warehouseName = ? WHERE warehouseId = ?";
 
 	PreparedStatement pst = con.prepareStatement(SQL);
-	pst.setString(1,name); pst.setString(2,id);
+	pst.setString(1,name); pst.setInt(2,id);
 
 	int check = pst.executeUpdate();
 	if(check >0) out.println("Warehouse updated");
