@@ -10,12 +10,12 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | Walkthrough/demo video – briefly show all features	| Core	    |         6		    |       	|                       |
 | |
 | **Main/Home Page (up to 14 total points)**                                                                          |
-| Search for a product by name	                      | Core	    |         1		    |       	|  Liv                  |
-| Browse products by category                         | Core	    |         1		    |       	|  Liv                  |
-| List products (by search/browse)	                  | Core	    |         1		    |       	|  Liv                  |
+| Search for a product by name	                      | Core	    |         1		    |       	|  Done-Liv             |
+| Browse products by category                         | Core	    |         1		    |       	|  Done-Liv             |
+| List products (by search/browse)	                  | Core	    |         1		    |       	|  Done-Liv             |
 | List products with image | Core	| 1| | will do -Liv |
 | Page header with menu	| Basic	| 1 | | Liv |
-| Page header shows current logged in user	| Basic | 1 | |need to adjust design -Liv |
+| Page header shows current logged in user	| Basic | 1 | |Done-Liv |
 | Dynamic products on page based on sales	| Basic |	2	|	
 | Improved UI (user-friendly, images, etc.)	| Basic	| 2	| |Liv |
 | Product recommendation based on user | Advanced	| 4		|
@@ -29,19 +29,19 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | Cart stored in database between sessions | Basic	| 3	|	|Done |
 | |
 |**Checkout (up to 5 total points)**|
-|Checkout with customer id	| Core	| 1	|	|Liv |
+|Checkout with customer id	| Core	| 1	|	|Done-Liv |
 |Checkout with payment/shipment info	| Basic	| 2 |
-|Checkout with data validation	| Basic	| 2 | |Liv |
+|Checkout with data validation	| Basic	| 2 | |Done-Liv |
 | |
 |**Product Detail Page (up to 2 total points)**|
-| Product detail page and item description	| Core	| 1	| |will add desc and improve design -Liv | 
-| Product detail has an image from database	| Core	| 1	|	|Liv |
+| Product detail page and item description	| Core	| 1	| | Done-Liv | 
+| Product detail has an image from database	| Core	| 1	|	| Done-Liv |
 | |
 |**User Accounts/Login (up to 12 total points)**|
 | Create user account page	| Basic	| 2	|
 | Create account with data validation	| Basic	| 2	|
 | Edit user account info (address, password)	| Basic	| 2	|	
-| Login/logout	| Core	| 1	| |Liv |
+| Login/logout	| Core	| 1	| |Done-Liv |
 | Register user/Forgot password email	| Advanced	| 4	|
 | Page listing all orders for user	| Core	| 1	|
 | |
@@ -57,7 +57,7 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 |**Administrator Portal (up to 19 total points)**|	
 | Secured by login	| Core	| 1	|	|need to adjust siapa adminnya |
 | List all customers	| Core	| 1	| |added, not tested - kile|
-| List report showing total sales/orders	| Core	| 1	| |Liv |
+| List report showing total sales/orders	| Core	| 1	| |Done-Liv |
 | Report with a graph	| Advanced	| 3	|   |Matt |
 | Add new product	| Basic	| 2	|	|added, not tested - kile|
 | Update/delete product	| Basic	| 2	|	|added, not tested - kile|
