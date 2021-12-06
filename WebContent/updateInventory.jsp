@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Update Warehouse</title>
+	<title>Update Inventory</title>
 </head>
 <body>
 <%
