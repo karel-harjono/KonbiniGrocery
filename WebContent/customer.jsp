@@ -84,20 +84,38 @@ try {
 
 	if (rst.next())
 	{
-		out.println("<table>");
-		out.println("<tr><td class='tableheader'>Id</td><td align='center'>"+rst.getString(1)+"</td></tr>");	
-		out.println("<tr><td class='tableheader'>First Name</td><td align='center'> "+rst.getString(2)+"</td></tr>");
-		out.println("<tr><td class='tableheader'>Last Name</td><td align='center'>"+rst.getString(3)+"</td></tr>");
-		out.println("<tr><td class='tableheader'>Email</td><td align='center'>"+rst.getString(4)+"</td></tr>");
-		out.println("<tr><td class='tableheader'>Phone</td><td align='center'>"+rst.getString(5)+"</td></tr>");
-		out.println("<tr><td class='tableheader'>Address</td><td align='center'>"+rst.getString(6)+"</td></tr>");
-		out.println("<tr><td class='tableheader'>City</td><td align='center'>"+rst.getString(7)+"</td></tr>");
-		out.println("<tr><td class='tableheader'>State</td><td align='center'>"+rst.getString(8)+"</td></tr>");
-		out.println("<tr><td class='tableheader'>Postal Code</td><td align='center'>"+rst.getString(9)+"</td></tr>");
-		out.println("<tr><td class='tableheader'>Country</td><td align='center'>"+rst.getString(10)+"</td></tr>");
-		out.println("<tr><td class='tableheader'>User id</td><td align='center'>"+rst.getString(11)+"</td></tr>");		
-		out.println("</table>");
-		out.println("<h2><a href='logout.jsp'><button class='button'>Log out &#9940</button></a></h2>");
+		if(request.getParameter("edit") == null){
+			out.println("<table>");
+			out.println("<tr><td class='tableheader'>Id</td><td align='center'>"+rst.getString(1)+"</td></tr>");	
+			out.println("<tr><td class='tableheader'>First Name</td><td align='center'> "+rst.getString(2)+"</td></tr>");
+			out.println("<tr><td class='tableheader'>Last Name</td><td align='center'>"+rst.getString(3)+"</td></tr>");
+			out.println("<tr><td class='tableheader'>Email</td><td align='center'>"+rst.getString(4)+"</td></tr>");
+			out.println("<tr><td class='tableheader'>Phone</td><td align='center'>"+rst.getString(5)+"</td></tr>");
+			out.println("<tr><td class='tableheader'>Address</td><td align='center'>"+rst.getString(6)+"</td></tr>");
+			out.println("<tr><td class='tableheader'>City</td><td align='center'>"+rst.getString(7)+"</td></tr>");
+			out.println("<tr><td class='tableheader'>State</td><td align='center'>"+rst.getString(8)+"</td></tr>");
+			out.println("<tr><td class='tableheader'>Postal Code</td><td align='center'>"+rst.getString(9)+"</td></tr>");
+			out.println("<tr><td class='tableheader'>Country</td><td align='center'>"+rst.getString(10)+"</td></tr>");
+			out.println("<tr><td class='tableheader'>User id</td><td align='center'>"+rst.getString(11)+"</td></tr>");		
+			out.println("</table>");
+			out.println("<h2><a href='logout.jsp'><button class='button'>Log out &#9940</button></a></h2>");
+		}
+		else{
+			out.println("<form method=\"post\" action=\"updateCustomer.jsp><table>");
+			out.println("<tr><td class='tableheader'>Id</td><td align='center'><input type\"text\" value=\""+rst.getString(1)+"\"></td></tr>");	
+			out.println("<tr><td class='tableheader'>First Name</td><td align='center'><input type\"text\" value=\""+rst.getString(2)+"\"></td></tr>");
+			out.println("<tr><td class='tableheader'>Last Name</td><td align='center'><input type\"text\" value=\""+rst.getString(3)+"\"></td></tr>");
+			out.println("<tr><td class='tableheader'>Email</td><td align='center'><input type\"text\" value=\""+rst.getString(4)+"\"></td></tr>");
+			out.println("<tr><td class='tableheader'>Phone</td><td align='center'><input type\"text\" value=\""+rst.getString(5)+"\"></td></tr>");
+			out.println("<tr><td class='tableheader'>Address</td><td align='center'><input type\"text\" value=\""+rst.getString(6)+"\"></td></tr>");
+			out.println("<tr><td class='tableheader'>City</td><td align='center'><input type\"text\" value=\""+rst.getString(7)+"\"></td></tr>");
+			out.println("<tr><td class='tableheader'>State</td><td align='center'><input type\"text\" value=\""+rst.getString(8)+"\"></td></tr>");
+			out.println("<tr><td class='tableheader'>Postal Code</td><td align='center'><input type\"text\" value=\""+rst.getString(9)+"\"></td></tr>");
+			out.println("<tr><td class='tableheader'>Country</td><td align='center'><input type\"text\" value=\""+rst.getString(10)+"\"></td></tr>");
+			out.println("<tr><td class='tableheader'>User id</td><td align='center'><input type\"text\" value=\""+rst.getString(11)+"\"></td></tr>");		
+			out.println("</table></form>");
+			out.println("<h2><a href='logout.jsp'><button class='button'>Log out &#9940</button></a></h2>");
+		}
 	}
 }
 catch (SQLException ex) {
