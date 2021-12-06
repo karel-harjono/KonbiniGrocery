@@ -51,7 +51,7 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | Restrict to one review per user on item purchased	| Advanced | 2	|	
 | |
 |**Warehouses/Inventory (up to 5 total points)**|
-| Display item inventory by store/warehouse	| Basic |	2 |		
+| Display item inventory by store/warehouse	| Basic |	2 |	|Added, not tested - kile|
 | Edit item inventory by store/warehouse | Advanced | 3	|
 | |
 |**Administrator Portal (up to 19 total points)**|	
