@@ -86,14 +86,16 @@ String pw = "YourStrong@Passw0rd";
 try (Connection con = DriverManager.getConnection(url, uid, pw);
 		Statement stmt = con.createStatement();)
 {
-	String SQL = "SELECT customerId, firstName, lastName, email, phonenum, address, city, state, postalCode, country, userId FROM customer";
-	PreparedStatement pst = con.prepareStatement(SQL);
-	ResultSet rst = pst.executeQuery();
-	ResultSetMetaData rstmd = rst.getMetaData();
+	int id = request.getParamater("product id");
 
+	String SQL = "SELECT reviewRating, reviewComment FROM review WHERE productId = ?";
+	PreparedStatement pst = con.prepareStatement(SQL);
+	pst.setString(1,id);
+	ResultSet rst = pst.executeQuery();
+
+	out.println("<table border =1><tr><th>"+Review Rating+"</th><th>+Review Comments+"</th></tr>");
 	while(rst.next){
-		out.println("<table border =1>");
-		for(int i = 1; i<12; i++) out.println("<tr><th>"+rstmd.getColumnName(i)+"</th><th>"+rst.getString(i)+"</th></tr>");
+		out.println("<tr><td>"+rst.getInt(1)+"</td><td>"+rst.getString(2)+"</td></tr>");
 	}
 	out.println("</table>");
 }

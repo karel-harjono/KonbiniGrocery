@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add Warehouse</title>
+	<title>Update Customer</title>
 </head>
 <body>
 <%
@@ -27,23 +27,21 @@ String pw = "YourStrong@Passw0rd";
 try (Connection con = DriverManager.getConnection(url, uid, pw);
 		Statement stmt = con.createStatement();)
 {
-	String prodName = request.getParameter("productName");
-	double prodPrice = request.getParameter("productPrice");
-	String prodDesc = request.getParameter("productDesc");
-	int categoryId = request.getParameter("categoryId");
+	int id = request.getParameter("shipment id");
+	String desc = request.getParameter("Shipment status");
+	
 
-	String SQL = "INSERT INTO product (productName, productPrice, productDesc, categoryId) VALUES (?,?,?,?)";
+	String SQL = "UPDATE customer SET shipmentDesc = ? WHERE shipmentId = ?";
+
 
 	PreparedStatement pst = con.prepareStatement(SQL);
-	pst.setString(1,prodName);
-	pst.setDouble(2,prodPrice);
-	pst.setString(3,prodDesc);
-	pst.setInt(4,categoryId);
+	pst.setString(1,desc);
+	pst.setString(2,id);
+
 
 	int check = pst.executeUpdate();
-
-	if(check >0) out.println("new product added");
-	else out.println("failed to add product");
+	if(check >0) out.println("shipment status updated");
+	else out.println("failed to update shipment status");
 }
 catch (Exception e)
 {

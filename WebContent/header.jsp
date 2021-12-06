@@ -22,19 +22,18 @@
 	    text-align: left;
         color: black;
         float: right;
-        margin-right: 2%;
 	}
 </style>
 
 <h1>
-    <a href="index.jsp">&#9961 Konbini &#9961</a>
+    <a href="index.jsp">&nbsp&nbsp&#9961 Konbini &#9961</a>
     <%
     // TODO: Display user name that is logged in (or nothing if not logged in)
 	String userName = (String) session.getAttribute("authenticatedUser");
 	if (userName != null)
 		out.println("<a class='upperright' href='customer.jsp'>"+userName+"</a>");
     else
-        out.println("<a class='upperright' href='login.jsp'>Login</a>");
+        out.println("<a class='upperright' href='login.jsp'>Sign in&nbsp&nbsp</a>");
     %>
 </h1>      
 <hr>

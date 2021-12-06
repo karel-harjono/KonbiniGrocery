@@ -31,7 +31,7 @@
 		font-family:sans-serif;
 		font-size: 20px;
 		text-align: center;
-		color: red;
+		font-weight: bold;
 	}
 	form{
 		font-family: sans-serif;
@@ -57,21 +57,28 @@
 	.input2:hover, button:hover{
 		background-color: #FAAA96;
 	}
+	a{
+        color: black;
+    }
+    a:hover{
+        color:#FAAA96;
+    }
 </style>
 </head>
 <body>
 
 <div style="margin:0 auto;text-align:center;display:inline">
+<%@ include file="header.jsp" %>
 
 <h3>Please Login to System</h3>
 
 <%
 // Print prior error login message if present
 if (session.getAttribute("loginMessage") != null)
-	out.println("<p><b>"+session.getAttribute("loginMessage").toString()+"</b></p>");
+	out.println("<p style='color:red'>"+session.getAttribute("loginMessage").toString()+"</p>");
 %>
+<p style='font-size:14px'>New to our store?&nbsp<a href=register.jsp>Register here!</button></a></p>
 
-<br>
 <form name="MyForm" method=post action="validateLogin.jsp">
 <table>
 <tr>	
@@ -83,12 +90,11 @@ if (session.getAttribute("loginMessage") != null)
 	<td><input type="password" name="password" size=10 maxlength="10"></td>
 </tr>
 </table>
-<br/>
+<br>
 <input class="input2" type="submit" name="Submit2" value="Log In &#9989">
 </form>
 </div>
-
-<h3><a href=index.jsp><button>Main Menu &#127968</button></a></h3>
+<p><a href=index.jsp><button>Main Menu &#127968</button></a></p>
 </body>
 </html>
 

@@ -27,23 +27,22 @@ String pw = "YourStrong@Passw0rd";
 try (Connection con = DriverManager.getConnection(url, uid, pw);
 		Statement stmt = con.createStatement();)
 {
-	String prodName = request.getParameter("productName");
-	double prodPrice = request.getParameter("productPrice");
-	String prodDesc = request.getParameter("productDesc");
-	int categoryId = request.getParameter("categoryId");
+	int wid = request.getParameter("warehouse id");
+	int pid = request.getParameter("product id");
+	int quantity = request.getParameter("new quantity");
+	double price = request.getParameter("new price");
 
-	String SQL = "INSERT INTO product (productName, productPrice, productDesc, categoryId) VALUES (?,?,?,?)";
+	String SQL = "UPDATE productInventory SET quantity = ?, price = ? WHERE productId = ? AND warehouseId = ?";
 
 	PreparedStatement pst = con.prepareStatement(SQL);
-	pst.setString(1,prodName);
-	pst.setDouble(2,prodPrice);
-	pst.setString(3,prodDesc);
-	pst.setInt(4,categoryId);
+	pst.setInt(1,quantity); 
+	pst.setDouble(2,price); 
+	pst.setInt(3,pid);
+	pst.setInt(4,wid);
 
 	int check = pst.executeUpdate();
-
-	if(check >0) out.println("new product added");
-	else out.println("failed to add product");
+	if(check >0) out.println("product inventory in warehouse updated");
+	else out.println("failed to update product inventory in warehouse");
 }
 catch (Exception e)
 {

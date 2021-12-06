@@ -1,4 +1,4 @@
-<%@ include file="auth.jsp"%>
+<%-- <%@ include file="auth.jsp"%> --%>
 <%@ page import="java.text.NumberFormat" %>
 <%@ include file="jdbc.jsp" %>
 <!DOCTYPE html>
@@ -27,20 +27,21 @@ String pw = "YourStrong@Passw0rd";
 try (Connection con = DriverManager.getConnection(url, uid, pw);
 		Statement stmt = con.createStatement();)
 {
-	String first = request.getParameter("first name");
-	String last = request.getParameter("last name");
+	String first = request.getParameter("firstName");
+	String last = request.getParameter("lastName");
 	String email = request.getParameter("email");
-	String phone = request.getParameter("phone number");
+	String phone = request.getParameter("phoneNumber");
 	String address = request.getParameter("address");
 	String city = request.getParameter("city");
 	String state = request.getParameter("state");
-	String postal = request.getParameter("postal code");
+	String postal = request.getParameter("postalCode");
 	String country = request.getParameter("country");
-	String userId = request.getParameter("address");
+	String userId = request.getParameter("username");
 	String password = request.getParameter("password");
 
 
-	String SQL = "INSERT INTO product (firstName, lastName, email, phonenum, address, city, state, postalCode, country,userid,password) VALUES (?,?,?,?,?,?,?,?,?,?,?))";
+	String SQL = "INSERT INTO customer (firstName, lastName, email, phonenum, address, city, state, postalCode, country,userid,password) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+
 
 	PreparedStatement pst = con.prepareStatement(SQL);
 	pst.setString(1,first);
@@ -58,7 +59,7 @@ try (Connection con = DriverManager.getConnection(url, uid, pw);
 
 	int check = pst.executeUpdate();
 
-	if(check >0) out.println("new customer added");
+	if(check >0) response.sendRedirect("login.jsp");
 	else out.println("failed to add customer");
 }
 catch (Exception e)
