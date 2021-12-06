@@ -47,7 +47,7 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | |
 |**Product Reviews (up to 5 total points)**|
 | Ability to enter a review on a product	| Basic	| 2	| |Added, not tested|
-| Display product review on product detail page	| Basic	| 1	|	
+| Display product review on product detail page	| Basic	| 1	|	|Added, not tested|
 | Restrict to one review per user on item purchased	| Advanced | 2	|	
 | |
 |**Warehouses/Inventory (up to 5 total points)**|
