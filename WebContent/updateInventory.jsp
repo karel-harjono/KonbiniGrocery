@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add Warehouse</title>
+	<title>Update Warehouse</title>
 </head>
 <body>
 <%
@@ -27,10 +27,10 @@ String pw = "YourStrong@Passw0rd";
 try (Connection con = DriverManager.getConnection(url, uid, pw);
 		Statement stmt = con.createStatement();)
 {
-	int wid = request.getParameter("warehouse id");
-	int pid = request.getParameter("product id");
-	int quantity = request.getParameter("new quantity");
-	double price = request.getParameter("new price");
+	int wid = Integer.parseInt(request.getParameter("warehouse id"));
+	int pid = Integer.parseInt(request.getParameter("product id"));
+	int quantity = Integer.parseInt(request.getParameter("new quantity"));
+	double price = Double.parseDouble(request.getParameter("new price"));
 
 	String SQL = "UPDATE productInventory SET quantity = ?, price = ? WHERE productId = ? AND warehouseId = ?";
 
