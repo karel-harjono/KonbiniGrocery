@@ -65,7 +65,7 @@ CREATE TABLE product (
     productPrice        DECIMAL(10,2),
     productImageURL     VARCHAR(100),
     productImage        VARBINARY(MAX),
-    productDesc         VARCHAR(10000),
+    productDesc         VARCHAR(2000),
     categoryId          INT,
     PRIMARY KEY (productId),
     FOREIGN KEY (categoryId) REFERENCES category(categoryId)

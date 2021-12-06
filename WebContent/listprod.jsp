@@ -125,9 +125,7 @@ catch (java.lang.ClassNotFoundException e)
 // Use it to build a query and print out the resultset.  Make sure to use PreparedStatement!
 
 // Make the connection
-String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-String uid = "SA";
-String pw = "YourStrong@Passw0rd";
+
 
 // Print out the ResultSet
 

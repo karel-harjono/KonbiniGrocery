@@ -67,7 +67,7 @@
 		catch(Exception e){
 			out.println("invalid order id: " + orderId);
 		}
-		//con = DriverManager.getConnection(url, uid, pw);
+		con = DriverManager.getConnection(url, uid, pw);
 		// TODO: Start a transaction (turn-off auto-commit)
 		con.setAutoCommit(false);
 		

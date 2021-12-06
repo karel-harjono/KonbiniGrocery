@@ -77,9 +77,7 @@ NumberFormat currFormat = NumberFormat.getCurrencyInstance(Locale.US);
 // out.println(currFormat.format(5.0);  // Prints $5.00
 
 // Make connection
-String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-String uid = "SA";
-String pw = "YourStrong@Passw0rd";
+
 
 // Write query to retrieve all order summary records
 try
