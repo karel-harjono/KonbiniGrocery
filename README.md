@@ -46,8 +46,8 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | Page listing all orders for user	| Core	| 1	|
 | |
 |**Product Reviews (up to 5 total points)**|
-| Ability to enter a review on a product	| Basic	| 2	| |Added, not tested|
-| Display product review on product detail page	| Basic	| 1	|	|Added, not tested|
+| Ability to enter a review on a product	| Basic	| 2	| |Added, not tested - kile|
+| Display product review on product detail page	| Basic	| 1	|	|Added, not tested - kile|
 | Restrict to one review per user on item purchased	| Advanced | 2	|	
 | |
 |**Warehouses/Inventory (up to 5 total points)**|
