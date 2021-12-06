@@ -61,7 +61,7 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | Report with a graph	| Advanced	| 3	|
 | Add new product	| Basic	| 2	|	|added, not tested - kile|
 | Update/delete product	| Basic	| 2	|	|added, not tested - kile|
-| Change order status/ship order	| Basic	| 1	|
+| Change order status/ship order	| Basic	| 1	| |Added, not tested|
 | Upload a photo to file system for product	| Advanced	| 2	|
 | OR: Upload a photo to database for product	| Advanced	| 4	|	
 | Database restore with SQL script	| Basic	| 2	|	
