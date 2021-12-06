@@ -38,8 +38,8 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | Product detail has an image from database	| Core	| 1	|	| Done-Liv |
 | |
 |**User Accounts/Login (up to 12 total points)**|
-| Create user account page	| Basic	| 2	|
-| Create account with data validation	| Basic	| 2	|
+| Create user account page	| Basic	| 2	| | Done |
+| Create account with data validation	| Basic	| 2	| | Done-kar(password validation with all required tag) |
 | Edit user account info (address, password)	| Basic	| 2	|	
 | Login/logout	| Core	| 1	| |Done-Liv |
 | Register user/Forgot password email	| Advanced	| 4	|
