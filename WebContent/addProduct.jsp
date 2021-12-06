@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add Warehouse</title>
+	<title>Add Product</title>
 </head>
 <body>
 <%
@@ -28,9 +28,9 @@ try (Connection con = DriverManager.getConnection(url, uid, pw);
 		Statement stmt = con.createStatement();)
 {
 	String prodName = request.getParameter("productName");
-	double prodPrice = request.getParameter("productPrice");
+	double prodPrice = Double.parseDouble(request.getParameter("productPrice"));
 	String prodDesc = request.getParameter("productDesc");
-	int categoryId = request.getParameter("categoryId");
+	int categoryId = Integer.parseInt(request.getParameter("categoryId"));
 
 	String SQL = "INSERT INTO product (productName, productPrice, productDesc, categoryId) VALUES (?,?,?,?)";
 
