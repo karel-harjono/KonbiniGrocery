@@ -40,7 +40,7 @@ try (Connection con = DriverManager.getConnection(url, uid, pw);
 	String password = request.getParameter("password");
 
 
-	String SQL = "INSERT INTO product (firstName, lastName, email, phonenum, address, city, state, postalCode, country,userid,password) VALUES (?,?,?,?,?,?,?,?,?,?,?))";
+	String SQL = "INSERT INTO product (firstName, lastName, email, phonenum, address, city, state, postalCode, country,userid,password) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
 	PreparedStatement pst = con.prepareStatement(SQL);
 	pst.setString(1,first);
