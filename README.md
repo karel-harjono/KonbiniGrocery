@@ -13,8 +13,8 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | Search for a product by name	                      | Core	    |         1		    |       	|  Liv                  |
 | Browse products by category                         | Core	    |         1		    |       	|  Liv                  |
 | List products (by search/browse)	                  | Core	    |         1		    |       	|  Liv                  |
-| List products with image | Core	| 1| will do -Liv |
-| Page header with menu	| Basic	| 1 | Liv |
+| List products with image | Core	| 1| | will do -Liv |
+| Page header with menu	| Basic	| 1 | | Liv |
 | Page header shows current logged in user	| Basic | 1 | |need to adjust design -Liv |
 | Dynamic products on page based on sales	| Basic |	2	|	
 | Improved UI (user-friendly, images, etc.)	| Basic	| 2	| |Liv |
