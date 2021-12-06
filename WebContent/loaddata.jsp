@@ -10,9 +10,9 @@
 <body>
 
 <%
-String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_rlawrenc;";
-String uid = "rlawrenc";
-String pw = "test";
+String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
+String uid = "SA";
+String pw = "YourStrong@Passw0rd";
 
 out.print("<h1>Connecting to database.</h1><br><br>");
 

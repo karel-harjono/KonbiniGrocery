@@ -13,10 +13,9 @@ Public methods:
 <%!
 	// TODO: Modify database/user connection info
 	// User id, password, and server information
-	private String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_rlawrenc;";
-	//private String url = "jdbc:mysql://cosc304.ok.ubc.ca/db_rlawrenc;";
-	private String uid = "rlawrenc";
-	private String pw = "test";
+	private String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
+	private String uid = "SA";
+	private String pw = "YourStrong@Passw0rd";
 
 	// Connection
 	private Connection con = null;
@@ -27,7 +26,6 @@ Public methods:
 		try
 		{	// Load driver class
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			//Class.forName("com.mysql.jdbc.Driver");
 		}
 		catch (java.lang.ClassNotFoundException e)
 		{
