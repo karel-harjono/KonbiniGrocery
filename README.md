@@ -5,7 +5,7 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | Final Overall System Features                       | Category	| Possible Points	| Points	| Comments / Code Files |
 | --------------------------------------------------- | --------- | --------------- | ------- | --------------------- |
 | **Documentation (10 total points) - Mandatory**                                                                     |
-| Executive Summary (up to 1 page)	                  | Core	    |         2		    |       	|                       |
+| Executive Summary (up to 1 page)	                  | Core	    |         2		    |       	| Done                  |
 | System Feature summary document (2 pages)	          | Core	    |         2		    |       	|                       |
 | Walkthrough/demo video – briefly show all features	| Core	    |         6		    |       	|                       |
 | |
