@@ -36,9 +36,9 @@ try (Connection con = DriverManager.getConnection(url, uid, pw);
 
 	PreparedStatement pst = con.prepareStatement(SQL);
 	pst.setString(1,prodName);
-	pst.setString(2,prodPrice);
+	pst.setDouble(2,prodPrice);
 	pst.setString(3,prodDesc);
-	pst.setString(4,categoryId);
+	pst.setInt(4,categoryId);
 
 	int check = pst.executeUpdate();
 
