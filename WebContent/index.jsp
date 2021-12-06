@@ -37,7 +37,7 @@
         </style>
 </head>
 <body>
-        <h1>&#9961 Welcome to Konbini Grocery &#9961</h1>
+        <%@ include file="header.jsp" %>
 
         <h2><a href="login.jsp"><button class="button"><b>Login &#9989</b></button></a></h2>
         
@@ -50,13 +50,6 @@
         <h2><a href="admin.jsp"><button class="button"><b>Administrators &#128100</b></button></a></h2>
         
         <h2><a href="logout.jsp"><button class="button"><b>Log out &#9940</b></button></a></h2>
-
-<%
-// TODO: Display user name that is logged in (or nothing if not logged in)
-	String userName = (String) session.getAttribute("authenticatedUser");
-	if (userName != null)
-		out.println("<h2 align=\"center\">Signed in as: "+userName+"</h2>");
-%>
 </body>
 </head>
 

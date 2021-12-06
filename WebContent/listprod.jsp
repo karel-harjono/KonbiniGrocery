@@ -12,14 +12,17 @@
 			font-family: customFont;
 			src: url(NikkyouSans-mLKax.ttf);
 	}
-	h1, h2{
+	h1, h2, h3{
 			text-align: center;
 			font-family: customFont;
 			font-size: 40px;
 			padding: 0px;
 	}
 	h2{
-		font-size: 25px;
+		font-size: 30px;
+	}
+	h3{
+		font-size: 20px;
 		text-align: left;
 	}
 	table{
@@ -83,21 +86,18 @@
 </style>
 </head>
 <body>
-
-<h1>Search for the products you want to buy:</h1>
+<%@ include file="header.jsp" %>
+<h2>Search for the products you want to buy:</h2>
 
 <form method="get" action="listprod.jsp">
 	<label>Category</label>
 	<select name="category">
 		<option value="All">All</option>
-		<option value="Beverages">Beverages</option>
-		<option value="Condiments">Condiments</option>
-		<option value="Confections">Confections</option>
-		<option value="Dairy Products">Dairy Products</option>
-		<option value="Grains/Cereals">Grains/Cereals</option>
-		<option value="Meat/Poultry">Meat/Poultry</option>
-		<option value="Produce">Produce</option>
-		<option value="Seafood">Seafood</option>
+		<option value="Anime Movies">Anime Movies</option>
+		<option value="Games">Games</option>
+		<option value="Model Kits">Model Kits</option>
+		<option value="Snacks">Snacks</option>
+		<option value="Stationaries">Stationaries</option>
 	</select>
 <input type="text" name="productName" size="50" class="input2">
 <input type="submit" value="Submit"><input type="reset" value="Reset"> (Leave blank for all products)
@@ -141,7 +141,7 @@ try
 	ResultSet rst_1 = null;
 	boolean hasName = name != null && !name.equals("");
 	boolean hasCat = category != null && !category.equals("All");
-	out.println("<h2>All Products<a href=index.jsp><button class='button2'><b>Main Menu 🏠</b></button></a><a href=showcart.jsp><button class='button2'><b>Your Cart 🛒</b></button></a></h2>");
+	out.println("<h3>All Products<a href=index.jsp><button class='button2'><b>Main Menu 🏠</b></button></a><a href=showcart.jsp><button class='button2'><b>Your Cart 🛒</b></button></a></h3>");
 	out.println("<table><tr><td class='tableheader'></td><td class='tableheader'>Product Name</td><td class='tableheader'>Category</td><td class='tableheader'>Price</td></tr>");
 
 	if (!hasName && !hasCat){

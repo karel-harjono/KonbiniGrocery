@@ -15,6 +15,7 @@
     }
 	h2{
 		font-size: 25px;
+		text-align: center;
 	}
 	table{
 		width: 100%;
@@ -37,6 +38,7 @@
 	.button{
 		font-family: sans-serif;
 		font-size: 18px;
+		font-weight: bold;
 		text-align:center;
 		padding: 8px;
 		margin: 4px 2px;
@@ -53,8 +55,8 @@
 <body>
 	<header>
 		<h2>Customer Profile</h2>
-		<a href=index.jsp><button class="button"><b>Main Menu &#127968</b></button></a>
-		<a href=listprod.jsp><button class="button"><b>List Products &#128221</b></button></a>
+		<a href=index.jsp><button class="button">Main Menu &#127968</button></a>
+		<a href=listprod.jsp><button class="button">List Products &#128221</button></a>
 		<br>
 	</header>
 <%@ include file="auth.jsp"%>
@@ -82,7 +84,7 @@ try {
 
 	if (rst.next())
 	{
-		out.println("<table class=\"table\" border=\"1\">");
+		out.println("<table>");
 		out.println("<tr><td class='tableheader'>Id</td><td align='center'>"+rst.getString(1)+"</td></tr>");	
 		out.println("<tr><td class='tableheader'>First Name</td><td align='center'> "+rst.getString(2)+"</td></tr>");
 		out.println("<tr><td class='tableheader'>Last Name</td><td align='center'>"+rst.getString(3)+"</td></tr>");
@@ -95,6 +97,7 @@ try {
 		out.println("<tr><td class='tableheader'>Country</td><td align='center'>"+rst.getString(10)+"</td></tr>");
 		out.println("<tr><td class='tableheader'>User id</td><td align='center'>"+rst.getString(11)+"</td></tr>");		
 		out.println("</table>");
+		out.println("<h2><a href='logout.jsp'><button class='button'>Log out &#9940</button></a></h2>");
 	}
 }
 catch (SQLException ex) {
