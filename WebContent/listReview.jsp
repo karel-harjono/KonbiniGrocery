@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Konbini Grocery Order List</title>
+<title>List Review</title>
     <style>
             @font-face{
                     font-family: customFont;
@@ -86,11 +86,11 @@ String pw = "YourStrong@Passw0rd";
 try (Connection con = DriverManager.getConnection(url, uid, pw);
 		Statement stmt = con.createStatement();)
 {
-	int id = request.getParamater("product id");
+	int id = Integer.parseInt(request.getParamater("product id"));
 
 	String SQL = "SELECT reviewRating, reviewComment FROM review WHERE productId = ?";
 	PreparedStatement pst = con.prepareStatement(SQL);
-	pst.setString(1,id);
+	pst.setInt(1,id);
 	ResultSet rst = pst.executeQuery();
 
 	out.println("<table border =1><tr><th>"+Review Rating+"</th><th>+Review Comments+"</th></tr>");
