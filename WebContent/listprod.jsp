@@ -33,6 +33,7 @@
 	}
 	table{
 		width: 100%;
+		table-layout: fixed;
 	}
 	table, td{
 		border: 1px solid #7E8193;
@@ -156,7 +157,7 @@ try
 	boolean hasName = name != null && !name.equals("");
 	boolean hasCat = category != null && !category.equals("All");
 	out.println("<h3>All Products<a href=index.jsp><button class='button2'><b>Main Menu 🏠</b></button></a><a href=showcart.jsp><button class='button2'><b>Your Cart 🛒</b></button></a></h3>");
-	out.println("<table><tr><td class='tableheader'></td><td class='tableheader'></td><td class='tableheader'>Product Name</td><td class='tableheader'>Category</td><td class='tableheader'>Price</td></tr>");
+	out.println("<table><tr><td class='tableheader'></td><td class='tableheader' colspan=2>Product Name</td><td class='tableheader'>Category</td><td class='tableheader'>Price</td></tr>");
 
 	if (!hasName && !hasCat){
 		pstmt_1 = con.prepareStatement(sql_1);
