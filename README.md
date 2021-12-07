@@ -1,3 +1,9 @@
+CURRENT ISSUES: (for details please check admin.jsp)
+- Update/add customer, warehouse, product, inventory
+- Shipment
+- index.jsp design will be adjusted once all pages fixed. (Liv will do)
+
+
 Project Features List Template
 
 Note that not all tasks need to be completed. The project is out of 50 marks, and a maximum of 20 total bonus marks may be awarded. You may pick which tasks you wish to complete, except for the documentation tasks which are mandatory.
@@ -14,10 +20,10 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | Browse products by category                         | Core	    |         1		    |       	|  Done-Liv             |
 | List products (by search/browse)	                  | Core	    |         1		    |       	|  Done-Liv             |
 | List products with image | Core	| 1| | will do -Liv |
-| Page header with menu	| Basic	| 1 | | Liv |
+| Page header with menu	| Basic	| 1 | | Done-Liv |
 | Page header shows current logged in user	| Basic | 1 | |Done-Liv |
 | Dynamic products on page based on sales	| Basic |	2	|	
-| Improved UI (user-friendly, images, etc.)	| Basic	| 2	| |Liv |
+| Improved UI (user-friendly, images, etc.)	| Basic	| 2	| |Done-Liv |
 | Product recommendation based on user | Advanced	| 4		|
 | |
 | **Shopping Cart (up to 8 total points)** |
@@ -46,8 +52,8 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | Page listing all orders for user	| Core	| 1	|
 | |
 |**Product Reviews (up to 5 total points)**|
-| Ability to enter a review on a product	| Basic	| 2	| |Added, not tested - kile|
-| Display product review on product detail page	| Basic	| 1	|	|Added, not tested - kile|
+| Ability to enter a review on a product	| Basic	| 2	| |Done|
+| Display product review on product detail page	| Basic	| 1	|	|Done|
 | Restrict to one review per user on item purchased	| Advanced | 2	|	
 | |
 |**Warehouses/Inventory (up to 5 total points)**|
@@ -55,22 +61,22 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | Edit item inventory by store/warehouse | Advanced | 3	| |Added, not tested - kile|
 | |
 |**Administrator Portal (up to 19 total points)**|	
-| Secured by login	| Core	| 1	|	|need to adjust siapa adminnya |
-| List all customers	| Core	| 1	| |added, not tested - kile|
+| Secured by login	| Core	| 1	|	|Done |
+| List all customers	| Core	| 1	| |Done|
 | List report showing total sales/orders	| Core	| 1	| |Done-Liv |
-| Report with a graph	| Advanced	| 3	|   |Matt |
+| Report with a graph	| Advanced	| 3	|   |????? Matt |
 | Add new product	| Basic	| 2	|	|added, not tested - kile|
 | Update/delete product	| Basic	| 2	|	|added, not tested - kile|
 | Change order status/ship order	| Basic	| 1	| |Added, not tested - kile|
-| Upload a photo to file system for product	| Advanced	| 2	| |Matt |
-| OR: Upload a photo to database for product	| Advanced	| 4	|	|Matt |
+| Upload a photo to file system for product	| Advanced	| 2	| |????? Matt |
+| OR: Upload a photo to database for product	| Advanced	| 4	|	|?????? Matt |
 | Database restore with SQL script	| Basic	| 2	|	
 | Add/update warehouse, customer	| Basic	| 2 |	|Add warehouse, not tested - kile|	
 | |			
 |**Database System/General**|		
 | Implement some validation using triggers |	Advanced	| 2	|	
 | Use AJAX for some pages	| Advanced	| 4	|
-| User interface and navigation/usability | |	Up to 5	| |need to adjust design -Liv |
+| User interface and navigation/usability | |	Up to 5	| |Final check -Liv |
 | Others (your suggestions)	|	| Up to 5	|
 | |
 | **Total:** |
