@@ -59,7 +59,7 @@ try (Connection con = DriverManager.getConnection(url, uid, pw);
 
 	int check = pst.executeUpdate();
 
-	if(password != null) response.sendRedirect("login.jsp");
+	if(password != null) {session.setAttribute("loginMessage", null); response.sendRedirect("login.jsp");}
 	else out.println("failed to add customer");
 }
 catch (Exception e)

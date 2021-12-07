@@ -9,6 +9,7 @@ DROP TABLE IF EXISTS category;
 DROP TABLE IF EXISTS ordersummary;
 DROP TABLE IF EXISTS paymentmethod;
 DROP TABLE IF EXISTS customer;
+DROP TABLE IF EXISTS admin;
 
 
 CREATE TABLE customer (
@@ -29,12 +30,9 @@ CREATE TABLE customer (
 
 CREATE TABLE admin (
     adminId             INT IDENTITY,
-    firstName           VARCHAR(40),
-    lastName            VARCHAR(40),
-    email               VARCHAR(50),
-    phonenum            VARCHAR(20),
     userid              VARCHAR(20),
-    password            VARCHAR(30),
+    adminEmail               VARCHAR(50),
+    adminPhonenum            VARCHAR(20),
     PRIMARY KEY (adminId)
 )
 
@@ -211,7 +209,7 @@ INSERT INTO productinventory(productId, warehouseId, quantity, price) VALUES (23
 INSERT INTO productinventory(productId, warehouseId, quantity, price) VALUES (24, 1, 7, 7.00);
 INSERT INTO productinventory(productId, warehouseId, quantity, price) VALUES (25, 1, 12, 3.80);
 
-INSERT INTO admin (firstName, lastName, email, phonenum, userid, password) VALUES ("ad", "min", "admin@admin.com", "000-000-0000", "admin", "123");
+INSERT INTO admin (userid, adminEmail, adminPhonenum) VALUES ('arnold', 'a.anderson@admin.com', '000-000-0000');
 
 INSERT INTO customer (firstName, lastName, email, phonenum, address, city, state, postalCode, country, userid, password) VALUES ('Arnold', 'Anderson', 'a.anderson@gmail.com', '204-111-2222', '103 AnyWhere Street', 'Winnipeg', 'MB', 'R3X 45T', 'Canada', 'arnold' , 'test');
 INSERT INTO customer (firstName, lastName, email, phonenum, address, city, state, postalCode, country, userid, password) VALUES ('Bobby', 'Brown', 'bobby.brown@hotmail.ca', '572-342-8911', '222 Bush Avenue', 'Boston', 'MA', '22222', 'United States', 'bobby' , 'bobby');

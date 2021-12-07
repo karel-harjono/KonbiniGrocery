@@ -59,10 +59,10 @@
 		<br>
 	</header>
 
-<%@ include file="auth.jsp"%>
+<%@ include file="jdbc.jsp" %>
+<%@ include file="authAdmin.jsp"%>
 <%@ page import="java.text.NumberFormat" %>
 <%@ page import="java.util.Locale" %>
-<%@ include file="jdbc.jsp" %>
 <%@ page language="java" import="java.io.*,java.sql.*"%>
 
 <%

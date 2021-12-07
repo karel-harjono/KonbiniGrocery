@@ -157,7 +157,7 @@ else
 			out.println("Invalid quantity for product: "+product.get(0)+" quantity: "+qty);
 		}		
 
-		String tempId = "'newqty"+product.get(0)+"'";
+		String tempId = "\"newqty"+product.get(0)+"\"";
 		out.print("<td><input type=\"number\" id="+ tempId +" size=\"3\" value="+itemqty+"></td>");
 		out.print("<td><input type='button' onclick='updateQty("+product.get(0)+", document.getElementById("+tempId+").value)' value='Update Quantity'></td>");
 		out.print("<td><a href='showcart.jsp?delete="+ product.get(0) +"'><button class='button2'>🗑</button></a></td>");

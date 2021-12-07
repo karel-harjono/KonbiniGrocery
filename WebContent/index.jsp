@@ -40,6 +40,7 @@
         <%@ include file="header.jsp" %>
 
         <%
+        session.setAttribute("loginMessage", null);
         // TODO: Display user name that is logged in (or nothing if not logged in)
         if (userName == null){
                 out.println("<h2><a href=\"login.jsp\"><button class=\"button\"><b>Login &#9989</b></button></a></h2>");

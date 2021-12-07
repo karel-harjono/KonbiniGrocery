@@ -70,7 +70,7 @@
 		<br>
 	</header>
 
-<form method="get" action="order.jsp">
+<form method="post" action="order.jsp">
     <table>
     <tr><td>Customer ID:</td><td><input type="text" name="customerId" size="30" class="input2"></td></tr>
     <tr><td>Password:</td><td><input type="password" name="password" size="30" class="input2"></td></tr>

@@ -89,7 +89,7 @@
         <tr><td class='tableheader'>Password:</td><td><input class='input' type="password" name="password" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required></td></tr>
         <tr><td class='tableheader'>Confirm password:</td><td ><input  id="confirmPassword" class='input' type="password" name="confirmPassword" value="" required></td></tr>
         <tr><td class='tableheader'>Email:</td><td><input class='input' type="email" name="email" value="" required></td></tr>
-        <tr><td class='tableheader'>Phone Number:</td><td><input class='input' type="tel" name="phoneNumber" value="" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required></td></tr>
+        <tr><td class='tableheader'>Phone Number(000-000-0000):</td><td><input class='input' type="tel" name="phoneNumber" value="" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required></td></tr>
         <tr><td class='tableheader'>Country:</td><td><input class='input' type="text" name="country" value="" required></td></tr>
         <tr><td class='tableheader'>State/Povince:</td><td><input class='input' type="text" name="state" value="" required></td></tr>
         <tr><td class='tableheader'>City:</td><td><input class='input' type="text" name="city" value="" required></td></tr>
