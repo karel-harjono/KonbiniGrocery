@@ -1,5 +1,9 @@
 <%@ include file="auth.jsp"%>
+<%@ page import="java.util.HashMap" %>
 <%@ page import="java.text.NumberFormat" %>
+<%@ page import="java.util.Locale" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.time.LocalDateTime" %>
 <%@ include file="jdbc.jsp" %>
 <!DOCTYPE html>
 <html>
@@ -43,7 +47,7 @@ try (Connection con = DriverManager.getConnection(url, uid, pw);
 
 	int check = pst.executeUpdate();
 
-	if(check >0) out.println("new review added");
+	if(check >0) {session.setAttribute("reviewStatus", "new review added"); response.sendRedirect("product.jsp?id=" + pid + "#reviewStatus");}
 	else out.println("failed to add review");
 }
 catch (Exception e)

@@ -1,6 +1,7 @@
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.text.NumberFormat" %>
 <%@ page import="java.util.Locale" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
 <%@ include file="jdbc.jsp" %>
 
@@ -124,14 +125,27 @@ finally
 {
 	closeConnection();
 }
+
+out.println("<a id='reviewButton' href='product.jsp?id="+productId+"&review=true#reviewBox'><button class='button'>Review this product</button></a>");
+if(session.getAttribute("reviewStatus") != null){
+    out.println("<h4 id='reviewStatus'><b>Your review has been added! Thank you for sharing your experience.</b></h4>");
+    session.setAttribute("reviewStatus", null);
+}
+ArrayList<String> user = (ArrayList<String>) session.getAttribute("user");
 if(request.getParameter("review") != null)
 {
-    out.println("<form action='addReview.jsp'>");
-    out.println("<p>Rating(1-5): <input type='text' name='productRating'></p>");
-    out.println("<p>Customer Id: <input type='text' name='customerId'></p>");
-    out.println("<p>Description: <input type='text' name='review'></p>");
-    out.println("<input class='input2' type='submit'>");
-    out.println("</form>");
+    if(user != null){
+        out.println("<form id='reviewBox' action='addReview.jsp' method=get>");
+        out.println("<p>Rating(1-5): <input type='text' name='productRating'></p>");
+        out.println("<input type='hidden' name='customerId' value ='"+user.get(0)+"' readonly>");
+        out.println("<input type='hidden' name='productId' value ='"+productId+"' readonly>");
+        out.println("<p>Description: <input type='text' name='review'></p>");
+        out.println("<input class='input2' type='submit'>");
+        out.println("</form>");
+    }
+    else{
+        response.sendRedirect("login.jsp");
+    }
 }
 %>
 <%@ include file='listReview.jsp' %>

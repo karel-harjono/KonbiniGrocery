@@ -58,7 +58,7 @@
 	<h1>Customer List</h1>
 	<p>
 		<a href=index.jsp><button class="button"><b>Main Menu &#127968</b></button></a>
-		<a href=listprod.jsp><button class="button"><b>List Customer &#128221</b></button></a>
+		<a href=listprod.jsp><button class="button"><b>List Products &#128221</b></button></a>
 	</p>
 </header>
 
