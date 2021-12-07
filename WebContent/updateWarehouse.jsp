@@ -1,4 +1,4 @@
-<%@ include file="auth.jsp"%>
+<%@ include file="authAdmin.jsp"%>
 <%@ page import="java.text.NumberFormat" %>
 <%@ include file="jdbc.jsp" %>
 <%@ include file="auth.jsp"%>

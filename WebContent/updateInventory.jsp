@@ -1,6 +1,6 @@
 <%@ page import="java.text.NumberFormat" %>
 <%@ include file="jdbc.jsp" %>
-<%@ include file="auth.jsp"%>
+<%@ include file="authAdmin.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
