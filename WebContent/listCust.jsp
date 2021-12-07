@@ -7,29 +7,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Konbini Grocery Order List</title>
+<title>Konbini Grocery Customer List</title>
     <style>
             @font-face{
-                    font-family: customFont;
-                    src: url(NikkyouSans-mLKax.ttf);
-            }
-            header{
-                text-align: center;
                 font-family: customFont;
-                font-size: 40px;
-                padding: 0px;
+                src: url(NikkyouSans-mLKax.ttf);
             }
+			h2{
+				text-align: left;
+				font-family: customFont;
+				font-size: 30px;
+				padding: 0px;
+			}
 			table{
 				width: 100%;
-			}
-			table, td{
 				border: 1px solid #7E8193;
 			}
             td{
                 font-family: sans-serif;
                 font-size: 14px;
+				text-align: center;
 				height: 25px;
+				border: 1px solid #7E8193;
             }
+			p{
+				font-family:sans-serif;
+				font-size: 18px;
+				text-align: left;
+				font-weight: bold;
+			}
+			a{
+        		color: black;
+    		}
+    		a:hover{
+        		color:#FAAA96;
+    		}
 			.tableheader{
 				height: 30px;
 				font-size: 18px;
@@ -41,11 +53,13 @@
 				font-family: sans-serif;
 				font-size: 18px;
 				text-align:center;
-				padding: 8px;
+				font-weight: bold;
+				padding: 6px;
 				margin: 4px 2px;
 				background: #F5CEC5;
 				transition-duration: 0.4s;
 				cursor: pointer;
+				float:right;
 			}
 			.button:hover{
 				background-color: #FAAA96;
@@ -53,57 +67,51 @@
     </style>
 </head>
 <body>
+<%@ include file="header.jsp" %>
 
-<header>
-	<h1>Customer List</h1>
+	<h2>Customer List
+		<a href=index.jsp><button class="button">Main Menu &#127968</button></a>
+		<a href=admin.jsp><button class="button">Admin Page &#128100</button></a>
+	</h2>
+
 	<p>
-		<a href=index.jsp><button class="button"><b>Main Menu &#127968</b></button></a>
-		<a href=listprod.jsp><button class="button"><b>List Products &#128221</b></button></a>
+		&#127800 <a href=addCust.jsp>Add new customer here</a> // INI PERLU PARAMETERS BAANYAK BANGET, BINGUNG
 	</p>
-</header>
 
 <%
-//Note: Forces loading of SQL Server driver
-try
-{	// Load driver class
-	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-}
-catch (java.lang.ClassNotFoundException e)
-{
-	out.println("ClassNotFoundException: " +e);
-}
-
-// Useful code for formatting currency values:
-NumberFormat currFormat = NumberFormat.getCurrencyInstance(Locale.US);
-// out.println(currFormat.format(5.0);  // Prints $5.00
-
-// Make connection
-String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-String uid = "SA";
-String pw = "YourStrong@Passw0rd";
-
 // Write query to retrieve all order summary records
-try (Connection con = DriverManager.getConnection(url, uid, pw);
-		Statement stmt = con.createStatement();)
+try
 {
+	getConnection();
 	String SQL = "SELECT customerId, firstName, lastName, email, phonenum, address, city, state, postalCode, country, userId FROM customer";
 	PreparedStatement pst = con.prepareStatement(SQL);
 	ResultSet rst = pst.executeQuery();
 	ResultSetMetaData rstmd = rst.getMetaData();
 
+	out.println("<table><tr>");
+		for(int i = 1; i<12; i++) {
+			out.println("<td class='tableheader'>"+rstmd.getColumnName(i)+"</td>");
+		}
+	out.println("</tr>");
+
 	while(rst.next()){
-		out.println("<table border =1>");
-		for(int i = 1; i<12; i++) out.println("<tr><th>"+rstmd.getColumnName(i)+"</th><th>"+rst.getString(i)+"</th></tr>");
+		out.println("<tr>");
+		for(int i = 1; i<12; i++) {
+			out.println("<td>"+rst.getString(i)+"</td>");
+		}
+		out.println("</tr>");
 	}
-	out.println("</table>");
+	out.println("</table><br>");
+	
 }
 catch (Exception e)
 {
     out.print(e);
 }
-
-
-
+finally
+{	
+	closeConnection();	
+}
 // Close connection
 %>
 

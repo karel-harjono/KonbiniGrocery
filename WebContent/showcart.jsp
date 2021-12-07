@@ -76,7 +76,7 @@
 </style>
 </head>
 <body>
-
+<%@ include file="header.jsp" %>
 <%
 // Get the current list of products
 @SuppressWarnings({"unchecked"})
@@ -171,11 +171,12 @@ else
 	out.println("</table>");
 
 	out.println("<a href=\"checkout.jsp\"><button class='button'><b>Check Out &#128718</b></button></a>");
+	out.println("<a href='listprod.jsp'><button class='button'><b>Continue Shopping 🛍 </b></button></a>");
 }
 // set the shopping cart
 session.setAttribute("productList", productList);
 %>
-<a href="listprod.jsp"><button class='button'><b>Continue Shopping 🛍 </b></button></a>
+
 </body>
 </html> 
 

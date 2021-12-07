@@ -1,32 +1,26 @@
 <%@ include file="auth.jsp"%>
 <%@ page import="java.text.NumberFormat" %>
 <%@ include file="jdbc.jsp" %>
+<%@ include file="auth.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Add Warehouse</title>
+	<style>
+		h3{
+			text-align: center;
+			font-family: sans-serif;
+			font-size: 20px;
+		}
+	</style>
 </head>
 <body>
 <%
-try
-{	// Load driver class
-	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-}
-catch (java.lang.ClassNotFoundException e)
-{
-	out.println("ClassNotFoundException: " +e);
-}
-
-
-// Make connection
-String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-String uid = "SA";
-String pw = "YourStrong@Passw0rd";
 
 // Write query to retrieve all order summary records
-try (Connection con = DriverManager.getConnection(url, uid, pw);
-		Statement stmt = con.createStatement();)
+try
 {
+	getConnection();
 	String name = request.getParameter("warehouseName");
 	String SQL = "INSERT INTO warehouse (warehouseName) VALUES (?)";
 	PreparedStatement pst = con.prepareStatement(SQL);
@@ -34,14 +28,17 @@ try (Connection con = DriverManager.getConnection(url, uid, pw);
 
 	int check = pst.executeUpdate();
 
-	if(check >0) out.println("new warehouse added");
-	else out.println("failed to add warehouse");
+	if(check >0) out.println("<h3>New warehouse added.</h3>");
+	else out.println("<h3 style='color: red;'>Failed to add warehouse.</h3>");
 }
 catch (Exception e)
 {
     out.print(e);
 }
-
+finally
+{	
+	closeConnection();	
+}
 
 
 // Close connection

@@ -3,21 +3,22 @@
 <%@ page import="java.util.Locale" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
 <%@ include file="jdbc.jsp" %>
+<%@ include file="auth.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Konbini Grocery Order List</title>
     <style>
             @font-face{
-                    font-family: customFont;
-                    src: url(NikkyouSans-mLKax.ttf);
-            }
-            header{
-                text-align: center;
                 font-family: customFont;
-                font-size: 40px;
-                padding: 0px;
+                src: url(NikkyouSans-mLKax.ttf);
             }
+			h2{
+				text-align: left;
+				font-family: customFont;
+				font-size: 30px;
+				padding: 0px;
+			}
 			table{
 				width: 100%;
 			}
@@ -40,11 +41,13 @@
 				font-family: sans-serif;
 				font-size: 18px;
 				text-align:center;
-				padding: 8px;
+				font-weight: bold;
+				padding: 6px;
 				margin: 4px 2px;
 				background: #F5CEC5;
 				transition-duration: 0.4s;
 				cursor: pointer;
+				float:right;
 			}
 			.button:hover{
 				background-color: #FAAA96;
@@ -52,25 +55,14 @@
     </style>
 </head>
 <body>
-
-<header>
-	<h1>Order List</h1>
-	<p>
-		<a href=index.jsp><button class="button"><b>Main Menu &#127968</b></button></a>
-		<a href=listprod.jsp><button class="button"><b>List Products &#128221</b></button></a>
-	</p>
-</header>
+<%@ include file="header.jsp" %>
+	<h2>Order List
+		<a href=index.jsp><button class="button">Main Menu &#127968</button></a>
+		<a href=admin.jsp><button class="button">Admin Page &#128100</button></a>
+	</h2>
 
 <%
 //Note: Forces loading of SQL Server driver
-try
-{	// Load driver class
-	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-}
-catch (java.lang.ClassNotFoundException e)
-{
-	out.println("ClassNotFoundException: " +e);
-}
 
 // Useful code for formatting currency values:
 NumberFormat currFormat = NumberFormat.getCurrencyInstance(Locale.US);

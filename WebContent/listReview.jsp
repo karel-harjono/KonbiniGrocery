@@ -13,7 +13,7 @@
                     font-family: customFont;
                     src: url(NikkyouSans-mLKax.ttf);
             }
-			.h1_review{
+			h2{
             	text-align: center;
             	font-family: customFont;
             	font-size: 40px;
@@ -64,7 +64,7 @@
 </head>
 <body>
 
-<h1 class='h1_review'>Reviews</h1>
+<h2>Reviews</h2>
 
 <%
 // Useful code for formatting currency values:

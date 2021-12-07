@@ -1,51 +1,56 @@
 <%@ include file="auth.jsp"%>
 <%@ page import="java.text.NumberFormat" %>
 <%@ include file="jdbc.jsp" %>
+<%@ include file="auth.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add Warehouse</title>
+	<title>Update Warehouse</title>
+	<style>
+		h3{
+			text-align: center;
+			font-family: sans-serif;
+			font-size: 20px;
+		}
+	</style>
 </head>
 <body>
+	
 <%
+String warehouseId = request.getParameter("warehouseId");
+String warehouseName = request.getParameter("warehouseName");
 try
-{	// Load driver class
-	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-}
-catch (java.lang.ClassNotFoundException e)
 {
-	out.println("ClassNotFoundException: " +e);
-}
-
-
-// Make connection
-String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-String uid = "SA";
-String pw = "YourStrong@Passw0rd";
-
-// Write query to retrieve all order summary records
-try (Connection con = DriverManager.getConnection(url, uid, pw);
-		Statement stmt = con.createStatement();)
-{
-	int id = Integer.parseInt(request.getParameter("id"));
-	String name = request.getParameter("warehouseName");
+	getConnection();
+	int id=-1;
+	try
+	{
+		id = Integer.parseInt(warehousetId);
+	} 
+	catch(Exception e)
+	{
+		out.println("<h3 style='color: red;'>Invalid warehouse id!  Please try again.</h3>");
+		return;
+	}
 
 	String SQL = "UPDATE warehouse SET warehouseName = ? WHERE warehouseId = ?";
 
 	PreparedStatement pst = con.prepareStatement(SQL);
-	pst.setString(1,name); pst.setInt(2,id);
+	pst.setString(1,warehouseName); 
+	pst.setInt(2,warehouseId);
 
 	int check = pst.executeUpdate();
-	if(check >0) out.println("Warehouse updated");
-	else out.println("failed to update warehouse");
+	if(check > 0) out.println("<h3>Warehouse updated.</h3>");
+	else out.println("<h3 style='color: red;'>Failed to update warehouse. Please try again.</h3>");
 }
 catch (Exception e)
 {
     out.print(e);
 }
-
-
-
+finally
+{	
+	closeConnection();	
+}
 // Close connection
 %>
 

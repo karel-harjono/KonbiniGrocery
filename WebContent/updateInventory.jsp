@@ -1,32 +1,24 @@
-<%@ include file="auth.jsp"%>
 <%@ page import="java.text.NumberFormat" %>
 <%@ include file="jdbc.jsp" %>
+<%@ include file="auth.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Update Inventory</title>
+	<style>
+		h3{
+			text-align: center;
+			font-family: sans-serif;
+			font-size: 20px;
+		}
+	</style>
 </head>
 <body>
 <%
-try
-{	// Load driver class
-	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-}
-catch (java.lang.ClassNotFoundException e)
-{
-	out.println("ClassNotFoundException: " +e);
-}
-
-
-// Make connection
-String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-String uid = "SA";
-String pw = "YourStrong@Passw0rd";
-
 // Write query to retrieve all order summary records
-try (Connection con = DriverManager.getConnection(url, uid, pw);
-		Statement stmt = con.createStatement();)
+try
 {
+	getConnection();
 	int wid = Integer.parseInt(request.getParameter("warehouse id"));
 	int pid = Integer.parseInt(request.getParameter("product id"));
 	int quantity = Integer.parseInt(request.getParameter("new quantity"));
@@ -41,15 +33,17 @@ try (Connection con = DriverManager.getConnection(url, uid, pw);
 	pst.setInt(4,wid);
 
 	int check = pst.executeUpdate();
-	if(check >0) out.println("product inventory in warehouse updated");
-	else out.println("failed to update product inventory in warehouse");
+	if(check >0) out.println("<h3>Product inventory in warehouse updated.</h3>");
+	else out.println("<h3 style='color: red;'>Failed to update product inventory in warehouse.</h3>");
 }
 catch (Exception e)
 {
     out.print(e);
 }
-
-
+finally
+{	
+	closeConnection();	
+}
 
 // Close connection
 %>

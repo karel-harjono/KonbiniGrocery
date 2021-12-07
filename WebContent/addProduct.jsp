@@ -5,28 +5,64 @@
 <html>
 <head>
 	<title>Add Product</title>
+	<style>
+		h2{
+			text-align: left;
+			font-family: customFont;
+			font-size: 30px;
+			padding: 0px;
+		}
+		h3{
+			text-align: center;
+			font-family: sans-serif;
+			font-size: 20px;
+		}p{
+			font-family:sans-serif;
+			font-size: 18px;
+			text-align: left;
+			font-weight: bold;
+		}
+		a{
+    		color: black;
+    	}
+    	a:hover{
+        	color:#FAAA96;
+    	}
+		.button{
+			font-family: sans-serif;
+			font-size: 18px;
+			text-align:center;
+			font-weight: bold;
+			padding: 6px;
+			margin: 4px 2px;
+			background: #F5CEC5;
+			transition-duration: 0.4s;
+			cursor: pointer;
+			float:right;
+		}
+		.button:hover{
+			background-color: #FAAA96;
+		}
+	</style>
 </head>
 <body>
+	<%@ include file="header.jsp" %>
+
+	<h2>Add New Product
+		<a href=index.jsp><button class="button">Main Menu &#127968</button></a>
+		<a href=admin.jsp><button class="button">Admin Page &#128100</button></a>
+	</h2>
+	<p>
+		&#127800<a href=listprod.jsp>List Products</a>
+	</p>
+	<p>
+		&#127800<a href=updateProduct.jsp>Update Product</a> // INI PERLU PARAMETERS BAANYAK BANGET, BINGUNG
+	</p>
 <%
-try
-{	// Load driver class
-	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-}
-catch (java.lang.ClassNotFoundException e)
-{
-	out.println("ClassNotFoundException: " +e);
-}
-
-
-// Make connection
-String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-String uid = "SA";
-String pw = "YourStrong@Passw0rd";
-
 // Write query to retrieve all order summary records
-try (Connection con = DriverManager.getConnection(url, uid, pw);
-		Statement stmt = con.createStatement();)
+try
 {
+	getConnection();
 	String prodName = request.getParameter("productName");
 	double prodPrice = Double.parseDouble(request.getParameter("productPrice"));
 	String prodDesc = request.getParameter("productDesc");
@@ -42,15 +78,17 @@ try (Connection con = DriverManager.getConnection(url, uid, pw);
 
 	int check = pst.executeUpdate();
 
-	if(check >0) out.println("new product added");
-	else out.println("failed to add product");
+	if(check >0) out.println("<h3>New product added.</h3>");
+	else out.println("<h3 style='color: red;'>Failed to add product.</h3>");
 }
 catch (Exception e)
 {
     out.print(e);
 }
-
-
+finally
+{	
+	closeConnection();	
+}
 
 // Close connection
 %>

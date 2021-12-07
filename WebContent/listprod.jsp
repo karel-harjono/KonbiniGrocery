@@ -35,6 +35,7 @@
 		font-family: sans-serif;
 		font-size: 14px;
 		text-align: center;
+		font-weight: bold;
 		height: 25px;
 	}
 	form{
@@ -79,9 +80,10 @@
     }
 	a{
         color: black;
+		text-decoration: none;
     }
 	a:hover{
-		color: #7E8193;
+		color: #FAAA96;
 	}
 </style>
 </head>

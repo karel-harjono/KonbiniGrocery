@@ -3,7 +3,7 @@
         font-family: customFont;
         src: url(NikkyouSans-mLKax.ttf);
     }
-    h1{
+    .h1_header{
         text-align: center;
         font-family: customFont;
         font-size: 60px;
@@ -27,8 +27,8 @@
 	}
 </style>
 
-<h1>
-    <a class='a_header' href="index.jsp">&nbsp&nbsp&#9961 Konbini &#9961</a>
+<h1 class='h1_header'>
+    <a class='a_header' href="index.jsp">&nbsp&nbsp&nbsp&nbsp&#9961 Konbini &#9961</a>
     <%
     // TODO: Display user name that is logged in (or nothing if not logged in)
 	String userName = (String) session.getAttribute("authenticatedUser");

@@ -61,14 +61,12 @@
 </head>
 <body>
     <%@ include file="header.jsp" %>
-    <header>
 		<h2>Enter your customer id to complete the transaction:</h2>
         <p>New to our store?&nbsp<a href=register.jsp>Register here!</a>
 			<a href=index.jsp><button class='button'>Main Menu &#127968</button></a>
             <a href=showcart.jsp><button class='button'>Your Cart &#128722</button></a>
 		</p>
 		<br>
-	</header>
 
 <form method="post" action="order.jsp">
     <table>

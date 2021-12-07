@@ -53,7 +53,7 @@
             text-align: center;
             font-weight: bold;
             color:black;
-            padding: 4px;
+            padding: 6px;
             margin: 2px;
             transition-duration: 0.4s;
             cursor: pointer;
@@ -81,9 +81,6 @@
             width:100%;
             height:auto;
             padding:1%;
-        }
-        a, a:hover{
-            color: black;
         }
         div.outerContainer {
             padding: 20px;
@@ -117,7 +114,7 @@ try
         String link_image = "displayImage.jsp?id="+productId;
         
         out.println("<div class='container'>");
-        out.println("<h2>"+productName+"</h2>");
+        out.println("<h2>"+productName+"<a href=index.jsp><button class='button' style='float:right'>Main Menu &#127968</button></a></h2>");
         out.println("<p>"+productDesc+"</p>");
         // TODO: If there is a productImageURL, display using IMG tag
         // TODO: Retrieve any image stored directly in database. Note: Call displayImage.jsp with product id as parameter.
@@ -174,13 +171,6 @@ if(request.getParameter("review") != null)
 %>
 <%@ include file='listReview.jsp' %>
 
-
-<%-- 
-<table class='review'>
-    <tr>
-        <td class='tableheader'>Rating</td><td class='tableheader'>Description</td><td class='tableheader'>Date</td>
-    </tr>
-</table> --%>
 </div>
 </body>
 </html>

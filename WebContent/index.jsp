@@ -23,7 +23,7 @@
 			font-size: 18px;
 			text-align:center;
                         font-weight: bold;
-			padding: 8px;
+			padding: 6px;
 			margin: 4px 2px;
 			background: #F5CEC5;
 			transition-duration: 0.4s;
