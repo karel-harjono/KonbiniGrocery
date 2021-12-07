@@ -94,7 +94,7 @@
 	img{
         margin-left: 2%;
         margin-right: auto;
-        width: auto;
+        width: 100%;
         height: 25%;
         float:left;
     }
