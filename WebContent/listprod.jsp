@@ -25,6 +25,12 @@
 		font-size: 20px;
 		text-align: left;
 	}
+	p{
+		font-family: sans-serif;
+		color: darkgray;
+		text-align: center;
+		font-size: 12px;
+	}
 	table{
 		width: 100%;
 	}
@@ -33,10 +39,9 @@
 	}
 	td{
 		font-family: sans-serif;
-		font-size: 14px;
+		font-size: 15px;
 		text-align: center;
 		font-weight: bold;
-		height: 25px;
 	}
 	form{
 		font-family: sans-serif;
@@ -85,6 +90,13 @@
 	a:hover{
 		color: #FAAA96;
 	}
+	img{
+        margin-left: 2%;
+        margin-right: auto;
+        width: auto;
+        height: 25%;
+        float:left;
+    }
 </style>
 </head>
 <body>
@@ -137,14 +149,14 @@ catch (java.lang.ClassNotFoundException e)
 try
 {
 	getConnection();
-	String sql_1 = "SELECT P.productName, P.productId, C.categoryName, P.productPrice "
+	String sql_1 = "SELECT P.productName, P.productId, C.categoryName, P.productPrice, P.productImageURL "
 				+ " FROM product P JOIN category C ON P.categoryId = C.categoryId ";
 	PreparedStatement pstmt_1 = null;
 	ResultSet rst_1 = null;
 	boolean hasName = name != null && !name.equals("");
 	boolean hasCat = category != null && !category.equals("All");
 	out.println("<h3>All Products<a href=index.jsp><button class='button2'><b>Main Menu 🏠</b></button></a><a href=showcart.jsp><button class='button2'><b>Your Cart 🛒</b></button></a></h3>");
-	out.println("<table><tr><td class='tableheader'></td><td class='tableheader'>Product Name</td><td class='tableheader'>Category</td><td class='tableheader'>Price</td></tr>");
+	out.println("<table><tr><td class='tableheader'></td><td class='tableheader'></td><td class='tableheader'>Product Name</td><td class='tableheader'>Category</td><td class='tableheader'>Price</td></tr>");
 
 	if (!hasName && !hasCat){
 		pstmt_1 = con.prepareStatement(sql_1);
@@ -171,10 +183,12 @@ try
 		String productId = rst_1.getString("productId");
 		String productName = rst_1.getString("productName");
 		Double productPrice = rst_1.getDouble("productPrice");
+		String imageURL = rst_1.getString("productImageURL");
 		String nameEncoded = java.net.URLEncoder.encode(productName, "UTF-8").replace("+","%20");
 		String link = "addcart.jsp?id="+productId+"&name="+nameEncoded+"&price="+productPrice;
 		String link_detail = "product.jsp?id="+productId;
 		out.println("<tr><td width=120px><a href="+link+"><button class='button'>Add to Cart 🛒</button></a></td>");
+		out.println("<td><img src='" + imageURL + "'></td>");
 		out.println("<td><a href="+link_detail+">"+rst_1.getString("productName")+"</a></td><td>"+rst_1.getString("categoryName")+"</td><td>"+currFormat.format(rst_1.getDouble("productPrice"))+"</td></tr>");
 	}
 	out.println("</table>");

@@ -50,6 +50,7 @@
 		        font-size: 18px;
 		        text-align: center;
 		        font-weight: bold;
+                color:black;
 		        padding: 4px;
 		        margin: 2px;
 		        transition-duration: 0.4s;
@@ -107,7 +108,7 @@
         <tr><td class='tableheader'>Address:</td><td><input class='input' type="text" name="address" value="" required></td></tr>
         <tr><td class='tableheader'>Zip/Postal Code:</td><td><input class='input' type="text" name="postalCode" value="" required></td></tr>
     </table>
-    <br><h2><input id="submit" type="submit" name="sub" disabled></h2>
+    <br><h2><input id="submit" type="submit" name="sub" class='input2' disabled></h2><br>
 </form>
 <p></p>
 </body>
