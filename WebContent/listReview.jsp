@@ -13,12 +13,13 @@
                     font-family: customFont;
                     src: url(NikkyouSans-mLKax.ttf);
             }
-            header{
-                text-align: center;
-                font-family: customFont;
-                font-size: 40px;
-                padding: 0px;
-            }
+			.h1_review{
+            	text-align: center;
+            	font-family: customFont;
+            	font-size: 40px;
+            	padding: 4px;
+            	color: black;
+        	}
 			table{
 				width: 100%;
 			}
@@ -29,6 +30,7 @@
                 font-family: sans-serif;
                 font-size: 14px;
 				height: 25px;
+				color: black;
             }
 			.tableheader{
 				height: 30px;
@@ -50,42 +52,31 @@
 			.button:hover{
 				background-color: #FAAA96;
 			}
+			a{
+        		color: black;
+        		text-decoration: none;
+    		}
+    		a:hover{
+        		color:#FAAA96;
+        		text-decoration: none;
+    		}
     </style>
 </head>
 <body>
 
-<header>
-	<h1>Reviews</h1>
-	<p>
-		<%-- <a href=shop.html><button class="button"><b>Main Menu &#127968</b></button></a> --%>
-		<%-- <a href=listprod.jsp><button class="button"><b>List Customer &#128221</b></button></a> --%>
-	</p>
-</header>
+<h1 class='h1_review'>Reviews</h1>
 
 <%
-//Note: Forces loading of SQL Server driver
-try
-{	// Load driver class
-	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-}
-catch (java.lang.ClassNotFoundException e)
-{
-	out.println("ClassNotFoundException: " +e);
-}
-
 // Useful code for formatting currency values:
 // NumberFormat currFormat = NumberFormat.getCurrencyInstance(Locale.US);
 // out.println(currFormat.format(5.0);  // Prints $5.00
 
 // Make connection
-String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-String uid = "SA";
-String pw = "YourStrong@Passw0rd";
 
 // Write query to retrieve all order summary records
-try (Connection con = DriverManager.getConnection(url, uid, pw);
-		Statement stmt = con.createStatement();)
+try
 {
+	getConnection();
 	int id = Integer.parseInt(request.getParameter("id"));
 
 	String SQL = "SELECT reviewRating, reviewComment FROM review WHERE productId = ?";
@@ -93,14 +84,14 @@ try (Connection con = DriverManager.getConnection(url, uid, pw);
 	pst.setInt(1,id);
 	ResultSet rst = pst.executeQuery();
 
-	out.println("<table border =1><tr><th>Review Rating</th><th>Review Comments</th></tr>");
+	out.println("<table><tr><td class='tableheader'>Rating</td><td class='tableheader'>Comments</td></tr>");
 	int numOfReviews = 0;
 	while(rst.next()){
 		out.println("<tr><td>"+rst.getInt(1)+"</td><td>"+rst.getString(2)+"</td></tr>");
 		numOfReviews++;
 	}
 	if(numOfReviews == 0){
-		out.println("<tr><td colspan=2>There are no reviews currently on this product. Be the first to <a href='product.jsp?id="+id+"&review=true'>review</a> this product!</td></tr>");
+		out.println("<tr><td colspan=2>There are no reviews currently on this product. Be the first to <a href='product.jsp?id="+id+"&review=true'><b>review</b></a> this product!</td></tr>");
 	}
 	out.println("</table>");
 }
@@ -108,7 +99,10 @@ catch (Exception e)
 {
     out.print(e);
 }
-
+finally
+{
+	closeConnection();
+}
 
 
 // Close connection

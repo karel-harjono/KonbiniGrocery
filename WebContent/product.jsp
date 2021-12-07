@@ -14,13 +14,6 @@
             font-family: customFont;
             src: url(NikkyouSans-mLKax.ttf);
         }
-        h1{
-            text-align: center;
-            font-family: customFont;
-            font-size: 40px;
-            padding: 8px;
-            color: black;
-        }
         h2, p{
             font-family: customFont;
 		    font-size: 25px;
@@ -31,10 +24,35 @@
             font-family: sans-serif;
             font-size: 18px;
         }
-        .button{
+        table{
+		    width: 100%;
+	    }
+	    table, td{
+		    border: 1px solid #7E8193;
+	    }
+	    td{
+		    font-family: sans-serif;
+		    font-size: 14px;
+		    text-align: center;
+		    height: 25px;
+	    }
+	    form{
+		    font-family: sans-serif;
+		    font-size: 15px;
+	    }
+	    .tableheader{
+		    height: 30px;
+		    font-size: 18px;
+		    font-family: customFont;
+		    text-align: center;
+		    background-color: #F5CEC5;
+	    }
+        .button, input, .input2{
             font-family: sans-serif;
             font-size: 16px;
             text-align: center;
+            font-weight: bold;
+            color:black;
             padding: 4px;
             margin: 2px;
             transition-duration: 0.4s;
@@ -42,9 +60,15 @@
             background: #F5CEC5;
             left: 50%;
         }
-        .button:hover{
+        input{
+            background: #FCFBF6;
+        }
+        .button:hover, .input2:hover{
             background-color: #FAAA96;
         }
+        input:hover {
+		    background-color: #F5CEC5;
+	    }
         img{
             margin-left: 2%;
             margin-right: auto;
@@ -112,8 +136,8 @@ try
         String nameEncoded = java.net.URLEncoder.encode(productName, "UTF-8").replace("+","%20");
 	    String link = "addcart.jsp?id="+productId+"&name="+nameEncoded+"&price="+productPrice;
         out.println("<p><b>&nbsp&nbsp&nbspProduct ID: </b>"+productId+"</p><p><b>&nbsp&nbsp&nbspPrice: </b>"+currFormat.format(productPrice)+"</p>");
-	    out.println("<p>&nbsp&nbsp&nbsp<a href="+link+"><button class='button'><b>Add to Cart 🛒</b></button></a>");
-        out.println("<a href=listprod.jsp><button class='button'><b>Continue Shopping 🛍 </b></button></a></p></div>");
+	    out.println("<p>&nbsp&nbsp&nbsp<a href="+link+"><button class='button'>Add to Cart 🛒</button></a>");
+        out.println("<a href=listprod.jsp><button class='button'>Continue Shopping 🛍 </button></a></p></div>");
     }
     
 }
@@ -126,7 +150,7 @@ finally
 	closeConnection();
 }
 
-out.println("<a id='reviewButton' href='product.jsp?id="+productId+"&review=true#reviewBox'><button class='button'>Review this product</button></a>");
+out.println("<div class='container'><a id='reviewButton' href='product.jsp?id="+productId+"&review=true#reviewBox'><button class='button'>Review this product 💬</button></a>");
 if(session.getAttribute("reviewStatus") != null){
     out.println("<h4 id='reviewStatus'><b>Your review has been added! Thank you for sharing your experience.</b></h4>");
     session.setAttribute("reviewStatus", null);
@@ -136,12 +160,12 @@ if(request.getParameter("review") != null)
 {
     if(user != null){
         out.println("<form id='reviewBox' action='addReview.jsp' method=get>");
-        out.println("<p>Rating(1-5): <input type='text' name='productRating'></p>");
+        out.println("<p><b>&nbspRating(1-5):</b> <input type='text' name='productRating'></p>");
         out.println("<input type='hidden' name='customerId' value ='"+user.get(0)+"' readonly>");
         out.println("<input type='hidden' name='productId' value ='"+productId+"' readonly>");
-        out.println("<p>Description: <input type='text' name='review'></p>");
+        out.println("<p><b>&nbspDescription:</b> <input type='text' name='review'></p>");
         out.println("<input class='input2' type='submit'>");
-        out.println("</form>");
+        out.println("</form></div><hr>");
     }
     else{
         response.sendRedirect("login.jsp");
@@ -154,7 +178,7 @@ if(request.getParameter("review") != null)
 <%-- 
 <table class='review'>
     <tr>
-        <th>Rating</th><th>Description</th><th>Date</th>
+        <td class='tableheader'>Rating</td><td class='tableheader'>Description</td><td class='tableheader'>Date</td>
     </tr>
 </table> --%>
 </div>
