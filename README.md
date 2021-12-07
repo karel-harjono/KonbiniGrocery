@@ -19,7 +19,7 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | Search for a product by name	                      | Core	    |         1		    |       	|  Done-Liv             |
 | Browse products by category                         | Core	    |         1		    |       	|  Done-Liv             |
 | List products (by search/browse)	                  | Core	    |         1		    |       	|  Done-Liv             |
-| List products with image | Core	| 1| | will do -Liv |
+| List products with image | Core	| 1| | Done -Liv |
 | Page header with menu	| Basic	| 1 | | Done-Liv |
 | Page header shows current logged in user	| Basic | 1 | |Done-Liv |
 | Dynamic products on page based on sales	| Basic |	2	|	
