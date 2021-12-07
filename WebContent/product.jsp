@@ -20,6 +20,9 @@
 		    text-align: left;
             color: black;
 	    }
+        .productTitle{
+            text-align: left;
+        }
         p{
             font-family: sans-serif;
             font-size: 18px;
@@ -114,7 +117,7 @@ try
         String link_image = "displayImage.jsp?id="+productId;
         
         out.println("<div class='container'>");
-        out.println("<h2>"+productName+"<a href=index.jsp><button class='button' style='float:right'>Main Menu &#127968</button></a></h2>");
+        out.println("<h2 class='productTitle'>"+productName+"<a href=index.jsp><button class='button' style='float:right'>Main Menu &#127968</button></a></h2>");
         out.println("<p>"+productDesc+"</p>");
         // TODO: If there is a productImageURL, display using IMG tag
         // TODO: Retrieve any image stored directly in database. Note: Call displayImage.jsp with product id as parameter.

@@ -28,7 +28,7 @@
 </style>
 
 <h1 class='h1_header'>
-    <a class='a_header' href="index.jsp">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&#9961 Konbini &#9961</a>
+    <a class='a_header' href="index.jsp">&nbsp&nbsp&nbsp&nbsp&nbsp&#9961 Konbini &#9961</a>
     <%
     // TODO: Display user name that is logged in (or nothing if not logged in)
 	String userName = (String) session.getAttribute("authenticatedUser");
