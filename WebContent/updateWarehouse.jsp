@@ -1,7 +1,6 @@
-<%@ include file="authAdmin.jsp"%>
 <%@ page import="java.text.NumberFormat" %>
 <%@ include file="jdbc.jsp" %>
-<%@ include file="auth.jsp"%>
+<%@ include file="authAdmin.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +24,7 @@ try
 	int id=-1;
 	try
 	{
-		id = Integer.parseInt(warehousetId);
+		id = Integer.parseInt(warehouseId);
 	} 
 	catch(Exception e)
 	{
@@ -37,10 +36,10 @@ try
 
 	PreparedStatement pst = con.prepareStatement(SQL);
 	pst.setString(1,warehouseName); 
-	pst.setInt(2,warehouseId);
+	pst.setInt(2,id);
 
 	int check = pst.executeUpdate();
-	if(check > 0) out.println("<h3>Warehouse updated.</h3>");
+	if(check > 0) {out.println("<h3>Warehouse updated.</h3>");response.sendRedirect("listWarehouse.jsp");}
 	else out.println("<h3 style='color: red;'>Failed to update warehouse. Please try again.</h3>");
 }
 catch (Exception e)

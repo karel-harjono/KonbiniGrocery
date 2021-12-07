@@ -1,7 +1,6 @@
-<%@ include file="auth.jsp"%>
 <%@ page import="java.text.NumberFormat" %>
 <%@ include file="jdbc.jsp" %>
-<%@ include file="auth.jsp"%>
+<%@ include file="authAdmin.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +27,7 @@ try
 
 	int check = pst.executeUpdate();
 
-	if(check >0) out.println("<h3>New warehouse added.</h3>");
+	if(check >0) {out.println("<h3>New warehouse added.</h3>");response.sendRedirect("listWarehouse.jsp");}
 	else out.println("<h3 style='color: red;'>Failed to add warehouse.</h3>");
 }
 catch (Exception e)
