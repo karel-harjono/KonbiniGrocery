@@ -160,7 +160,7 @@ if(request.getParameter("review") != null)
 {
     if(user != null){
         out.println("<form id='reviewBox' action='addReview.jsp' method=get>");
-        out.println("<p><b>&nbspRating(1-5):</b> <input type='text' name='productRating'></p>");
+        out.println("<p><b>&nbspRating(1-5):</b> <input type='tel' name='productRating' pattern=\"[1-5]{1}\" required></p>");
         out.println("<input type='hidden' name='customerId' value ='"+user.get(0)+"' readonly>");
         out.println("<input type='hidden' name='productId' value ='"+productId+"' readonly>");
         out.println("<p><b>&nbspDescription:</b> <input type='text' name='review'></p>");
