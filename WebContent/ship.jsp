@@ -58,6 +58,7 @@
 		Statement stmt = con.createStatement();
 		// TODO: Get order id
 		String orderId = request.getParameter("orderId");
+		String desc = request.getParameter("shipmentDesc");
 		
 		// TODO: Check if valid order id
 		int id = -1;
@@ -75,9 +76,9 @@
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		pstmt.setInt(1, id);
 		ResultSet rs = pstmt.executeQuery();
-		String sql_insert = "INSERT INTO shipment (shipmentDate, warehouseId) VALUES (?, 1)";
+		String sql_insert = "INSERT INTO shipment (shipmentDate, warehouseId, shipmentDesc) VALUES (?, 1, ?)";
 		pstmt = con.prepareStatement(sql_insert);
-		boolean success = true;
+		boolean success = false;
 		int productId = -1;
 		int productQty = -1;
 		out.println("<h3>PROCESSING SHIPMENT FOR ORDER ID: "+orderId+"</h3>");
@@ -89,6 +90,7 @@
 			java.util.Date utilDate = new java.util.Date();
     		java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
 			pstmt.setDate(1, sqlDate);
+			pstmt.setString(2, desc);
 			pstmt.executeUpdate();
 			ResultSet keys = pstmt.getGeneratedKeys();
 			keys.next();
@@ -115,6 +117,7 @@
 				int newQty = qtyRs.getInt("quantity");
 				out.print("<br>Old inventory: "+ inven_qty);
 				out.println("<span class='tab'> New inventory: " + newQty + "</span></h3>");
+				success = true;
 			}
 			else{
 				// TODO: If any item does not have sufficient inventory, cancel transaction and rollback. Otherwise, update inventory for each item.
@@ -150,7 +153,7 @@
 	} 
 %>                       				
 
-<h2><a href="index.jsp"><button class='button'><b>Back to Main Page &#127968</b></button></a></h2>
+<h2><a href="admin.jsp"><button class='button'><b>Back to Admin Page &#127968</b></button></a></h2>
 
 </body>
 </html>
