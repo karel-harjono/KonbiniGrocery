@@ -74,7 +74,7 @@
 		<a href=admin.jsp><button class="button">Admin Page &#128100</button></a>
 	</h2>
 	<p>
-		&#127800<a href=updateInventory.jsp>Update inventory here</a> // INI PERLU PARAMETERS BAANYAK BANGET, BINGUNG
+		&#127800<a href=updateInventory.jsp>Update inventory here</a>
 	</p>
 <%
 //Note: Forces loading of SQL Server driver
