@@ -100,7 +100,7 @@ finally
 <br>
 <div class='list'>
 	<a href='listCust.jsp'><button class="button">List Customer</button></a>
-	<a href='listProduct'><button class='button'>List Inventory</button></a>
+	<a href='listProduct.jsp'><button class='button'>List Inventory</button></a>
 </div>
 <div>
 

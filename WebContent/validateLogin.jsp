@@ -6,6 +6,8 @@
 
 	try
 	{
+		session.setAttribute("authenticatedUser", null);
+		session.setAttribute("user", null);
 		authenticatedUser = validateLogin(out,request,session);
 	}
 	catch(IOException e)

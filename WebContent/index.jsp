@@ -50,7 +50,10 @@
         
         <h2><a href="admin.jsp"><button class="button">Administrators &#128100</button></a></h2>
         
-        <h2><a href="logout.jsp"><button class="button">Log out &#9940</button></a></h2>
+        <% 
+        if(session.getAttribute("authenticatedUser") != null)
+            out.println("<h2><a href=\"logout.jsp\"><button class=\"button\">Log out &#9940</button></a></h2>"); 
+        %>
 </body>
 </head>
 
