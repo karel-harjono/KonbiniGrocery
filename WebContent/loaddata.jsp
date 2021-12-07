@@ -10,18 +10,19 @@
 <body>
 
 <%
-String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-String uid = "SA";
-String pw = "YourStrong@Passw0rd";
+//String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
+//String uid = "SA";
+//String pw = "YourStrong@Passw0rd";
 
 out.print("<h1>Connecting to database.</h1><br><br>");
 
-Connection con = DriverManager.getConnection(url, uid, pw);
+//Connection con = DriverManager.getConnection(url, uid, pw);
         
 String fileName = "/usr/local/tomcat/webapps/shop/orderdb_sql.ddl";
 
 try
 {
+    getConnection();
     // Create statement
     Statement stmt = con.createStatement();
     
@@ -50,6 +51,10 @@ try
 catch (Exception e)
 {
     out.print(e);
+}
+finally
+{	
+	closeConnection();	
 }  
 %>
 </body>

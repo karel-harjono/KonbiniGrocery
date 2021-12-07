@@ -8,25 +8,12 @@
 </head>
 <body>
 <%
-try
-{	// Load driver class
-	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-}
-catch (java.lang.ClassNotFoundException e)
-{
-	out.println("ClassNotFoundException: " +e);
-}
-
-
 // Make connection
-String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-String uid = "SA";
-String pw = "YourStrong@Passw0rd";
 
 // Write query to retrieve all order summary records
-try (Connection con = DriverManager.getConnection(url, uid, pw);
-		Statement stmt = con.createStatement();)
+try
 {
+	getConnection();
 	int id = Integer.parseInt(request.getParameter("id")); // disable option to update custId
 	String first = request.getParameter("firstName");
 	String last = request.getParameter("lastName");
@@ -66,7 +53,10 @@ catch (Exception e)
 {
     out.print(e);
 }
-
+finally
+{	
+	closeConnection();	
+}
 
 
 // Close connection

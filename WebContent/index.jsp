@@ -22,6 +22,7 @@
 			font-family: sans-serif;
 			font-size: 18px;
 			text-align:center;
+                        font-weight: bold;
 			padding: 8px;
 			margin: 4px 2px;
 			background: #F5CEC5;
@@ -39,24 +40,17 @@
 <body>
         <%@ include file="header.jsp" %>
 
-        <%
-        session.setAttribute("loginMessage", null);
-        // TODO: Display user name that is logged in (or nothing if not logged in)
-        if (userName == null){
-                out.println("<h2><a href=\"login.jsp\"><button class=\"button\"><b>Login &#9989</b></button></a></h2>");
-                out.println("<h2><a href=\"register.jsp\"><button class=\"button\"><b>New to our store? Register here! &#9989</b></button></a></h2>");
-        }
-        %>
+        <h2><a href="showcart.jsp"><button class="button">Your Cart &#128722</button></a></h2>
+
+        <h2><a href="listprod.jsp"><button class="button">Begin Shopping &#128717</button></a></h2>
         
-        <h2><a href="listprod.jsp"><button class="button"><b>Begin Shopping &#128717</b></button></a></h2>
+        <h2><a href="listorder.jsp"><button class="button">List All Orders &#128176</button></a></h2>
         
-        <h2><a href="listorder.jsp"><button class="button"><b>List All Orders &#128176</b></button></a></h2>
+        <h2><a href="customer.jsp"><button class="button">Customer Info &#128106</button></a></h2>
         
-        <h2><a href="customer.jsp"><button class="button"><b>Customer Info &#128106</b></button></a></h2>
+        <h2><a href="admin.jsp"><button class="button">Administrators &#128100</button></a></h2>
         
-        <h2><a href="admin.jsp"><button class="button"><b>Administrators &#128100</b></button></a></h2>
-        
-        <h2><a href="logout.jsp"><button class="button"><b>Log out &#9940</b></button></a></h2>
+        <h2><a href="logout.jsp"><button class="button">Log out &#9940</button></a></h2>
 </body>
 </head>
 
