@@ -1,7 +1,7 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.text.NumberFormat" %>
 <%@ page import="java.util.Locale" %>
-<%@ include file="jdbc.jsp" %>
+<%-- <%@ include file="jdbc.jsp" %> --%>
 <%@ include file="auth.jsp"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
 <!DOCTYPE html>
@@ -55,10 +55,10 @@
 <body>
 
 <header>
-	<h1>Customer List</h1>
+	<h1>Reviews</h1>
 	<p>
-		<a href=shop.html><button class="button"><b>Main Menu &#127968</b></button></a>
-		<a href=listprod.jsp><button class="button"><b>List Customer &#128221</b></button></a>
+		<%-- <a href=shop.html><button class="button"><b>Main Menu &#127968</b></button></a> --%>
+		<%-- <a href=listprod.jsp><button class="button"><b>List Customer &#128221</b></button></a> --%>
 	</p>
 </header>
 
@@ -74,7 +74,7 @@ catch (java.lang.ClassNotFoundException e)
 }
 
 // Useful code for formatting currency values:
-NumberFormat currFormat = NumberFormat.getCurrencyInstance(Locale.US);
+// NumberFormat currFormat = NumberFormat.getCurrencyInstance(Locale.US);
 // out.println(currFormat.format(5.0);  // Prints $5.00
 
 // Make connection
@@ -86,16 +86,21 @@ String pw = "YourStrong@Passw0rd";
 try (Connection con = DriverManager.getConnection(url, uid, pw);
 		Statement stmt = con.createStatement();)
 {
-	int id = Integer.parseInt(request.getParamater("product id"));
+	int id = Integer.parseInt(request.getParameter("id"));
 
 	String SQL = "SELECT reviewRating, reviewComment FROM review WHERE productId = ?";
 	PreparedStatement pst = con.prepareStatement(SQL);
 	pst.setInt(1,id);
 	ResultSet rst = pst.executeQuery();
 
-	out.println("<table border =1><tr><th>"+Review Rating+"</th><th>+Review Comments+"</th></tr>");
-	while(rst.next){
+	out.println("<table border =1><tr><th>Review Rating</th><th>Review Comments</th></tr>");
+	int numOfReviews = 0;
+	while(rst.next()){
 		out.println("<tr><td>"+rst.getInt(1)+"</td><td>"+rst.getString(2)+"</td></tr>");
+		numOfReviews++;
+	}
+	if(numOfReviews == 0){
+		out.println("<tr><td colspan=2>There are no reviews currently on this product. Be the first to <a href='product.jsp?id="+id+"&review=true'>review</a> this product!</td></tr>");
 	}
 	out.println("</table>");
 }

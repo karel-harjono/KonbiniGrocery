@@ -27,9 +27,9 @@ String pw = "YourStrong@Passw0rd";
 try (Connection con = DriverManager.getConnection(url, uid, pw);
 		Statement stmt = con.createStatement();)
 {
-	int rating = Integer.parseInt(request.getParameter("product rating"));
-	int cid = Integer.parseInt(request.getParameter("customer id"));
-	int pid = Integer.parseInt(request.getParameter("product id"));
+	int rating = Integer.parseInt(request.getParameter("productRating"));
+	int cid = Integer.parseInt(request.getParameter("customerId"));
+	int pid = Integer.parseInt(request.getParameter("productId"));
 	String comment = request.getParameter("review");
 	  
 	String SQL = "INSERT INTO review (reviewRating, reviewDate, customerId, productId, reviewComment) VALUES (?,?,?,?,?)";

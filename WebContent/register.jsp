@@ -96,7 +96,7 @@
         <tr><td class='tableheader'>Address:</td><td><input class='input' type="text" name="address" value="" required></td></tr>
         <tr><td class='tableheader'>Zip/Postal Code:</td><td><input class='input' type="text" name="postalCode" value="" required></td></tr>
     </table>
-    <br><input class="input2" type="submit" name="sub">
+    <br><h2><input class="input2" type="submit" name="sub"></h2>
 </form>
 <p></p>
 <script type="text/javascript">

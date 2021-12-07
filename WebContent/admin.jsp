@@ -86,9 +86,9 @@ try
 	{
 		out.println("<tr><td align='center'>"+rst.getString(1)+"-"+rst.getString(2)+"-"+rst.getString(3)+"</td><td align='center'>"+currFormat.format(rst.getDouble(4))+"</td></tr>");
 	}
-	out.println("</table>");		
+	out.println("</table>");
 }
-catch (SQLException ex) 
+catch (SQLException ex)
 { 	
     out.println(ex); 
 }
@@ -97,6 +97,15 @@ finally
 	closeConnection();	
 }
 %>
+<br>
+<div class='list'>
+	<a href='listCust.jsp'><button class="button">List Customer</button></a>
+	<a href='listProduct'><button class='button'>List Inventory</button></a>
+</div>
+<div>
+
+</div>
+</table>
 </body>
 </html>
 

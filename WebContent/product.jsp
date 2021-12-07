@@ -60,10 +60,14 @@
         a, a:hover{
             color: black;
         }
+        div.outerContainer {
+            padding: 20px;
+            overflow:auto;
+        }
     </style>
 </head>
 <body>
-
+<div class='outerContainer'>
 <%@ include file="header.jsp" %>
 
 <%
@@ -120,8 +124,26 @@ finally
 {
 	closeConnection();
 }
+if(request.getParameter("review") != null)
+{
+    out.println("<form action='addReview.jsp'>");
+    out.println("<p>Rating(1-5): <input type='text' name='productRating'></p>");
+    out.println("<p>Customer Id: <input type='text' name='customerId'></p>");
+    out.println("<p>Description: <input type='text' name='review'></p>");
+    out.println("<input class='input2' type='submit'>");
+    out.println("</form>");
+}
 %>
+<%@ include file='listReview.jsp' %>
 
+
+<%-- 
+<table class='review'>
+    <tr>
+        <th>Rating</th><th>Description</th><th>Date</th>
+    </tr>
+</table> --%>
+</div>
 </body>
 </html>
 

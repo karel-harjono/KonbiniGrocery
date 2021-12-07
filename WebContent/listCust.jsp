@@ -57,7 +57,7 @@
 <header>
 	<h1>Customer List</h1>
 	<p>
-		<a href=shop.html><button class="button"><b>Main Menu &#127968</b></button></a>
+		<a href=index.jsp><button class="button"><b>Main Menu &#127968</b></button></a>
 		<a href=listprod.jsp><button class="button"><b>List Customer &#128221</b></button></a>
 	</p>
 </header>
@@ -91,7 +91,7 @@ try (Connection con = DriverManager.getConnection(url, uid, pw);
 	ResultSet rst = pst.executeQuery();
 	ResultSetMetaData rstmd = rst.getMetaData();
 
-	while(rst.next){
+	while(rst.next()){
 		out.println("<table border =1>");
 		for(int i = 1; i<12; i++) out.println("<tr><th>"+rstmd.getColumnName(i)+"</th><th>"+rst.getString(i)+"</th></tr>");
 	}
