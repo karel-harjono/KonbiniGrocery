@@ -49,7 +49,7 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | Edit user account info (address, password)	| Basic	| 2	|	
 | Login/logout	| Core	| 1	| |Done-Liv |
 | Register user/Forgot password email	| Advanced	| 4	|
-| Page listing all orders for user	| Core	| 1	|
+| Page listing all orders for user	| Core	| 1	| Done-Liv
 | |
 |**Product Reviews (up to 5 total points)**|
 | Ability to enter a review on a product	| Basic	| 2	| |Done-kar|
