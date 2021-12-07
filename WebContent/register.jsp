@@ -94,18 +94,18 @@
 
 <form class="register" method="post" action="addCust.jsp">
     <table>
-        <tr><td class='tableheader'>Username:</td><td><input value='a' class='input' type="text" name="username" value="" required></td></tr>
-        <tr><td class='tableheader'>First Name:</td><td><input value='a' class='input' type="text" name="firstName" value="" required></td></tr>
-        <tr><td class='tableheader'>Last Name:</td><td><input value='a' class='input' type="text" name="lastName" value="" required></td></tr>
-        <tr><td class='tableheader'>Password:</td><td><input onchange='checkPassword();' value='Aa1234567' id='pwd' class='input' type="password" name="password" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required></td></tr>
-        <tr><td class='tableheader' id='confText'>Confirm password:</td><td ><input onchange='checkPassword();' value='' id="confirmPwd" class='input' type="password" name="confirmPassword" value="" required></td></tr>
-        <tr><td class='tableheader'>Email:</td><td><input value='a@a.com' class='input' type="email" name="email" value="" required></td></tr>
-        <tr><td class='tableheader'>Phone Number(000-000-0000):</td><td><input value='111-111-1111' class='input' type="tel" name="phoneNumber" value="" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required></td></tr>
-        <tr><td class='tableheader'>Country:</td><td><input class='input' value='Canada' type="text" name="country" value="" required></td></tr>
-        <tr><td class='tableheader'>State/Povince:</td><td><input value='a' class='input' type="text" name="state" value="" required></td></tr>
-        <tr><td class='tableheader'>City:</td><td><input value='a' class='input' type="text" name="city" value="" required></td></tr>
-        <tr><td class='tableheader'>Address:</td><td><input value='a' class='input' type="text" name="address" value="" required></td></tr>
-        <tr><td class='tableheader'>Zip/Postal Code:</td><td><input value='a' class='input' type="text" name="postalCode" value="" required></td></tr>
+        <tr><td class='tableheader'>Username:</td><td><input class='input' type="text" name="username" value="" required></td></tr>
+        <tr><td class='tableheader'>First Name:</td><td><input class='input' type="text" name="firstName" value="" required></td></tr>
+        <tr><td class='tableheader'>Last Name:</td><td><input class='input' type="text" name="lastName" value="" required></td></tr>
+        <tr><td class='tableheader'>Password:</td><td><input onchange='checkPassword();' id='pwd' class='input' type="password" name="password" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required></td></tr>
+        <tr><td class='tableheader' id='confText'>Confirm password:</td><td ><input onchange='checkPassword();' id="confirmPwd" class='input' type="password" name="confirmPassword" value="" required></td></tr>
+        <tr><td class='tableheader'>Email:</td><td><input class='input' type="email" name="email" value="" required></td></tr>
+        <tr><td class='tableheader'>Phone Number(000-000-0000):</td><td><input class='input' type="tel" name="phoneNumber" value="" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required></td></tr>
+        <tr><td class='tableheader'>Country:</td><td><input class='input' type="text" name="country" value="" required></td></tr>
+        <tr><td class='tableheader'>State/Povince:</td><td><input class='input' type="text" name="state" value="" required></td></tr>
+        <tr><td class='tableheader'>City:</td><td><input class='input' type="text" name="city" value="" required></td></tr>
+        <tr><td class='tableheader'>Address:</td><td><input class='input' type="text" name="address" value="" required></td></tr>
+        <tr><td class='tableheader'>Zip/Postal Code:</td><td><input class='input' type="text" name="postalCode" value="" required></td></tr>
     </table>
     <br><h2><input id="submit" type="submit" name="sub" disabled></h2>
 </form>
