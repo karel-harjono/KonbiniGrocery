@@ -34,8 +34,10 @@
 	String userName = (String) session.getAttribute("authenticatedUser");
 	if (userName != null)
 		out.println("<a class='a_header upperright' href='customer.jsp'>Hello, "+userName+"!</a>");
-    else
+    else{
         out.println("<a class='a_header upperright' href='login.jsp'>Sign in&nbsp&nbsp</a>");
+        out.println("<a class='a_header upperright' href='register.jsp'>Sign up&nbsp&nbsp</a>");
+    }
     %>
 </h1>      
 <hr>

@@ -102,7 +102,6 @@ finally
 	closeConnection();	
 }
 %>
-
 </div>
 </table>
 </body>
