@@ -76,6 +76,7 @@
 
 	<p>
 		&#127800 <a href=register.jsp>Add new customer here</a>
+		&#127800 <a href=listCust.jsp?edit>Edit existing customer here</a>
 	</p>
 
 <%
@@ -83,6 +84,23 @@
 try
 {
 	getConnection();
+	Statement stmt = con.createStatement();
+	ResultSet rs = stmt.executeQuery("SELECT * FROM customer");
+	ResultSetMetaData metaData = rs.getMetaData();
+	if(request.getParameter("edit") != null){
+		out.println("<form class='register' method='get' action='updateCustomer.jsp'>");
+		out.println("<table>");
+		for(int i = 1; i<=metaData.getColumnCount()-2; i++) { // -2, changing user's username/password is diabled
+			out.println("<tr><td class='tableheader' name='"+metaData.getColumnName(i)+"'>"+metaData.getColumnName(i)+"</td>");
+			out.println("<td><input name='"+metaData.getColumnName(i)+"'</td>");
+			out.println("</tr>");
+		}
+		out.println("<tr><td colspan=2><input type='submit' class='button' /></td></tr>");
+		out.println("</table>");
+		out.println("</form>");
+	}
+
+
 	String SQL = "SELECT customerId, firstName, lastName, email, phonenum, address, city, state, postalCode, country, userId FROM customer";
 	PreparedStatement pst = con.prepareStatement(SQL);
 	ResultSet rst = pst.executeQuery();

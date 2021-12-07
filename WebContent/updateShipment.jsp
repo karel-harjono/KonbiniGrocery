@@ -34,6 +34,7 @@ try
 	}
 	if(check >0) {out.println("<h3>Shipment status updated.</h3>");
 			out.println("<a href='listShipment.jsp'><button class='button'>List Shipments</button></a>");
+			response.sendRedirect("listShipment.jsp");
 		}
 	else out.println("failed to update shipment status");
 }

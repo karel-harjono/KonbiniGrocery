@@ -147,7 +147,7 @@ finally
 	closeConnection();
 }
 
-out.println("<div class='container'><a id='reviewButton' href='product.jsp?id="+productId+"&review=true#reviewBox'><button class='button'>Review this product 💬</button></a>");
+out.println("<div class='container'><a id='reviewButton' href='product.jsp?id="+productId+"&review#reviewBox'><button class='button'>Review this product 💬</button></a>");
 if(session.getAttribute("reviewStatus") != null){
     out.println("<h4 id='reviewStatus'><b>Your review has been added! Thank you for sharing your experience.</b></h4>");
     session.setAttribute("reviewStatus", null);

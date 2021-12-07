@@ -14,17 +14,17 @@
 try
 {
 	getConnection();
-	int id = Integer.parseInt(request.getParameter("id")); // disable option to update custId
+	int id = Integer.parseInt(request.getParameter("customerId")); // disable option to update custId
 	String first = request.getParameter("firstName");
 	String last = request.getParameter("lastName");
 	String email = request.getParameter("email");
-	String phone = request.getParameter("phoneNumber");
+	String phone = request.getParameter("phonenum");
 	String address = request.getParameter("address");
 	String city = request.getParameter("city");
 	String state = request.getParameter("state");
 	String postal = request.getParameter("postalCode");
 	String country = request.getParameter("country");
-	String userId = request.getParameter("username");
+	// String userId = request.getParameter("userid");
 	// String password = request.getParameter("password");
 
 	String SQL = "UPDATE customer SET firstName = ?, lastName = ?, email = ?, phonenum = ?, address = ?, city = ?, state = ?, postalCode  = ?, country = ? WHERE customerId = ?";
@@ -40,13 +40,13 @@ try
 	pst.setString(7,state);
 	pst.setString(8,postal);
 	pst.setString(9,country);
-	pst.setString(10,userId);
+	//pst.setString(10,userId);
 	//pst.setString(11,password);
-	pst.setInt(12, id);
+	pst.setInt(10, id);
 
 
 	int check = pst.executeUpdate();
-	if(check >0) out.println("Customer updated");
+	if(check >0) {out.println("Customer updated"); response.sendRedirect("listCust.jsp");}
 	else out.println("failed to update Customer");
 }
 catch (Exception e)

@@ -91,7 +91,7 @@ try
 		numOfReviews++;
 	}
 	if(numOfReviews == 0){
-		out.println("<tr><td colspan=2>There are no reviews currently on this product. Be the first to <a href='product.jsp?id="+id+"&review=true'><b>review</b></a> this product!</td></tr>");
+		out.println("<tr><td colspan=2>There are no reviews currently on this product. Be the first to <a href='product.jsp?id="+id+"&review#reviewBox'><b>review</b></a> this product!</td></tr>");
 	}
 	out.println("</table>");
 }
