@@ -87,27 +87,46 @@ NumberFormat currFormat = NumberFormat.getCurrencyInstance(Locale.US);
 try
 {
 	getConnection();
-	int warehouse = Integer.parseInt(request.getParameter("warehouseId"));
-	String SQL = "SELECT productId, quantity, price FROM productInventory WHERE warehouseId = ?";
-	PreparedStatement pst = con.prepareStatement(SQL);
-	pst.setInt(1,warehouse);
-	ResultSet rst = pst.executeQuery();
-	ResultSetMetaData rstmd = rst.getMetaData();
-
-	out.println("<table><tr>");
-		for(int i = 1; i<4; i++) {
-			out.println("<td class='tableheader'>"+rstmd.getColumnName(i)+"</td>");
+	Statement stmt = con.createStatement();
+	ResultSet warehouseIds = stmt.executeQuery("SELECT warehouseId FROM warehouse");
+	String id = (String)request.getParameter("warehouseId");
+	if(id == null){
+		out.println("<table>");
+		out.println("<form method=post action='listInventory.jsp'>");
+		out.println("<label for='warehouseId'>Select warehouseId:</label>");
+		out.println("<select name='warehouseId'>");
+		while(warehouseIds.next()){
+			int temp_id = warehouseIds.getInt(1);
+			out.println("<option value='" + temp_id + "'" + temp_id+ "</option>");
+			out.println(warehouseIds.getString(1));
 		}
-	out.println("</tr>");
-
-	while(rst.next()){
-		out.println("<tr>");
-		for(int i = 1; i<4; i++) {
-			out.println("<td>"+rst.getString(i)+"</td>");
-		}
-		out.println("</tr>");
+		out.println("</select><input type='submit'>");
+		out.println("</form>");
+		out.println("</table>");
 	}
-	out.println("</table><br>");
+	else{
+		int warehouse = Integer.parseInt(id);
+		String SQL = "SELECT productId, quantity, price FROM productInventory WHERE warehouseId = ?";
+		PreparedStatement pst = con.prepareStatement(SQL);
+		pst.setInt(1,warehouse);
+		ResultSet rst = pst.executeQuery();
+		ResultSetMetaData rstmd = rst.getMetaData();
+
+		out.println("<table><tr>");
+			for(int i = 1; i<4; i++) {
+				out.println("<td class='tableheader'>"+rstmd.getColumnName(i)+"</td>");
+			}
+		out.println("</tr>");
+
+		while(rst.next()){
+			out.println("<tr>");
+			for(int i = 1; i<4; i++) {
+				out.println("<td>"+rst.getString(i)+"</td>");
+			}
+			out.println("</tr>");
+		}
+		out.println("</table><br>");
+	}
 }
 catch (Exception e)
 {

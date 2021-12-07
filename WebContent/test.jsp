@@ -3,10 +3,10 @@
 try{
     getConnection();
     Statement stmt = con.createStatement();
-    ResultSet rs = stmt.executeQuery("SELECT * FROM orderproduct");
+    ResultSet rs = stmt.executeQuery("SELECT * FROM warehouse");
     while(rs.next()){
         out.println("<p>");
-        for(int i = 1; i < 5; i++)
+        for(int i = 1; i < 3; i++)
             out.println(rs.getString(i));
         out.println("</p>");
     }

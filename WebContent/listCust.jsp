@@ -75,7 +75,7 @@
 	</h2>
 
 	<p>
-		&#127800 <a href=addCust.jsp>Add new customer here</a> // INI PERLU PARAMETERS BAANYAK BANGET, BINGUNG
+		&#127800 <a href=register.jsp>Add new customer here</a>
 	</p>
 
 <%
