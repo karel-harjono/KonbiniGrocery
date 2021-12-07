@@ -34,7 +34,7 @@
 		out.println("<a class='upperright' href='customer.jsp'>Hello, "+userName+"!</a>");
     else{
         out.println("<a class='upperright' href='login.jsp'>Sign in&nbsp&nbsp</a>");
-        out.println("<a class='upperright' href='register.jsp'>SIgn up&nbsp&nbsp</a>");
+        out.println("<a class='upperright' href='register.jsp'>Sign up&nbsp&nbsp</a>");
     }
     %>
 </h1>      
