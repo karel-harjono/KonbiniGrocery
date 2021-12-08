@@ -1,7 +1,6 @@
 CURRENT ISSUES: (for details please check admin.jsp)
-- Update/add customer, warehouse, product, inventory
-- Shipment
-- index.jsp design will be adjusted once all pages fixed. (Liv will do)
+- PLEASE TEST
+- Liv will adjust design loaddata
 
 
 Project Features List Template
@@ -57,26 +56,26 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | Restrict to one review per user on item purchased	| Advanced | 2	|	
 | |
 |**Warehouses/Inventory (up to 5 total points)**|
-| Display item inventory by store/warehouse	| Basic |	2 |	|Added, not tested - kile|
-| Edit item inventory by store/warehouse | Advanced | 3	| |Added, not tested - kile|
+| Display item inventory by store/warehouse	| Basic |	2 |	|Done|
+| Edit item inventory by store/warehouse | Advanced | 3	| |Done|
 | |
 |**Administrator Portal (up to 19 total points)**|	
 | Secured by login	| Core	| 1	|	|Done |
 | List all customers	| Core	| 1	| |Done|
 | List report showing total sales/orders	| Core	| 1	| |Done-Liv |
 | Report with a graph	| Advanced	| 3	|   |????? Matt |
-| Add new product	| Basic	| 2	|	|added, not tested - kile|
-| Update/delete product	| Basic	| 2	|	|added, not tested - kile|
-| Change order status/ship order	| Basic	| 1	| |Added, not tested - kile|
+| Add new product	| Basic	| 2	|	|Done|
+| Update/delete product	| Basic	| 2	|	|Done|
+| Change order status/ship order	| Basic	| 1	| |Done|
 | Upload a photo to file system for product	| Advanced	| 2	| |????? Matt |
 | OR: Upload a photo to database for product	| Advanced	| 4	|	|?????? Matt |
 | Database restore with SQL script	| Basic	| 2	|	
-| Add/update warehouse, customer	| Basic	| 2 |	|Add warehouse, not tested - kile|	
+| Add/update warehouse, customer	| Basic	| 2 |	|Done|	
 | |			
 |**Database System/General**|		
 | Implement some validation using triggers |	Advanced	| 2	|	
 | Use AJAX for some pages	| Advanced	| 4	|
-| User interface and navigation/usability | |	Up to 5	| |Final check -Liv |
+| User interface and navigation/usability | |	Up to 5	| |Done |
 | Others (your suggestions)	|	| Up to 5	|
 | |
 | **Total:** |
