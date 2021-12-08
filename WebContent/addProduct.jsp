@@ -85,7 +85,7 @@
 <body>
 	<%@ include file="header.jsp" %>
 
-	<h2>Add New Product
+	<h2>Add or Update Products
 		<a href=index.jsp><button>Main Menu &#127968</button></a>
 		<a href=admin.jsp><button>Admin Page &#128100</button></a>
 	</h2>
