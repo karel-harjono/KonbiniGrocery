@@ -23,15 +23,23 @@
 		text-align: center;
 		font-family: customFont;
 		font-size: 40px;
-		padding: 0px;
+		padding: 4px;
+	}
+	h2{
+		text-align: left;
+		font-family: customFont;
+		font-size: 30px;
+		padding: 4px;
 	}
 	h3{
 		text-align: center;
 		font-family: sans-serif;
-		font-size: 20px;
+		font-size: 18px;
+		padding: 4px;
 	}
 	table{
 		width: 100%;
+		padding: 4px;
 	}
 	table, td{
 		border: 1px solid #7E8193;
@@ -53,7 +61,8 @@
 		font-family: sans-serif;
 		font-size: 16px;
 		text-align:center;
-		padding: 8px;
+		font-weight: bold;
+		padding: 6px;
 		margin: 4px 2px;
 		background: #F5CEC5;
 		transition-duration: 0.4s;
@@ -65,6 +74,7 @@
 		margin: 2px;
 		font-size: 15px;
 		text-align: center;
+		font-weight: bold;
 		float: center;
 		background: #F5CEC5;
 		transition-duration: 0.4s;
@@ -77,6 +87,11 @@
 </head>
 <body>
 <%@ include file="header.jsp" %>
+
+<h2>Your Shopping Cart &#128722
+	<a href=index.jsp><button class='button'>Main Menu &#127968</button></a>
+</h2>
+
 <%
 // Get the current list of products
 @SuppressWarnings({"unchecked"})
@@ -105,17 +120,16 @@ else
 				productList.put(updateId, temp);
 			}
 			else if(updateQty == 0)
-				out.println("<h1 style='color:red;'>please select 'remove item from cart' to update quantity to 0.</h1>");
+				out.println("<h3 style='color:red;'>Please select 'remove item from cart' to update quantity to 0.</h3>");
 			else
-				out.println("<h1 style='color:red;'>please enter a positive integer.</h1>");
+				out.println("<h3 style='color:red;'>Please enter a positive integer.</h3>");
 		}
 	}catch(NumberFormatException e){
-		out.println("<h1>update quantity is not an integer. input a correct number.</h1>");
+		out.println("<h3 style='color:red;'>Update quantity is not an integer. input a correct number.</h3>");
 	}
 
 	NumberFormat currFormat = NumberFormat.getCurrencyInstance(Locale.US);
 
-	out.println("<h1>Your Shopping Cart &#128722</h1>");
 	out.println("<table><tr><td class='tableheader'>Product Id</td><td class='tableheader'>Product Name</td><td class='tableheader'>Quantity</td>");
 	out.println("<td class='tableheader'>Update Quantity</td><td class='tableheader'>Remove Item 🗑</td>");
 	out.println("<td class='tableheader'>Price</td><td class='tableheader'>Subtotal</td></tr>");

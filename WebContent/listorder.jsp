@@ -3,7 +3,7 @@
 <%@ page import="java.util.Locale" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
 <%@ include file="jdbc.jsp" %>
-<%@ include file="auth.jsp"%>
+<%@ include file="authAdmin.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>

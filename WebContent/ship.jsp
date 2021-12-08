@@ -7,51 +7,66 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.time.LocalDateTime" %>
 <%@ include file="jdbc.jsp" %>
+<%@ include file="authAdmin.jsp"%>
 
 <html>
 <head>
 <title>Konbini Grocery Shipment Processing</title>
 <style>
     @font-face{
-        font-family: customFont;
-        src: url(NikkyouSans-mLKax.ttf);
-    }
-    h2{
-        text-align: center;
-        font-family: customFont;
-        font-size: 30px;
-        padding: 0px;
-    }
+		font-family: customFont;
+		src: url(NikkyouSans-mLKax.ttf);
+	}
+	h2{
+		text-align: left;
+		font-family: customFont;
+		font-size: 30px;
+		padding: 4px;
+	}
 	h3{
+		text-align: center;
 		font-family: sans-serif;
 		font-size: 20px;
+		padding: 4px;
+	}
+	p{
+		font-family:sans-serif;
+		font-size: 18px;
 		text-align: center;
+		font-weight: bold;
+		padding: 4px;
+	}
+	button{
+		font-family: sans-serif;
+		font-size: 18px;
+		font-weight: bold;
+		text-align:center;
+		padding: 6px;
+		margin: 4px 2px;
+		background: #F5CEC5;
+		transition-duration: 0.4s;
+		cursor: pointer;
+	}
+	button:hover{
+		background-color: #FAAA96;
 	}
 	.tab {
         display: inline-block;
         margin-left: 40px;
     }
-	.button{
-		font-family: sans-serif;
-		font-size: 16px;
-		text-align: center;
-		float: center;
-		padding: 4px;
-		margin: 2px;
-		transition-duration: 0.4s;
-		cursor: pointer;
-		background: #F5CEC5;
-	}
-	.button:hover{
-		background-color: #FAAA96;
-	}
-
 </style>
 </head>
 <body>
+	<%@ include file="header.jsp" %>
 
-<%@ include file="header.jsp" %>
-
+	<h2>Add Shipment
+		<a href=index.jsp><button style='float:right'>Main Menu &#127968</button></a>
+		<a href=admin.jsp><button style='float:right'>Admin Page &#128100</button></a>
+	</h2>
+	<p style='text-align: left;'>
+		&#127800<a href=listShipment.jsp>Shipment Page</a>
+	</p>
+	<br>
 <%
 	try{
 		getConnection();
@@ -66,7 +81,8 @@
 			id = Integer.parseInt(orderId);
 		}
 		catch(Exception e){
-			out.println("invalid order id: " + orderId);
+			out.println("<h3 style='color:red;'>Invalid order ID: " + orderId + "</h3>");
+			out.println("<h3><a href='listShipment.jsp'><button style='float:center'>Retry</button></a></h3>");
 		}
 		// TODO: Start a transaction (turn-off auto-commit)
 		con.setAutoCommit(false);
@@ -81,7 +97,7 @@
 		boolean success = false;
 		int productId = -1;
 		int productQty = -1;
-		out.println("<h3>PROCESSING SHIPMENT FOR ORDER ID: "+orderId+"</h3>");
+		out.println("<p>PROCESSING SHIPMENT FOR ORDER ID: "+orderId+"</p>");
 		while(rs.next()){
 			productId = rs.getInt("productId");
 			productQty = rs.getInt("quantity");
@@ -111,12 +127,12 @@
 				pstmt.setInt(2, productId);
 				pstmt.executeUpdate();
 				// print out productinventory summary
-				out.println("<h3>Ordered product: "+productId + "<br>Quantity: " + productQty);
+				out.println("<p>Ordered product: "+productId + "<br>Quantity: " + productQty);
 				ResultSet qtyRs = stmt.executeQuery("SELECT quantity FROM productinventory WHERE productId = "+productId+" AND warehouseId = 1");
 				qtyRs.next();
 				int newQty = qtyRs.getInt("quantity");
 				out.print("<br>Old inventory: "+ inven_qty);
-				out.println("<span class='tab'> New inventory: " + newQty + "</span></h3>");
+				out.println("<span class='tab'> New inventory: " + newQty + "</span></p>");
 				success = true;
 			}
 			else{
@@ -127,17 +143,21 @@
 		}
 		if(success){
 			con.commit();
-			out.println("<h2>Shipment successfully processed.</h2>");
+			out.println("<h3 style='color: darkgreen;'>Shipment successfully processed.</h3>");
+			out.println("<h3><a href='listShipment.jsp'><button style='float:center'>Back</button></a></h3>");
 		}
 		else{
 			con.rollback();
-			out.println("<h2>Shipment is not done. <br> <h3>Insufficient inventory for product id: "+productId+"</h3></h2>");
+			out.println("<h3 style='color:red;'>Shipment is not done.</h3><p>Insufficient inventory for product ID: "+productId+"</p>");
+			out.println("<h3><a href='listShipment.jsp'><button style='float:center'>Retry</button></a></h3>");
 		}
 		// TODO: Auto-commit should be turned back on
 		con.setAutoCommit(true);
 	}
 	catch(SQLException e){
-		out.println(e); con.rollback();
+		out.print("<h3 style='color:red'>"+e+"</h3>");
+		out.println("<h3><a href='listShipment.jsp'><button style='float:center'>Retry</button></a></h3>");
+		con.rollback();
 	}
 	finally
 	{
@@ -146,14 +166,13 @@
 			if (con != null)
 				con.close();
 		}
-		catch (SQLException ex)
+		catch (SQLException e)
 		{
-			out.println(ex);
+			out.print("<h3 style='color:red'>"+e+"</h3>");
+			out.println("<h3><a href='listShipment.jsp'><button style='float:center'>Retry</button></a></h3>");
 		}
 	} 
 %>                       				
-
-<h2><a href="admin.jsp"><button class='button'><b>Back to Admin Page &#127968</b></button></a></h2>
 
 </body>
 </html>
