@@ -76,9 +76,15 @@
 
 <%
 // Print prior error login message if present
-if (session.getAttribute("loginMessage").equals("You have not been authorized to access the URL http://localhost/shop/admin.jsp")){
-	out.println("<p style='color:red'>You have not been authorized to access the URL http://localhost/shop/admin.jsp</p>");
+//if (session.getAttribute("loginMessage").equals("You have not been authorized to access the URL http://localhost/shop/admin.jsp")){
+//	out.println("<p style='color:red'>You have not been authorized to access the URL http://localhost/shop/admin.jsp</p>");
+//}
+if (session.getAttribute("loginMessage") != null){
+	out.println("<p style='color:red'>"+session.getAttribute("loginMessage")+"</p>");
+	session.setAttribute("loginMessage", null);
 }
+
+
 %>	
 	
 <p style='font-size:14px'>New to our store?&nbsp<a href=register.jsp>Register here!</a></p>
