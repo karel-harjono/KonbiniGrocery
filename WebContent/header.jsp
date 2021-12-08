@@ -24,6 +24,7 @@
         font-weight: bold;
         color: black;
         float: right;
+        margin-right: 2%;
 	}
 </style>
 
@@ -35,8 +36,8 @@
 	if (userName != null)
 		out.println("<a class='a_header upperright' href='customer.jsp'>Hello, "+userName+"!</a>");
     else{
-        out.println("<a class='a_header upperright' href='login.jsp'>Sign in &nbsp&nbsp&nbsp</a>");
-        out.println("<a class='a_header upperright' href=#>|&nbsp</a>");
+        out.println("<a class='a_header upperright' href='login.jsp'>Sign in</a>");
+        out.println("<a class='a_header upperright' href=#>| &nbsp</a>");
         out.println("<a class='a_header upperright' href='register.jsp'>Sign up &nbsp</a>");
     }
     %>
