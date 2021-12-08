@@ -97,7 +97,7 @@
 		&#127800<a href=listprod.jsp>List Products</a>
 	</p>
 
-	<form method='post' action='addProduct.jsp?#status'>
+	<form method='post' action='addProduct.jsp?add&#status'>
 	<table>
 	<tr><td>Product Name:</td><td><input type='text' name='productName' size='20' class='input2'></td></tr>
 	<tr><td>Product Price:</td><td><input type='text' name='productPrice' size='20' class='input2'></td></tr>
@@ -112,38 +112,40 @@
 
 	
 <%
-// Write query to retrieve all order summary records
-int check = 0;
-try
-{
-	getConnection();
-	String prodName = request.getParameter("productName");
-	double prodPrice = Double.parseDouble(request.getParameter("productPrice"));
-	String prodDesc = request.getParameter("productDesc");
-	int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+if(request.getParameter("add") != null){
+	// Write query to retrieve all order summary records
+	int check = 0;
+	try
+	{
+		getConnection();
+		String prodName = request.getParameter("productName");
+		double prodPrice = Double.parseDouble(request.getParameter("productPrice"));
+		String prodDesc = request.getParameter("productDesc");
+		int categoryId = Integer.parseInt(request.getParameter("categoryId"));
 
-	String SQL = "INSERT INTO product (productName, productPrice, productDesc, categoryId) VALUES (?,?,?,?)";
+		String SQL = "INSERT INTO product (productName, productPrice, productDesc, categoryId) VALUES (?,?,?,?)";
 
-	PreparedStatement pst = con.prepareStatement(SQL);
-	pst.setString(1,prodName);
-	pst.setDouble(2,prodPrice);
-	pst.setString(3,prodDesc);
-	pst.setInt(4,categoryId);
+		PreparedStatement pst = con.prepareStatement(SQL);
+		pst.setString(1,prodName);
+		pst.setDouble(2,prodPrice);
+		pst.setString(3,prodDesc);
+		pst.setInt(4,categoryId);
 
-	check = pst.executeUpdate();
+		check = pst.executeUpdate();
+	}
+	catch (Exception e)
+	{
+		out.print("<h3 style='color: red;'>"+e+"</h3>");
+	}
+	finally
+	{	
+		closeConnection();
+		if(check >0) out.println("<h3 id='status' style='color: darkgreen;'>New product added.</h3>");
+		else out.println("<h3 id='status' style='color: red;'>Failed to add product.</h3>");	
+	}
+
+	// Close connection
 }
-catch (Exception e)
-{
-    out.print("<h3 style='color: red;'>"+e+"</h3>");
-}
-finally
-{	
-	closeConnection();
-	if(check >0) out.println("<h3 id='status' style='color: darkgreen;'>New product added.</h3>");
-	else out.println("<h3 id='status' style='color: red;'>Failed to add product.</h3>");	
-}
-
-// Close connection
 %>
 
 </body>
