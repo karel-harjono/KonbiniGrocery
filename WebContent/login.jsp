@@ -74,6 +74,13 @@
 	<a href=index.jsp><button style='float:right'>Main Menu &#127968</button></a>
 </h3>
 
+<%
+// Print prior error login message if present
+if (session.getAttribute("loginMessage").equals("You have not been authorized to access the URL http://localhost/shop/admin.jsp")){
+	out.println("<p style='color:red'>You have not been authorized to access the URL http://localhost/shop/admin.jsp</p>");
+}
+%>	
+	
 <p style='font-size:14px'>New to our store?&nbsp<a href=register.jsp>Register here!</a></p>
 
 <form name="MyForm" method=post action="validateLogin.jsp">
