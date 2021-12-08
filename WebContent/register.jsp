@@ -104,7 +104,7 @@
         <tr><td class='tableheader'>Email:</td><td><input class='input' type="email" name="email" value="" required></td></tr>
         <tr><td class='tableheader'>Phone Number(000-000-0000):</td><td><input class='input' type="tel" name="phoneNumber" value="" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required></td></tr>
         <tr><td class='tableheader'>Country:</td><td><input class='input' type="text" name="country" value="" required></td></tr>
-        <tr><td class='tableheader'>State/Povince:</td><td><input class='input' type="text" name="state" value="" required></td></tr>
+        <tr><td class='tableheader'>State/Province:</td><td><input class='input' type="text" name="state" value="" required></td></tr>
         <tr><td class='tableheader'>City:</td><td><input class='input' type="text" name="city" value="" required></td></tr>
         <tr><td class='tableheader'>Address:</td><td><input class='input' type="text" name="address" value="" required></td></tr>
         <tr><td class='tableheader'>Zip/Postal Code:</td><td><input class='input' type="text" name="postalCode" value="" required></td></tr>
