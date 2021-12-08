@@ -17,11 +17,12 @@
 				text-align: left;
 				font-family: customFont;
 				font-size: 30px;
-				padding: 0px;
+				padding: 4px;
 			}
 			table{
 				width: 100%;
 				border: 1px solid #7E8193;
+				padding: 4px;
 			}
             td{
                 font-family: sans-serif;
@@ -29,12 +30,14 @@
                 font-weight: bold;
 				height: 25px;
 				border: 1px solid #7E8193;
+				width:max-content;
             }
 			p{
 				font-family:sans-serif;
 				font-size: 25px;
 				text-align: left;
 				font-weight: bold;
+				padding: 4px;
 			}
 			a{
         		color: black;
@@ -49,7 +52,7 @@
 				text-align: center;
 				background-color: #F5CEC5;
 			}
-			.button, .input2{
+			button, input, .input2{
 				font-family: sans-serif;
 				font-size: 18px;
 				text-align:center;
@@ -61,21 +64,22 @@
 				cursor: pointer;
 				float:right;
 			}
-			.button:hover, .input2:hover{
+			button:hover, input:hover, .input2:hover{
 				background-color: #FAAA96;
 			}
-            .input2{
-                font-size: 18px;
-				float:left
-            }
+			input{
+				font-size: 15px;
+				padding: 4px;
+				background: #FCFBF6;
+			}
     </style>
 </head>
 <body>
 <%@ include file="header.jsp" %>
 
-	<h2>Warehouse List
-		<a href=index.jsp><button class="button">Main Menu &#127968</button></a>
-		<a href=admin.jsp><button class="button">Admin Page &#128100</button></a>
+	<h2>Shipment List
+		<a href=index.jsp><button>Main Menu &#127968</button></a>
+		<a href=admin.jsp><button>Admin Page &#128100</button></a>
 	</h2>
 
 <%
@@ -107,26 +111,26 @@ try
 
     out.println("<h2>Update Shipment Status</h2>");
 	out.println("<form method='get' action='updateShipment.jsp'>");
-		out.println("<table style='width:30%'>");
-		out.println("<tr><td>Shipment ID:</td><td><input type='text' name='shipmentId' size='20' class='input2'></td></tr>");
-        out.println("<tr><td>Shipment Description:</td><td><input type='text' name='shipmentDesc' size='20' class='input2'></td></tr>");
+		out.println("<table style='width:auto'>");
+		out.println("<tr><td>Shipment ID:</td><td><input type='text' name='shipmentId' size='20'></td></tr>");
+        out.println("<tr><td>Shipment Description:</td><td><input type='text' name='shipmentDesc' size='20' </td></tr>");
+		out.println("<tr><td colspan=2><input class='input2' type='submit' value='Submit'></td></tr>");
 		out.println("</table>");
-		out.println("<input class='input2' type='submit' value='Submit'>");
 	out.println("</form>");
-   
+
+	out.println("<br><hr>");
+
 	out.println("<h2>Add New Shipment</h2>");
-	out.println("<form method='get' action='ship.jsp'>");
-		out.println("<table style='width:30%'>");
-		out.println("<tr><td>Order ID:</td><td><input type='text' name='orderId' size='20' class='input2'></td></tr>");
-		out.println("<tr><td>Shipment Description:</td><td><input type='text' name='shipmentDesc' size='20' class='input2'></td></tr>");
+	out.println("<form method='get' action='addShipment.jsp'>");
+		out.println("<table style='width:auto'>");
+		out.println("<tr><td>Order ID:</td><td><input type='text' name='orderId' size='20'></td></tr>");
+		out.println("<tr><td>Warehouse ID:</td><td><input type='text' name='warehouseId' size='20'></td></tr>");
+		out.println("<tr><td>Shipment Description:</td><td><input type='text' name='shipmentDesc' size='20'></td></tr>");
+		out.println("<tr><td colspan=2><input class='input2' type='submit' value='Submit'></td></tr>");
 		out.println("</table>");
-		out.println("<input class='input2' type='submit' value='Submit'>");
 	out.println("</form>");
 
-
-    out.println("<br>");
-	out.println("<br>");
-	out.println("<br>");
+    out.println("<p></p>");
 }
 catch (Exception e)
 {

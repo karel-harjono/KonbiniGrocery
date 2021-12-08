@@ -9,8 +9,57 @@
 <html>
 <head>
 	<title>Add Shipment</title>
+	<style>
+	@font-face{
+		font-family: customFont;
+		src: url(NikkyouSans-mLKax.ttf);
+	}
+	h2{
+		text-align: left;
+		font-family: customFont;
+		font-size: 30px;
+		padding: 4px;
+	}
+	h3{
+		text-align: center;
+		font-family: sans-serif;
+		font-size: 20px;
+		padding: 4px;
+	}
+	p{
+		font-family:sans-serif;
+		font-size: 18px;
+		text-align: left;
+		font-weight: bold;
+		padding: 4px;
+	}
+	button{
+		font-family: sans-serif;
+		font-size: 18px;
+		font-weight: bold;
+		text-align:center;
+		padding: 6px;
+		margin: 4px 2px;
+		background: #F5CEC5;
+		transition-duration: 0.4s;
+		cursor: pointer;
+	}
+	button:hover{
+		background-color: #FAAA96;
+	}
+</style>
 </head>
 <body>
+	<%@ include file="header.jsp" %>
+
+	<h2>Add Shipment
+		<a href=index.jsp><button style='float:right'>Main Menu &#127968</button></a>
+		<a href=admin.jsp><button style='float:right'>Admin Page &#128100</button></a>
+	</h2>
+	<p>
+		&#127800<a href=listShipment.jsp>Shipment Page</a>
+	</p>
+	<br>
 <%
 
 // Write query to retrieve all order summary records
@@ -34,12 +83,13 @@ try
 
 	int check = pst.executeUpdate();
 
-	if (check>0) out.println("add shipment successfully");
-	else out.println("failed to add customer");
+	if (check>0) out.println("<h3 style='color: darkgreen;'>Shipment added successfully.</h3>");
+	else out.println("<h3 style='color: red;'>Failed to add customer.</h3>");
 }
 catch (Exception e)
 {
-    out.print(e);
+    out.print("<h3 style='color:red'>"+e+"</h3>");
+	out.println("<h3><a href='listShipment.jsp'><button style='float:center'>Retry</button></a></h3>");
 }
 finally
 {	

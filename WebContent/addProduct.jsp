@@ -17,7 +17,7 @@
 			padding: 4px;
 		}
 		h3{
-			text-align: left;
+			text-align: center;
 			font-family: sans-serif;
 			font-size: 20px;
 			padding: 4px;

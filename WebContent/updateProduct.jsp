@@ -17,7 +17,7 @@
 			padding: 4px;
 		}
 		h3{
-			text-align: left;
+			text-align: center;
 			font-family: sans-serif;
 			font-size: 20px;
 			padding: 4px;
@@ -51,8 +51,13 @@
 		<h2>Update Product
 			<a href=index.jsp><button>Main Menu &#127968</button></a>
 			<a href=admin.jsp><button>Admin Page &#128100</button></a>
-			<a href=listprod.jsp><button>Product List &#128717</button></a>
 		</h2>
+		<p>
+			&#127800<a href=listprod.jsp>List Products</a>
+		</p>
+		<p>
+			&#127800<a href=addProduct.jsp>Add Product</a>
+		</p>
 		<br>
 <%
 // Write query to retrieve all order summary records
@@ -89,7 +94,6 @@ finally
 	}
 	else {
 		out.println("<h3 style='color: red;'>Failed to update product.</h3>");
-		out.println("<a href='addProduct.jsp'><button style='float:left'>Retry</button></a>");
 	}
 }
 // Close connection

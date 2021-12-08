@@ -64,7 +64,6 @@
 			background: #F5CEC5;
 			transition-duration: 0.4s;
 			cursor: pointer;
-			float:right;
 		}
 		input{
 			font-size: 15px;
@@ -79,10 +78,12 @@
 <body>
 	<%@ include file="header.jsp" %>
 		<h2>Update Inventory
-			<a href=index.jsp><button>Main Menu &#127968</button></a>
-			<a href=admin.jsp><button>Admin Page &#128100</button></a>
-			<a href=listInventory.jsp><button>Inventory List &#128218</button></a>
+			<a href=index.jsp><button style='float:right'>Main Menu &#127968</button></a>
+			<a href=admin.jsp><button style='float:right'>Admin Page &#128100</button></a>
 		</h2>
+		<p>
+			&#127800<a href=listInventory.jsp>Inventory List</a>
+		</p>
 		<br>
 <%
 
@@ -140,8 +141,8 @@ try
 }
 catch (Exception e)
 {
-    out.print("<p style='color:red'>"+e+"</p>");
-	out.println("<a href='updateInventory.jsp'><button style='float:left'>Retry</button></a>");
+    out.print("<h3 style='color:red'>"+e+"</h3>");
+	out.println("<h3><a href='updateInventory.jsp'><button style='float:center'>Retry</button></a></h3>");
 }
 finally
 {	

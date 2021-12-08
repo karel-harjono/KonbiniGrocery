@@ -91,7 +91,7 @@
 <%@ include file="header.jsp" %>
 
 	<h2>Customer List
-		<a href=index.jsp><button>Main Menu &#127968</button></a>
+		<a href=index.jsp><button >Main Menu &#127968</button></a>
 		<a href=admin.jsp><button>Admin Page &#128100</button></a>
 	</h2>
 
@@ -118,8 +118,8 @@ try
 			out.println("<td><input name='"+metaData.getColumnName(i)+"'</td>");
 			out.println("</tr>");
 		}
+		out.println("<tr><td colspan=2><input type='submit' value='Submit'></td></tr>");
 		out.println("</table>");
-		out.println("<input type='submit'>");
 		out.println("</form>");
 		out.println("<br><br><br>");
 	}
