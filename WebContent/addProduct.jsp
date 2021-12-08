@@ -97,7 +97,7 @@
 		&#127800<a href=listprod.jsp>List Products</a>
 	</p>
 
-	<form method='post' action='addProduct.jsp'>
+	<form method='post' action='addProduct.jsp?#status'>
 	<table>
 	<tr><td>Product Name:</td><td><input type='text' name='productName' size='20' class='input2'></td></tr>
 	<tr><td>Product Price:</td><td><input type='text' name='productPrice' size='20' class='input2'></td></tr>
@@ -139,8 +139,8 @@ catch (Exception e)
 finally
 {	
 	closeConnection();
-	if(check >0) out.println("<h3 style='color: darkgreen;'>New product added.</h3>");
-	else out.println("<h3 style='color: red;'>Failed to add product.</h3>");	
+	if(check >0) out.println("<h3 id='status' style='color: darkgreen;'>New product added.</h3>");
+	else out.println("<h3 id='status' style='color: red;'>Failed to add product.</h3>");	
 }
 
 // Close connection

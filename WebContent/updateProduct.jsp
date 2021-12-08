@@ -47,16 +47,16 @@
 </head>
 <body>
 	<%@ include file="header.jsp" %>
-		<h2>Update Product
+		<h2>Update Product: Status
 			<a href=index.jsp><button style='float:right'>Main Menu &#127968</button></a>
 			<a href=admin.jsp><button style='float:right'>Admin Page &#128100</button></a>
 		</h2>
-		<p>
+		<%-- <p>
 			&#127800<a href=listprod.jsp>List Products</a>
 		</p>
 		<p>
 			&#127800<a href=addProduct.jsp>Add Product</a>
-		</p>
+		</p> --%>
 		<br>
 <%
 // Write query to retrieve all order summary records
@@ -90,7 +90,8 @@ finally
 	closeConnection();
 	if(check >0) {
 		out.println("<h3 style='color: darkgreen;'>Product updated.</h3>");
-		out.println("<h3><a href='addProduct.jsp'><button style='float:center'>Retry</button></a></h3>");
+		out.println("<h3><a href='listprod.jsp'><button style='float:center'>List Product</button></a></h3>");
+		out.println("<h3><a href='addProduct.jsp'><button style='float:center'>Go Back</button></a></h3>");
 	}
 	else {
 		out.println("<h3 style='color: red;'>Failed to update product.</h3>");
