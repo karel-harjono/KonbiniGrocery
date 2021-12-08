@@ -115,10 +115,10 @@ try
 	out.println("</form>");
    
 	out.println("<h2>Add New Shipment</h2>");
-	out.println("<form method='get' action='addShipment.jsp'>");
+	out.println("<form method='get' action='ship.jsp'>");
 		out.println("<table style='width:30%'>");
+		out.println("<tr><td>Order ID:</td><td><input type='text' name='orderId' size='20' class='input2'></td></tr>");
 		out.println("<tr><td>Shipment Description:</td><td><input type='text' name='shipmentDesc' size='20' class='input2'></td></tr>");
-		out.println("<tr><td>Warehouse ID:</td><td><input type='text' name='warehouseId' size='20' class='input2'></td></tr>");
 		out.println("</table>");
 		out.println("<input class='input2' type='submit' value='Submit'>");
 	out.println("</form>");
