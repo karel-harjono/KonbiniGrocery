@@ -20,6 +20,7 @@
 			text-align: center;
 			font-family: sans-serif;
 			font-size: 20px;
+			padding: 4px;
 		}
 		p{
 			font-family:sans-serif;
