@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add Product</title>
+	<title>Add and Update Product</title>
 	<style>
 		@font-face{
             font-family: customFont;
