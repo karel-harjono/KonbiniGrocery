@@ -90,9 +90,7 @@
 		<a href=admin.jsp><button>Admin Page &#128100</button></a>
 	</h2>
 
-	<p>
-		&#127800<a href=updateProduct.jsp>Update Product</a>
-	</p>
+
 	<p>
 		&#127800<a href=listprod.jsp>List Products</a>
 	</p>
