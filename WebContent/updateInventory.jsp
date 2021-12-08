@@ -6,16 +6,85 @@
 <head>
 	<title>Update Inventory</title>
 	<style>
+		@font-face{
+            font-family: customFont;
+            src: url(NikkyouSans-mLKax.ttf);
+        }
+		h2{
+			text-align: left;
+			font-family: customFont;
+			font-size: 30px;
+			padding: 4px;
+		}
 		h3{
 			text-align: center;
 			font-family: sans-serif;
 			font-size: 20px;
 		}
+		p{
+			font-family:sans-serif;
+			font-size: 18px;
+			text-align: left;
+			font-weight: bold;
+			padding: 4px;
+		}
+		form{
+			font-family: sans-serif;
+			font-size: 15px;
+		}
+		table{
+			width: auto;
+			padding: 4px;
+		}
+		table, td{
+			border: 1px solid #7E8193;
+		}
+        td{
+            font-family: sans-serif;
+            font-size: 14px;
+			font-weight: bold;
+			height: 25px;
+			text-align: center;
+        }
+		.tableheader{
+			height: 30px;
+			font-size: 18px;
+			font-family: customFont;
+			text-align: center;
+			background-color: #F5CEC5;
+		}
+		button, input{
+			font-family: sans-serif;
+			font-size: 18px;
+			font-weight: bold;
+			text-align:center;
+			padding: 6px;
+			margin: 4px 2px;
+			background: #F5CEC5;
+			transition-duration: 0.4s;
+			cursor: pointer;
+			float:right;
+		}
+		input{
+			font-size: 15px;
+			padding: 4px;
+			background: #FCFBF6;
+		}
+		button:hover, input:hover{
+			background-color: #FAAA96;
+		}
 	</style>
 </head>
 <body>
+	<%@ include file="header.jsp" %>
+		<h2>Update Inventory
+			<a href=index.jsp><button>Main Menu &#127968</button></a>
+			<a href=admin.jsp><button>Admin Page &#128100</button></a>
+			<a href=listInventory.jsp><button>Inventory List &#128218</button></a>
+		</h2>
+		<br>
 <%
-// Write query to retrieve all order summary records
+
 try
 {
 	getConnection();
@@ -24,8 +93,8 @@ try
 	if(request.getParameter("warehouseId") == null){
 		out.println("<form method=get action='updateInventory.jsp'>");
 		out.println("<table>");
-		out.println("<tr><td><label for='warehouseId'>Select warehouseId: </label>");
-		out.println("<select name='warehouseId'>");
+		out.println("<tr><td><label for='warehouseId'>Select warehouse ID: </label></td>");
+		out.println("<td><select name='warehouseId'>");
 		while(warehouseIds.next()){
 			int temp_id = warehouseIds.getInt(1);
 			out.println("<option value='" + temp_id + "'" + temp_id+ "</option>");
@@ -33,18 +102,18 @@ try
 		}
 		out.println("</select></td></tr>");
 		out.println("<tr><td>");
-		out.println("<label for='productId'>ProductId: </label>");
-		out.println("<input name='productId'/>");
+		out.println("<label for='productId'>Product ID: </label></td>");
+		out.println("<td><input name='productId'/>");
 		out.println("</tr></td>");
 		out.println("<tr><td>");
-		out.println("<label for='newQty'>NewQuantity: </label>");
-		out.println("<input name='newQty'/>");
+		out.println("<label for='newQty'>New Quantity: </label></td>");
+		out.println("<td><input name='newQty'/>");
 		out.println("</tr></td>");
 		out.println("<tr><td>");
-		out.println("<label for='newPrice'>NewPrice: </label>");
-		out.println("<input name='newPrice'/>");
+		out.println("<label for='newPrice'>New Price: </label></td>");
+		out.println("<td><input name='newPrice'/></td>");
 		out.println("</tr></td>");
-		out.println("<tr><td><input type='submit'></td></tr>");
+		out.println("<tr><td colspan=2><input type='submit'></tr></td>");
 		out.println("</table>");
 		out.println("</form>");
 	}else{
@@ -62,15 +131,16 @@ try
 		pst.setInt(4,wid);
 
 		int check = pst.executeUpdate();
-		if(check >0) {out.println("<h3>Product inventory in warehouse updated.</h3>");
-			out.println("<a href='listInventory.jsp'><button class='button'>List Inventory</button></a>");
+		if(check >0) {
+			out.println("<h3 style='color: darkgreen;'>Product inventory in warehouse updated.</h3>");
 		}
 		else out.println("<h3 style='color: red;'>Failed to update product inventory in warehouse.</h3>");
 	}
 }
 catch (Exception e)
 {
-    out.print(e);
+    out.print("<p style='color:red'>"+e+"</p>");
+	out.println("<a href='updateInventory.jsp'><button style='float:left'>Retry</button></a>");
 }
 finally
 {	

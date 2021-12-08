@@ -10,20 +10,21 @@
 <title>Konbini Grocery Order List</title>
     <style>
             @font-face{
-                    font-family: customFont;
-                    src: url(NikkyouSans-mLKax.ttf);
+                font-family: customFont;
+                src: url(NikkyouSans-mLKax.ttf);
             }
 			h2{
 				text-align: left;
 				font-family: customFont;
 				font-size: 30px;
-				padding: 0px;
+				padding: 4px;
 			}
 			p{
 				font-family:sans-serif;
 				font-size: 18px;
 				text-align: left;
 				font-weight: bold;
+				padding: 4px;
 			}
 			a{
         		color: black;
@@ -31,8 +32,13 @@
     		a:hover{
         		color:#FAAA96;
     		}
+			form{
+				font-family: sans-serif;
+				font-size: 15px;
+			}
 			table{
 				width: 100%;
+				padding: 4px;
 			}
 			table, td{
 				border: 1px solid #7E8193;
@@ -41,6 +47,8 @@
                 font-family: sans-serif;
                 font-size: 14px;
 				height: 25px;
+				text-align: center;
+				width:fit-content;
             }
 			.tableheader{
 				height: 30px;
@@ -49,19 +57,23 @@
 				text-align: center;
 				background-color: #F5CEC5;
 			}
-			.button{
+			button, input{
 				font-family: sans-serif;
 				font-size: 18px;
 				font-weight: bold;
 				text-align:center;
-				padding: 8px;
+				padding: 6px;
 				margin: 4px 2px;
 				background: #F5CEC5;
 				transition-duration: 0.4s;
 				cursor: pointer;
-				float: right;
 			}
-			.button:hover{
+			input{
+				font-size: 15px;
+				padding: 4px;
+				background: #FCFBF6;
+			}
+			button:hover, input:hover{
 				background-color: #FAAA96;
 			}
     </style>
@@ -70,8 +82,8 @@
 	<%@ include file="header.jsp" %>
 
 	<h2>Inventory List
-		<a href=index.jsp><button class="button">Main Menu &#127968</button></a>
-		<a href=admin.jsp><button class="button">Admin Page &#128100</button></a>
+		<a href=index.jsp><button style='float:right'>Main Menu &#127968</button></a>
+		<a href=admin.jsp><button style='float:right'>Admin Page &#128100</button></a>
 	</h2>
 	<p>
 		&#127800<a href=updateInventory.jsp>Update inventory here</a>
@@ -90,10 +102,9 @@ try
 	Statement stmt = con.createStatement();
 	ResultSet warehouseIds = stmt.executeQuery("SELECT warehouseId FROM warehouse");
 	String id = (String)request.getParameter("warehouseId");
-	if(id == null){
-		out.println("<table>");
+	//if(id == null){
 		out.println("<form method=post action='listInventory.jsp'>");
-		out.println("<label for='warehouseId'>Select warehouseId:</label>");
+		out.println("<label for='warehouseId'>Select warehouse ID:</label>");
 		out.println("<select name='warehouseId'>");
 		while(warehouseIds.next()){
 			int temp_id = warehouseIds.getInt(1);
@@ -102,26 +113,31 @@ try
 		}
 		out.println("</select><input type='submit'>");
 		out.println("</form>");
-		out.println("</table>");
-	}
-	else{
+
+	//}
+	//else{
+	if (id != null){
 		int warehouse = Integer.parseInt(id);
-		String SQL = "SELECT productId, quantity, price FROM productInventory WHERE warehouseId = ?";
+		String SQL = "SELECT I.productId, P.productName, I.quantity, I.price FROM productInventory I JOIN product P ON I.productId = P.productId WHERE warehouseId = ?";
 		PreparedStatement pst = con.prepareStatement(SQL);
 		pst.setInt(1,warehouse);
 		ResultSet rst = pst.executeQuery();
 		ResultSetMetaData rstmd = rst.getMetaData();
 
 		out.println("<table><tr>");
-			for(int i = 1; i<4; i++) {
+			for(int i = 1; i<5; i++) {
 				out.println("<td class='tableheader'>"+rstmd.getColumnName(i)+"</td>");
 			}
 		out.println("</tr>");
 
 		while(rst.next()){
 			out.println("<tr>");
-			for(int i = 1; i<4; i++) {
-				out.println("<td>"+rst.getString(i)+"</td>");
+			for(int i = 1; i<5; i++) {
+				if (i==4){
+					out.println("<td>"+currFormat.format(rst.getDouble(i))+"</td>");
+				}
+				else 
+					out.println("<td>"+rst.getString(i)+"</td>");
 			}
 			out.println("</tr>");
 		}

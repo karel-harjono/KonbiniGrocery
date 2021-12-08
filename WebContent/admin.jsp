@@ -74,8 +74,8 @@ try
 	getConnection();
 	ResultSet rst = con.createStatement().executeQuery(sql);
 	out.println("<table style='border:0px'>");	
-		out.println("<tr><td><a href='listCust.jsp'><button class='button' style='width:45%'>Customer &#128106</button></a><br>");		// ADD CUST NYA BELUM BERES
-		out.println("<a href='listInventory.jsp'><button class='button' style='width:45%'>Inventory &#128218 </button></a><br>");		// UPDATE INVENTORY NYA
+		out.println("<tr><td><a href='listCust.jsp'><button class='button' style='width:45%'>Customer &#128106</button></a><br>");
+		out.println("<a href='listInventory.jsp'><button class='button' style='width:45%'>Inventory &#128218 </button></a><br>");
 		out.println("<a href='listorder.jsp'><button class='button' style='width:45%'>Orders &#128176 </button></a><br>");
 		out.println("<a href='addProduct.jsp'><button class='button' style='width:45%'>Products &#128230 </button></a><br>");			// HOW TO PASS PARAM?
 		out.println("<a href='listShipment.jsp'><button class='button' style='width:45%'>Shipment &#128667</button></a><br>");		// INI PERLU PARAM. SHIPMENT ID

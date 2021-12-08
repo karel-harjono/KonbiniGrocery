@@ -55,7 +55,7 @@
 				text-align: center;
 				background-color: #F5CEC5;
 			}
-			.button{
+			button{
 				font-family: sans-serif;
 				font-size: 18px;
 				text-align:center;
@@ -67,10 +67,10 @@
 				cursor: pointer;
 				float:right;
 			}
-			.button:hover{
+			button:hover{
 				background-color: #FAAA96;
 			}
-			.input{
+			input{
 		        font-family: sans-serif;
 		        font-size: 18px;
 		        text-align: center;
@@ -82,7 +82,7 @@
 		        background: #FCFBF6;
                 width: 98%;
 	        }
-			.input:hover {
+			input:hover {
 		        background-color: #F5CEC5;
 	        }
     </style>
@@ -91,8 +91,8 @@
 <%@ include file="header.jsp" %>
 
 	<h2>Customer List
-		<a href=index.jsp><button class="button">Main Menu &#127968</button></a>
-		<a href=admin.jsp><button class="button">Admin Page &#128100</button></a>
+		<a href=index.jsp><button>Main Menu &#127968</button></a>
+		<a href=admin.jsp><button>Admin Page &#128100</button></a>
 	</h2>
 
 	<p>
@@ -115,11 +115,11 @@ try
 		out.println("<table>");
 		for(int i = 1; i<=metaData.getColumnCount()-2; i++) { // -2, changing user's username/password is diabled
 			out.println("<tr><td class='tableheader' name='"+metaData.getColumnName(i)+"'>"+metaData.getColumnName(i)+"</td>");
-			out.println("<td><input class='input' name='"+metaData.getColumnName(i)+"'</td>");
+			out.println("<td><input name='"+metaData.getColumnName(i)+"'</td>");
 			out.println("</tr>");
 		}
 		out.println("</table>");
-		out.println("<input type='submit' class='button'>");
+		out.println("<input type='submit'>");
 		out.println("</form>");
 		out.println("<br><br><br>");
 	}
@@ -147,7 +147,8 @@ try
 }
 catch (Exception e)
 {
-    out.print(e);
+    out.print("<p style='color:red'>"+e+"</p>");
+	out.println("<a href='listCust.jsp'><button style='float:left'>Retry</button></a>");
 }
 finally
 {	
