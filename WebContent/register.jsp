@@ -28,6 +28,7 @@
                 text-align: left;
                 font-family: customFont;
                 font-size: 30px;
+                padding: 4px;
             }
             form{
 		        font-family: sans-serif;
@@ -66,6 +67,7 @@
 	        }
             table{
 		        width: 100%;
+                padding: 4px;
 	        }
 	        table, td{
 		        border: 1px solid #7E8193;
@@ -89,7 +91,6 @@
 <%@ include file="header.jsp" %>
 <h2>Create new account
     <a href=index.jsp><button>Main Menu &#127968</button></a>
-	<a href=listprod.jsp><button>List Products &#128221</button></a>
     <a href=showcart.jsp><button>Your Cart &#128722</button></a>
 </h2>
 
@@ -108,7 +109,7 @@
         <tr><td class='tableheader'>Address:</td><td><input class='input' type="text" name="address" value="" required></td></tr>
         <tr><td class='tableheader'>Zip/Postal Code:</td><td><input class='input' type="text" name="postalCode" value="" required></td></tr>
     </table>
-    <br><h2><input id="submit" type="submit" name="sub" class='input2' disabled></h2><br>
+    <h2><input id="submit" type="submit" name="sub" class='input2' disabled></h2><br>
 </form>
 <p></p>
 </body>

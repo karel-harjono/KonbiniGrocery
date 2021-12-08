@@ -92,10 +92,10 @@
 		color: #FAAA96;
 	}
 	img{
-        margin-left: 2%;
+        margin-left: 20%;
         margin-right: auto;
-        width: 100%;
-        height: 25%;
+        width: 45%;
+        height: auto;
         float:left;
     }
 </style>
