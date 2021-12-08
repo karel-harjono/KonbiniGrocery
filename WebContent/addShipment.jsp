@@ -83,8 +83,14 @@ try
 
 	int check = pst.executeUpdate();
 
-	if (check>0) out.println("<h3 style='color: darkgreen;'>Shipment added successfully.</h3>");
-	else out.println("<h3 style='color: red;'>Failed to add customer.</h3>");
+	if (check>0) {
+		out.println("<h3 style='color: darkgreen;'>Shipment added successfully.</h3>");
+		response.sendRedirect("listShipment.jsp");
+	}
+	else {
+		out.println("<h3 style='color: red;'>Failed to add shipment.</h3>");
+		out.println("<h3><a href='listShipment.jsp'><button style='float:center'>Retry</button></a></h3>");
+	} 
 }
 catch (Exception e)
 {

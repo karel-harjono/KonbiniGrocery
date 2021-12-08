@@ -45,6 +45,10 @@
     		a:hover{
         		color:#FAAA96;
     		}
+			form{
+				font-family: sans-serif;
+				font-size: 15px;
+			}
 			.tableheader{
 				height: 30px;
 				font-size: 18px;

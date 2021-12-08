@@ -83,9 +83,12 @@ try
 	}
 	if(check >0) {
 		out.println("<h3 style='color: darkgreen;'>Shipment status updated.</h3>");
-		//response.sendRedirect("listShipment.jsp");
+		response.sendRedirect("listShipment.jsp");
 	}
-	else out.println("<h3 style='color: red;'>Failed to update shipment status.</h3>");
+	else {
+		out.println("<h3 style='color: red;'>Failed to update shipment status.</h3>");
+		out.println("<h3><a href='listShipment.jsp'><button style='float:center'>Retry</button></a></h3>");
+	} 
 }
 catch (Exception e)
 {

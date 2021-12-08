@@ -27,8 +27,14 @@ try
 
 	int check = pst.executeUpdate();
 
-	if(check >0) {out.println("<h3>New warehouse added.</h3>");response.sendRedirect("listWarehouse.jsp");}
-	else out.println("<h3 style='color: red;'>Failed to add warehouse.</h3>");
+	if(check >0) {
+		out.println("<h3 style='color: darkgreen;'>New warehouse added.</h3>");
+		response.sendRedirect("listWarehouse.jsp");
+	}
+	else {
+		out.println("<h3 style='color: red;'>Failed to add warehouse.</h3>");
+		out.println("<h3><a href='listWarehouse.jsp'><button style='float:center'>Retry</button></a></h3>");
+	}
 }
 catch (Exception e)
 {

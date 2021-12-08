@@ -39,7 +39,6 @@
 			background: #F5CEC5;
 			transition-duration: 0.4s;
 			cursor: pointer;
-			float:right;
 		}
 		button:hover{
 			background-color: #FAAA96;
@@ -49,8 +48,8 @@
 <body>
 	<%@ include file="header.jsp" %>
 		<h2>Update Product
-			<a href=index.jsp><button>Main Menu &#127968</button></a>
-			<a href=admin.jsp><button>Admin Page &#128100</button></a>
+			<a href=index.jsp><button style='float:right'>Main Menu &#127968</button></a>
+			<a href=admin.jsp><button style='float:right'>Admin Page &#128100</button></a>
 		</h2>
 		<p>
 			&#127800<a href=listprod.jsp>List Products</a>
@@ -91,9 +90,11 @@ finally
 	closeConnection();
 	if(check >0) {
 		out.println("<h3 style='color: darkgreen;'>Product updated.</h3>");
+		out.println("<h3><a href='addProduct.jsp'><button style='float:center'>Retry</button></a></h3>");
 	}
 	else {
 		out.println("<h3 style='color: red;'>Failed to update product.</h3>");
+		out.println("<h3><a href='addProduct.jsp'><button style='float:center'>Retry</button></a></h3>");
 	}
 }
 // Close connection
