@@ -52,7 +52,7 @@
 		<a href=index.jsp><button class="button">Main Menu &#127968</button></a>
 		<a href=admin.jsp><button class="button">Admin Page &#128100</button></a>
 	</h2>
-	<form method='get' action='addProduct.jsp'>
+	<form method='post' action='addProduct.jsp'>
 	<table style='width:30%'>
 	<tr><td>Product Name:</td><td><input type='text' name='productName' size='20' class='input2'></td></tr>
 	<tr><td>Product Price:</td><td><input type='text' name='productPrice' size='20' class='input2'></td></tr>
