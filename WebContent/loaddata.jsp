@@ -5,19 +5,47 @@
 
 <html>
 <head>
-<title>Your Shopping Cart</title>
+<title>Load data</title>
+<style>
+    @font-face{
+        font-family: customFont;
+        src: url(NikkyouSans-mLKax.ttf);
+    }
+    h1{
+        text-align: center;
+        font-family: customFont;
+        font-size: 50px;
+        padding: 10px 16px;
+    }
+    h3{
+		text-align: center;
+		font-family: sans-serif;
+		font-size: 20px;
+		padding: 4px;
+	}
+    button{
+		font-family: sans-serif;
+		font-size: 18px;
+		text-align:center;
+		font-weight: bold;
+		padding: 6px;
+		margin: 4px 2px;
+		background: #F5CEC5;
+		transition-duration: 0.4s;
+		cursor: pointer;
+		left: 50%;
+	}
+	button:hover{
+		background-color: #FAAA96;
+	}
+</style>
 </head>
 <body>
-
+<%@ include file="header.jsp" %>
 <%
-//String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-//String uid = "SA";
-//String pw = "YourStrong@Passw0rd";
 
-out.print("<h1>Connecting to database.</h1><br><br>");
+out.print("<h1 style='color:darkgreen'>Connecting to database.</h1><br><br>");
 
-//Connection con = DriverManager.getConnection(url, uid, pw);
-        
 String fileName = "/usr/local/tomcat/webapps/shop/orderdb_sql.ddl";
 
 try
@@ -46,16 +74,22 @@ try
     }	 
     scanner.close();
     
-    out.print("<br><br><h1>Database loaded.</h1>");
+    out.print("<br><br><h1 style='color:darkgreen'>Database loaded.</h1>");
 }
 catch (Exception e)
 {
-    out.print(e);
+    out.print("<h3 style='color:red'>"+e+"</h3>");
 }
 finally
 {	
 	closeConnection();	
 }  
 %>
+<h3>
+    <a href=index.jsp><button><b>Main Page &#127968</b></button></a>
+    <a href=admin.jsp><button><b>Admin Page &#128100</b></button></a>
+</h3>
+
+
 </body>
 </html> 

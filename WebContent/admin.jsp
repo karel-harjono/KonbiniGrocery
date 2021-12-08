@@ -13,6 +13,12 @@
 		font-size: 30px;
 		padding: 0px;
 	}
+	h3{
+		text-align: center;
+		font-family: sans-serif;
+		font-size: 20px;
+		padding: 4px;
+	}
 	table{
 		width: 100%;
 	}
@@ -93,9 +99,9 @@ try
 		out.println("</tr></td>");
 	out.println("</table>");
 }
-catch (SQLException ex)
+catch (SQLException e)
 { 	
-    out.println(ex); 
+    out.print("<h3 style='color:red'>"+e+"</h3>");
 }
 finally
 {	

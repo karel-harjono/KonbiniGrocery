@@ -51,7 +51,7 @@ try
 }
 catch (Exception e)
 {
-    out.print(e);
+    out.print("<h3 style='color:red'>"+e+"</h3>");
 }
 finally
 {	
