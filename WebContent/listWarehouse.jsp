@@ -17,11 +17,18 @@
 				text-align: left;
 				font-family: customFont;
 				font-size: 30px;
-				padding: 0px;
+				padding: 4px;
+			}
+			h3{
+				text-align: center;
+				font-family: sans-serif;
+				font-size: 20px;
+				padding: 4px;
 			}
 			table{
 				width: 100%;
 				border: 1px solid #7E8193;
+				padding: 4px;
 			}
             td{
                 font-family: sans-serif;
@@ -35,6 +42,7 @@
 				font-size: 25px;
 				text-align: left;
 				font-weight: bold;
+				padding: 4px;
 			}
 			a{
         		color: black;
@@ -45,6 +53,7 @@
 			form{
 				font-family: sans-serif;
 				font-size: 15px;
+				padding: 4px;
 			}
 			.tableheader{
 				height: 30px;
@@ -137,7 +146,7 @@ try
 }
 catch (Exception e)
 {
-    out.print(e);
+    out.print("<h3 style='color:red'>"+e+"</h3>");
 }
 finally
 {	

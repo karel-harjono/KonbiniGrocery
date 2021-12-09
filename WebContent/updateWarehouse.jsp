@@ -22,6 +22,12 @@
 			font-size: 20px;
 			padding: 4px;
 		}
+		a{
+        	color: black;
+    	}
+    	a:hover{
+        	color:#FAAA96;
+    	}
 		p{
 			font-family:sans-serif;
 			font-size: 18px;
@@ -48,7 +54,7 @@
 <body>
 	<%@ include file="header.jsp" %>
 
-	<h2>Update Shipment
+	<h2>Update Warehouse
 		<a href=index.jsp><button style='float:right'>Main Menu &#127968</button></a>
 		<a href=admin.jsp><button style='float:right'>Admin Page &#128100</button></a>
 	</h2>
@@ -70,6 +76,7 @@ try
 	catch(Exception e)
 	{
 		out.println("<h3 style='color: red;'>Invalid warehouse ID!  Please try again.</h3>");
+		out.println("<h3><a href='listWarehouse.jsp'><button style='float:center'>Retry</button></a></h3>");
 		return;
 	}
 
