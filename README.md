@@ -43,7 +43,7 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 |**User Accounts/Login (up to 12 total points)**|
 | Create user account page	| Basic	| 2	| | Done |
 | Create account with data validation	| Basic	| 2	| | Done |
-| Edit user account info (address, password)	| Basic	| 2	|	
+| Edit user account info (address, password)	| Basic	| 2	|	| Done|
 | Login/logout	| Core	| 1	| |Done |
 | Register user/Forgot password email	| Advanced	| 4	|
 | Page listing all orders for user	| Core	| 1	| |Done
