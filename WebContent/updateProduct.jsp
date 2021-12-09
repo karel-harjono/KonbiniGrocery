@@ -29,6 +29,12 @@
 			font-weight: bold;
 			padding: 4px;
 		}
+		a{
+        	color: black;
+    	}
+    	a:hover{
+        	color:#FAAA96;
+    	}
 		button{
 			font-family: sans-serif;
 			font-size: 18px;
