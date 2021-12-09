@@ -99,7 +99,7 @@ HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Obje
 
 if (productList == null)
 {	out.println("<h3 style='color: red;'>Your shopping cart is empty!</h3>");
-	out.println("<h3><a href=listprod.jsp><button class='button'><b>Begin Shopping 🛍 </b></button></a>");
+	out.println("<h3><a href=listprod.jsp><button class='button'>Begin Shopping 🛍 </button></a></h3>");
 	productList = new HashMap<String, ArrayList<Object>>();
 }
 else
@@ -183,8 +183,8 @@ else
 			+"<td style='font-size: 18px;'><b>"+currFormat.format(total)+"</b></td></tr>");
 	out.println("</table>");
 
-	out.println("<a href=\"checkout.jsp\"><button class='button'><b>Check Out &#128718</b></button></a>");
-	out.println("<a href='listprod.jsp'><button class='button'><b>Continue Shopping 🛍 </b></button></a>");
+	out.println("<a href=\"checkout.jsp\"><button class='button'>Check Out &#128718</button></a>");
+	out.println("<a href='listprod.jsp'><button class='button'>Continue Shopping 🛍 </button></a>");
 }
 // set the shopping cart
 session.setAttribute("productList", productList);
