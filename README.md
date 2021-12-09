@@ -1,6 +1,5 @@
 CURRENT ISSUES: 
-- Konbini not centered when not sign in
-- When the prices in inventory changes, the prices in product does not (kalo  mau ilangin update inventory juga gpp sih)
+- ALL DONEEEEE HOREEE
 
 Project Features List Template
 
@@ -14,14 +13,14 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | Walkthrough/demo video – briefly show all features	| Core	    |         6		    |       	| Done                  |
 | |
 | **Main/Home Page (up to 14 total points)**                                                                          |
-| Search for a product by name	                      | Core	    |         1		    |       	|  Done-Liv             |
-| Browse products by category                         | Core	    |         1		    |       	|  Done-Liv             |
-| List products (by search/browse)	                  | Core	    |         1		    |       	|  Done-Liv             |
-| List products with image | Core	| 1| | Done -Liv |
-| Page header with menu	| Basic	| 1 | | Done-Liv |
-| Page header shows current logged in user	| Basic | 1 | |Done-Liv |
+| Search for a product by name	                      | Core	    |         1		    |       	|  Done             |
+| Browse products by category                         | Core	    |         1		    |       	|  Done             |
+| List products (by search/browse)	                  | Core	    |         1		    |       	|  Done             |
+| List products with image | Core	| 1| | Done |
+| Page header with menu	| Basic	| 1 | | Done |
+| Page header shows current logged in user	| Basic | 1 | |Done |
 | Dynamic products on page based on sales	| Basic |	2	|	
-| Improved UI (user-friendly, images, etc.)	| Basic	| 2	| |Done-Liv |
+| Improved UI (user-friendly, images, etc.)	| Basic	| 2	| |Done |
 | Product recommendation based on user | Advanced	| 4		|
 | |
 | **Shopping Cart (up to 8 total points)** |
@@ -33,35 +32,35 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | Cart stored in database between sessions | Basic	| 3	|	|Done |
 | |
 |**Checkout (up to 5 total points)**|
-|Checkout with customer id	| Core	| 1	|	|Done-Liv |
+|Checkout with customer id	| Core	| 1	|	|Done |
 |Checkout with payment/shipment info	| Basic	| 2 |
-|Checkout with data validation	| Basic	| 2 | |Done-Liv |
+|Checkout with data validation	| Basic	| 2 | |Done |
 | |
 |**Product Detail Page (up to 2 total points)**|
-| Product detail page and item description	| Core	| 1	| | Done-Liv | 
-| Product detail has an image from database	| Core	| 1	|	| Done-Liv |
+| Product detail page and item description	| Core	| 1	| | Done | 
+| Product detail has an image from database	| Core	| 1	|	| Done |
 | |
 |**User Accounts/Login (up to 12 total points)**|
 | Create user account page	| Basic	| 2	| | Done |
-| Create account with data validation	| Basic	| 2	| | Done-kar(password validation with all required tag) |
+| Create account with data validation	| Basic	| 2	| | Done |
 | Edit user account info (address, password)	| Basic	| 2	|	
-| Login/logout	| Core	| 1	| |Done-Liv |
+| Login/logout	| Core	| 1	| |Done |
 | Register user/Forgot password email	| Advanced	| 4	|
-| Page listing all orders for user	| Core	| 1	| |Done-Liv
+| Page listing all orders for user	| Core	| 1	| |Done
 | |
 |**Product Reviews (up to 5 total points)**|
-| Ability to enter a review on a product	| Basic	| 2	| |Done-kar|
-| Display product review on product detail page	| Basic	| 1	|	|Done-kar|
+| Ability to enter a review on a product	| Basic	| 2	| |Done|
+| Display product review on product detail page	| Basic	| 1	|	|Done|
 | Restrict to one review per user on item purchased	| Advanced | 2	|	
 | |
 |**Warehouses/Inventory (up to 5 total points)**|
 | Display item inventory by store/warehouse	| Basic |	2 |	|Done|
-| Edit item inventory by store/warehouse | Advanced | 3	| |buggy|
+| Edit item inventory by store/warehouse | Advanced | 3	| |Done|
 | |
 |**Administrator Portal (up to 19 total points)**|	
 | Secured by login	| Core	| 1	|	|Done |
 | List all customers	| Core	| 1	| |Done|
-| List report showing total sales/orders	| Core	| 1	| |Done-Liv |
+| List report showing total sales/orders	| Core	| 1	| |Done |
 | Report with a graph	| Advanced	| 3	|   |????? Matt |
 | Add new product	| Basic	| 2	|	|Done|
 | Update/delete product	| Basic	| 2	|	|Done|
