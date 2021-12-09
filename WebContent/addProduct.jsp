@@ -101,6 +101,8 @@
 	<tr><td>Product Price:</td><td><input type='text' name='productPrice' size='20'></td></tr>
 	<tr><td>Product Description:</td><td><input type='text' name='productDesc' size='20'></td></tr>
 	<tr><td>Category ID:</td><td><input type='text' name='categoryId' size='20'></td></tr>
+	<tr><td>Warehouse ID:</td><td><input type='text' name='warehouseId' size='20'></td></tr>
+	<tr><td>Quantity:</td><td><input type='text' name='quantity' size='20'></td></tr>
 	<tr><td>Product ID:</td><td><input type='text' name='productId' size='20'></td></tr>
 	<tr><td colspan=2>(enter product ID to update existing product)</td></tr>
 	<tr><td colspan=2><input type='submit' value='Add Product'> <input type='submit' value='Update Product' formaction="updateProduct.jsp"></td></tr>
@@ -120,16 +122,37 @@ if(request.getParameter("add") != null){
 		double prodPrice = Double.parseDouble(request.getParameter("productPrice"));
 		String prodDesc = request.getParameter("productDesc");
 		int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+		int warehouseId = Integer.parseInt(request.getParameter("warehouseId"));
+		int quantity = Integer.parseInt(request.getParameter("quantity"));
 
-		String SQL = "INSERT INTO product (productName, productPrice, productDesc, categoryId) VALUES (?,?,?,?)";
+		String SQL_1 = "INSERT INTO product (productName, productPrice, productDesc, categoryId) VALUES (?,?,?,?)";
 
-		PreparedStatement pst = con.prepareStatement(SQL);
-		pst.setString(1,prodName);
-		pst.setDouble(2,prodPrice);
-		pst.setString(3,prodDesc);
-		pst.setInt(4,categoryId);
+		PreparedStatement pst_1 = con.prepareStatement(SQL_1);
+		pst_1.setString(1,prodName);
+		pst_1.setDouble(2,prodPrice);
+		pst_1.setString(3,prodDesc);
+		pst_1.setInt(4,categoryId);
+		pst_1.executeUpdate();
 
-		check = pst.executeUpdate();
+		String SQL_2 = "SELECT productId FROM product WHERE productName = ?";
+		PreparedStatement pst_2 = con.prepareStatement(SQL_2);
+		pst_2.setString(1,prodName);
+		ResultSet rst = pst_2.executeQuery();
+
+		int pid = 0;
+		while(rst.next()){
+			pid = Integer.parseInt(rst.getString(1));
+		}
+
+		String SQL_3 = "INSERT INTO productinventory (productId, warehouseId, quantity,price) VALUES (?,?,?,?)";
+		PreparedStatement pst_3 = con.prepareStatement(SQL_3);
+		pst_3.setInt(1,pid);
+		pst_3.setInt(2,warehouseId);
+		pst_3.setInt(3,quantity);
+		pst_3.setDouble(4,prodPrice);
+
+		check = pst_3.executeUpdate();
+
 	}
 	catch (Exception e)
 	{
