@@ -1,7 +1,6 @@
 CURRENT ISSUES: 
 - Konbini not centered when not sign in
-- When the prices in inventory changes, the prices in product does not (gua juga assume kalo quantity gak berubah juga - harusnya kalo bikin foreign key lagi bisa bener)
-
+- When the prices in inventory changes, the prices in product does not (kalo  mau ilangin update inventory juga gpp sih)
 
 Project Features List Template
 
