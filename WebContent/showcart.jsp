@@ -59,7 +59,7 @@
 	}
 	.button{
 		font-family: sans-serif;
-		font-size: 16px;
+		font-size: 18px;
 		text-align:center;
 		font-weight: bold;
 		padding: 6px;

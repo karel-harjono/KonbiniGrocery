@@ -19,6 +19,7 @@
 		    font-size: 25px;
 		    text-align: left;
             color: black;
+            padding: 4px;
 	    }
         .productTitle{
             text-align: left;
@@ -29,6 +30,7 @@
         }
         table{
 		    width: 100%;
+            padding: 4px;
 	    }
 	    table, td{
 		    border: 1px solid #7E8193;
@@ -52,7 +54,7 @@
 	    }
         .button, input, .input2{
             font-family: sans-serif;
-            font-size: 16px;
+            font-size: 18px;
             text-align: center;
             font-weight: bold;
             color:black;
