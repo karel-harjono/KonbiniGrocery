@@ -29,16 +29,20 @@
 </style>
 
 <h1 class='h1_header'>
-    <a class='a_header' href="index.jsp">&nbsp&nbsp&nbsp&nbsp&nbsp&#9961 Konbini &#9961</a>
+    
     <%
     // TODO: Display user name that is logged in (or nothing if not logged in)
 	String userName = (String) session.getAttribute("authenticatedUser");
-	if (userName != null)
-		out.println("<a class='a_header upperright' href='customer.jsp'>Hello, "+userName+"!</a>");
+	if (userName != null){
+        out.println("<a class='a_header' href='index.jsp'>&nbsp&nbsp&nbsp&nbsp&nbsp&#9961 Konbini &#9961</a>");
+        out.println("<a class='a_header upperright' href='customer.jsp'>Hello, "+userName+"!</a>");
+    }
+		
     else{
+        out.println("<a class='a_header' href='index.jsp'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&#9961 Konbini &#9961</a>");
         out.println("<a class='a_header upperright' href='login.jsp'>Sign in</a>");
-        out.println("<a class='a_header upperright' href=#>| &nbsp</a>");
-        out.println("<a class='a_header upperright' href='register.jsp'>Sign up &nbsp</a>");
+        out.println("<a class='a_header upperright' href=#>|</a>");
+        out.println("<a class='a_header upperright' href='register.jsp'>Sign up</a>");
     }
     %>
 </h1>      
