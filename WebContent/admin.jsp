@@ -11,7 +11,7 @@
 		text-align: left;
 		font-family: customFont;
 		font-size: 30px;
-		padding: 0px;
+		padding: 4px;
 	}
 	h3{
 		text-align: center;
@@ -21,8 +21,7 @@
 	}
 	table{
 		width: 100%;
-	}
-	table{
+		padding: 4px;
 		border: 1px solid #7E8193;
 	}
     td, p{
@@ -65,7 +64,7 @@
 
 <%@ include file="header.jsp" %>
 		<h2>Administrator Management Site
-			<a href=index.jsp><button class="button" style='float:right'><b>Main Menu &#127968</b></button></a>
+			<a href=index.jsp><button class="button" style='float:right'>Main Menu &#127968</button></a>
 		</h2>
 		<br>
 
@@ -87,7 +86,7 @@ try
 		out.println("<a href='listShipment.jsp'><button class='button' style='width:45%'>Shipment &#128667</button></a><br>");
 		out.println("<a href='listWarehouse.jsp'><button class='button' style='width:45%'>Warehouse &#128205</button></a></td>");
 		out.println("<td>");
-			out.println("<p style='font-size:20px'><b>SALES:</b></p>");
+			out.println("<h2 style='font-size:25px'>total sales:</h2>");
 			out.println("<table>");
 			out.println("<tr><td class='tableheader' style='border:1px solid #7E8193'>Order Date</td><td class='tableheader' style='border:1px solid #7E8193'>Total Order Amount</td>");	
 
