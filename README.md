@@ -56,7 +56,7 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | |
 |**Warehouses/Inventory (up to 5 total points)**|
 | Display item inventory by store/warehouse	| Basic |	2 |	|Done|
-| Edit item inventory by store/warehouse | Advanced | 3	| |Done|
+| Edit item inventory by store/warehouse | Advanced | 3	| |buggy|
 | |
 |**Administrator Portal (up to 19 total points)**|	
 | Secured by login	| Core	| 1	|	|Done |
