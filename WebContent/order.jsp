@@ -20,16 +20,25 @@
 	}
 	h1{
 		text-align: center;
+		font-family: customFont;
+		font-size:30px;
+		padding: 4px;
+	}
+	h2{
+		text-align: center;
 		font-family: sans-serif;
 		font-size: 25px;
+		padding: 4px;
 	}
 	h3{
 		text-align: center;
 		font-family: sans-serif;
 		font-size: 20px;
+		padding: 4px;
 	}
 	table{
 		width: 100%;
+		padding: 4px;
 	}
 	table, td{
 		border: 1px solid #7E8193;
@@ -51,6 +60,7 @@
 		font-family: sans-serif;
 		font-size: 18px;
 		text-align:center;
+		font-weight: bold;
 		padding: 6px;
 		margin: 4px 2px;
 		background: #F5CEC5;
@@ -116,8 +126,8 @@ HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Obje
 			if (productList == null || productList.isEmpty())
 			{	
 				out.println("<h3 style='color: red;'>Your shopping cart is empty!</h3>");
-				out.println("<h3><a href=listprod.jsp><button class='button'><b>Begin Shopping 🛍 </b></button></a>");
-				out.println("<a href=index.jsp><button class='button'><b>Main Menu 🏠</b></button></a></h3>");
+				out.println("<h3><a href=listprod.jsp><button class='button'>Begin Shopping 🛍 </button></a>");
+				out.println("<a href=index.jsp><button class='button'>Main Menu 🏠</button></a></h3>");
 				productList = new HashMap<String, ArrayList<Object>>();
 			}
 			else
@@ -216,9 +226,9 @@ HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Obje
 					+"<td style='font-size: 18px;'><b>"+currFormat.format(total)+"</b></td></tr>");
 				out.println("</table>");
 
-				out.println("<h1>Order completed. Will be shipped soon...</h1>");
+				out.println("<h2>Order completed. Will be shipped soon...</h2>");
 				out.println("<h3>Your order reference number is: "+ orderId +"</h3>");
-				out.println("<h3>Shipping to customer id: "+ id + " Name: "+ customerName +"</h3>");
+				out.println("<h3>Shipping to customer id: "+ id + "&nbsp Name: "+ customerName +"</h3>");
 				out.println("<h2><a href='index.jsp'><button class='button'><b>Return to Main Menu 🏠</b></button></a></h2>");
 				// Clear cart if order placed successfully
 				session.removeAttribute("productList");
@@ -231,7 +241,7 @@ HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Obje
 		}
 	}
 	catch(Exception e){
-		out.println(e);
+		out.print("<h3 style='color:red'>"+e+"</h3>");
 	}
 	finally
 	{
@@ -240,9 +250,9 @@ HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Obje
 			if (con != null)
 				con.close();
 		}
-		catch (SQLException ex)
+		catch (SQLException e)
 		{       
-			out.println(ex);
+			out.print("<h3 style='color:red'>"+e+"</h3>");
 		}
 	}
 
