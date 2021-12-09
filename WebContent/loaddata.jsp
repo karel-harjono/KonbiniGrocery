@@ -69,7 +69,7 @@ try
         }
         catch (Exception e)
         {	// Keep running on exception.  This is mostly for DROP TABLE if table does not exist.
-            out.print(e);
+            out.print("<h3 style='color:red'>"+e+"</h3>");
         }
     }	 
     scanner.close();
