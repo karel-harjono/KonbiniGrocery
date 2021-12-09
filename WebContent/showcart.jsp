@@ -100,7 +100,6 @@ HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Obje
 if (productList == null)
 {	out.println("<h3 style='color: red;'>Your shopping cart is empty!</h3>");
 	out.println("<h3><a href=listprod.jsp><button class='button'><b>Begin Shopping 🛍 </b></button></a>");
-	out.println("<a href=index.jsp><button class='button'><b>Main Menu 🏠</b></button></a></h3>");
 	productList = new HashMap<String, ArrayList<Object>>();
 }
 else
@@ -141,7 +140,7 @@ else
 		ArrayList<Object> product = (ArrayList<Object>) entry.getValue();
 		if (product.size() < 4)
 		{
-			out.println("Expected product with four entries. Got: "+product);
+			out.println("<h3 style='color:red;'>Expected product with four entries. Got: "+product+"</h3>");
 			continue;
 		}
 		
@@ -160,7 +159,7 @@ else
 		}
 		catch (Exception e)
 		{
-			out.println("Invalid price for product: "+product.get(0)+" price: "+price);
+			out.println("<h3 style='color:red;'>Invalid price for product: "+product.get(0)+" price: "+price+"</h3>");
 		}
 		try
 		{
@@ -168,7 +167,7 @@ else
 		}
 		catch (Exception e)
 		{
-			out.println("Invalid quantity for product: "+product.get(0)+" quantity: "+qty);
+			out.println("<h3 style='color:red;'>Invalid quantity for product: "+product.get(0)+" quantity: "+qty+"</h3>");
 		}		
 
 		String tempId = "\"newqty"+product.get(0)+"\"";
