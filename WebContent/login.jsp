@@ -11,7 +11,7 @@
 		text-align: center;
 		font-family: customFont;
 		font-size: 25px;
-		padding: 0px;
+		padding: 4px;
 		text-align: center;
 	}
 	table, td{
@@ -19,6 +19,7 @@
 		margin-left: auto;
   		margin-right: auto;
 		align-items: center;
+		padding: 4px;
 	}
 	td{
 		font-family: sans-serif;
@@ -32,6 +33,7 @@
 		font-size: 20px;
 		text-align: center;
 		font-weight: bold;
+		padding: 4px;
 	}
 	form{
 		font-family: sans-serif;
@@ -39,10 +41,10 @@
 	}
 	input, .input2, button {
 		font-family: sans-serif;
-		font-size: 16px;
+		font-size: 18px;
 		text-align: center;
 		font-weight: bold;
-		padding: 4px;
+		padding: 6px;
 		margin: 2px;
 		transition-duration: 0.4s;
 		cursor: pointer;
