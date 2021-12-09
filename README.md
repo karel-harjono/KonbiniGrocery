@@ -1,6 +1,6 @@
-CURRENT ISSUES: (for details please check admin.jsp)
-- PLEASE TEST
-- Liv will adjust design loaddata
+CURRENT ISSUES: 
+- Konbini not centered when not sign in
+- When the prices in inventory changes, the prices in product does not (gua juga assume kalo quantity gak berubah juga - harusnya kalo bikin foreign key lagi bisa bener)
 
 
 Project Features List Template
@@ -11,8 +11,8 @@ Note that not all tasks need to be completed. The project is out of 50 marks, an
 | --------------------------------------------------- | --------- | --------------- | ------- | --------------------- |
 | **Documentation (10 total points) - Mandatory**                                                                     |
 | Executive Summary (up to 1 page)	                  | Core	    |         2		    |       	| Done                  |
-| System Feature summary document (2 pages)	          | Core	    |         2		    |       	|                       |
-| Walkthrough/demo video – briefly show all features	| Core	    |         6		    |       	|                       |
+| System Feature summary document (2 pages)	          | Core	    |         2		    |       	| Done                  |
+| Walkthrough/demo video – briefly show all features	| Core	    |         6		    |       	| Done                  |
 | |
 | **Main/Home Page (up to 14 total points)**                                                                          |
 | Search for a product by name	                      | Core	    |         1		    |       	|  Done-Liv             |
