@@ -93,7 +93,7 @@ try
 	Statement stmt = con.createStatement();
 	ResultSet warehouseIds = stmt.executeQuery("SELECT warehouseId FROM warehouse");
 	if(request.getParameter("warehouseId") == null){
-		out.println("<form method=get action='updateInventory.jsp'>");
+		out.println("<form method=post action='updateInventory.jsp'>");
 		out.println("<table>");
 		out.println("<tr><td><label for='warehouseId'>Select warehouse ID: </label></td>");
 		out.println("<td><select name='warehouseId'>");
@@ -111,10 +111,10 @@ try
 		out.println("<label for='newQty'>New Quantity: </label></td>");
 		out.println("<td><input name='newQty'/>");
 		out.println("</tr></td>");
-		out.println("<tr><td>");
-		out.println("<label for='newPrice'>New Price: </label></td>");
-		out.println("<td><input name='newPrice'/></td>");
-		out.println("</tr></td>");
+		// out.println("<tr><td>");
+		// out.println("<label for='newPrice'>New Price: </label></td>");
+		// out.println("<td><input name='newPrice'/></td>");
+		// out.println("</tr></td>");
 		out.println("<tr><td colspan=2><input type='submit'></tr></td>");
 		out.println("</table>");
 		out.println("</form>");
@@ -122,15 +122,15 @@ try
 		int wid = Integer.parseInt(request.getParameter("warehouseId"));
 		int pid = Integer.parseInt(request.getParameter("productId"));
 		int quantity = Integer.parseInt(request.getParameter("newQty"));
-		double price = Double.parseDouble(request.getParameter("newPrice"));
+		// double price = Double.parseDouble(request.getParameter("newPrice"));
 
-		String SQL = "UPDATE productInventory SET quantity = ?, price = ? WHERE productId = ? AND warehouseId = ?";
+		String SQL = "UPDATE productInventory SET quantity = ? WHERE productId = ? AND warehouseId = ?";
 
 		PreparedStatement pst = con.prepareStatement(SQL);
 		pst.setInt(1,quantity); 
-		pst.setDouble(2,price); 
-		pst.setInt(3,pid);
-		pst.setInt(4,wid);
+		// pst.setDouble(2,price); 
+		pst.setInt(2,pid);
+		pst.setInt(3,wid);
 
 		int check = pst.executeUpdate();
 		if(check >0) {
