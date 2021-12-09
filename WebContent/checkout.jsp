@@ -12,7 +12,7 @@
             text-align: left;
             font-family: customFont;
             font-size: 30px;
-            padding: 0px;
+            padding: 4px;
     }
     td{
 		font-family: sans-serif;
@@ -25,10 +25,11 @@
         font-family: sans-serif;
         font-size: 16px;
         font-weight: bold;
+        padding: 4px;
     }
     .button, input{
         font-family: sans-serif;
-        font-size: 16px;
+        font-size: 18px;
         text-align:center;
         font-weight: bold;
         padding: 6px;
