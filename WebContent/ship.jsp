@@ -29,6 +29,12 @@
 		font-size: 20px;
 		padding: 4px;
 	}
+	a{
+    	color: black;
+    }
+    a:hover{
+        color:#FAAA96;
+    }
 	p{
 		font-family:sans-serif;
 		font-size: 18px;
