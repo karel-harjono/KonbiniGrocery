@@ -13,10 +13,10 @@
 			src: url(NikkyouSans-mLKax.ttf);
 	}
 	h1, h2, h3{
-			text-align: center;
-			font-family: customFont;
-			font-size: 40px;
-			padding: 0px;
+		text-align: center;
+		font-family: customFont;
+		font-size: 40px;
+		padding: 4px;
 	}
 	h2{
 		font-size: 30px;
@@ -27,13 +27,14 @@
 	}
 	p{
 		font-family: sans-serif;
-		color: darkgray;
 		text-align: center;
-		font-size: 12px;
+		font-size: 20px;
+		padding: 4px;
 	}
 	table{
 		width: 100%;
 		table-layout: fixed;
+		padding: 4px;
 	}
 	table, td{
 		border: 1px solid #7E8193;
@@ -67,8 +68,9 @@
 	}
 	.button2{
 		background: #F5CEC5;
-		font-size: 16px;
+		font-size: 18px;
 		float: right;
+		font-weight: bold;
 	}
 	.input2{
         background: white;
@@ -156,7 +158,7 @@ try
 	ResultSet rst_1 = null;
 	boolean hasName = name != null && !name.equals("");
 	boolean hasCat = category != null && !category.equals("All");
-	out.println("<h3>All Products<a href=index.jsp><button class='button2'><b>Main Menu 🏠</b></button></a><a href=showcart.jsp><button class='button2'><b>Your Cart 🛒</b></button></a></h3>");
+	out.println("<h3>All Products<a href=index.jsp><button class='button2'>Main Menu 🏠</button></a><a href=showcart.jsp><button class='button2'>Your Cart 🛒</button></a></h3>");
 	out.println("<table><tr><td class='tableheader'></td><td class='tableheader' colspan=2>Product Name</td><td class='tableheader'>Category</td><td class='tableheader'>Price</td></tr>");
 
 	if (!hasName && !hasCat){
@@ -197,7 +199,7 @@ try
 }
 catch (Exception e)
 {
-    out.print(e);
+    out.print("<p style='color:red'>"+e+"</p>");
 }
 
 // Close connection
