@@ -29,6 +29,12 @@
 			font-weight: bold;
 			padding: 4px;
 		}
+		a{
+        	color: black;
+    	}
+    	a:hover{
+        	color:#FAAA96;
+    	}
 		form{
 			font-family: sans-serif;
 			font-size: 15px;

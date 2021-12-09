@@ -35,6 +35,7 @@
 			form{
 				font-family: sans-serif;
 				font-size: 15px;
+				padding: 4px;
 			}
 			table{
 				width: 100%;
