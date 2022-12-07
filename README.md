@@ -1,1 +1,3 @@
-Formal reports can be found [here](./FinalReport.pdf)
+Formal reports can be found [here](./FinalReport.pdf).
+
+
