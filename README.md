@@ -8,6 +8,6 @@ Make Japanese souvenirs accesible for everyone!
 
 ## Project Preview
 
-Formal reports can be found [here](./FinalReport.pdf).
+Formal report can be found [here](./FinalReport.pdf).
 
 
