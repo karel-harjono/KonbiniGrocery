@@ -4,9 +4,9 @@ Make Japanese souvenirs accesible for everyone!
 
 ## Design
 
-<img src="system_design.png" alt="drawing" width="200"/>
+<img src="system_design.png" alt="drawing" height="300"/>
 
-## Previews
+## Project Preview
 
 Formal reports can be found [here](./FinalReport.pdf).
 
