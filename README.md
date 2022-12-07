@@ -4,7 +4,7 @@ Make Japanese souvenirs accesible for everyone!
 
 ## Design
 
-![system design](./system_design.png)
+<img src="system_design.png" alt="drawing" width="200"/>
 
 ## Previews
 
