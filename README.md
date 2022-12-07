@@ -1,5 +1,3 @@
-CURRENT ISSUES: 
-- ALL DONEEEEE HOREEE
 
 Project Features List Template
 
