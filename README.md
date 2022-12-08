@@ -1,6 +1,6 @@
 # Konbini Grocery
 
-Make Japanese souvenirs accesible for everyone!
+Make Japanese souvenirs accesible to everyone!
 
 ## Design
 
